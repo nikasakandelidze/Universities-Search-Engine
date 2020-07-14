@@ -6,11 +6,14 @@ import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.entities.searchEntities.SearchUniversity;
+import com.projectk.storage.connectionFactory.DatabaseConnection;
 import com.projectk.storage.interfaces.Storage;
 
 import java.util.List;
 
 public class StorageManager implements Storage {
+	private DatabaseConnection connection;
+
 	@Override
 	public List<Faculty> filterFaculties(SearchFaculty searchFaculty) {
 		return null;

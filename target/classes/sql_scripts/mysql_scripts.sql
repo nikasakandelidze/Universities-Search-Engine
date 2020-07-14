@@ -31,7 +31,7 @@ create table Faculty (
     references University(id)
 );
 
-CREATE TABLE University_Subject (
+CREATE TABLE Unviersity_Subject (
 	subject_id INT PRIMARY KEY not null auto_increment,
 	faculty_id INT NOT NULL,
 	subject_name VARCHAR (255) NOT NULL ,
@@ -41,3 +41,8 @@ CREATE TABLE University_Subject (
     foreign key(faculty_id)
     references Faculty(faculty_id)
 );
+
+insert into University(university_name,city,address,web_page_link,descriptions) values('Free university','Tbilisi','Aghmasheneblis Kheivani','www.google.com','Magadia');
+insert into Faculty(category,university_id,name,dean_info,price,description) values('CS',1,'MACS','Gvina shotepadze','1000000','Macs.com.ge.org');
+insert into Unviersity_Subject(faculty_id,subject_name,credits,descriptions,semester) values(1,'OOP',6,'magadia',4);
+
