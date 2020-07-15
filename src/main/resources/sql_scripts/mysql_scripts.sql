@@ -31,7 +31,7 @@ create table Faculty (
     references University(id)
 );
 
-CREATE TABLE Unviersity_Subject (
+CREATE TABLE University_Subject (
 	subject_id INT PRIMARY KEY not null auto_increment,
 	faculty_id INT NOT NULL,
 	subject_name VARCHAR (255) NOT NULL ,
