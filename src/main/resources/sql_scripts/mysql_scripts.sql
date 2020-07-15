@@ -42,6 +42,6 @@ CREATE TABLE University_Subject (
     references Faculty(faculty_id)
 );
 
-insert into university values(2,'TSU','Tbilisi','Melikishili','bla.com','good')
-insert into faculty values (1, 'CS', 2, 'Mathematics and Computer science', 'Shota gv',10000,'magaria','axala.ge')
-insert into university_subject values (1, 1, 'Calculus I', 6, 'sigua magari kacia', 2)
+insert into university values(2,'TSU','Tbilisi','Melikishili','bla.com','good');
+insert into faculty values (1, 'CS', 2, 'Mathematics and Computer science', 'Shota gv',10000,'magaria','axala.ge');
+insert into university_subject values (1, 1, 'Calculus I', 6, 'sigua magari kacia', 2);
