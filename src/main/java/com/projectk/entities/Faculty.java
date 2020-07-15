@@ -1,6 +1,5 @@
 package com.projectk.entities;
 
-@SuppressWarnings("unused")
 public class Faculty {
 	private int facultyId;
 
