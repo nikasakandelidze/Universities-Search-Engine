@@ -5,7 +5,7 @@ import com.projectk.entities.searchEntities.SearchUniversity;
 
 import java.util.List;
 
-public interface UnviersityStorage {
+public interface UniversityStorage {
     List<University> filterUniversity(SearchUniversity searchUniversity);
 
     void addUniversity(University university);
