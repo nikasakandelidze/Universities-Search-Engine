@@ -7,10 +7,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class MysqlDatabaseConnection implements DatabaseConnection {
-    private DataSource source = new MysqlConnectionPoolDataSource();
+    private final MysqlConnectionPoolDataSource source = new MysqlConnectionPoolDataSource();
+    private static final String DB_NAME = "projectK";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "Karameli123#";
 
     @Override
     public Connection getConnection() throws SQLException {
-        return source.getConnection();
+        source.setDatabaseName(DB_NAME);
+        return source.getConnection(DB_USER, DB_PASSWORD);
     }
 }
