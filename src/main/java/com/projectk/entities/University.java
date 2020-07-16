@@ -1,6 +1,7 @@
 package com.projectk.entities;
 
 public class University {
+
 	private int id;
 
 	private String universityName;

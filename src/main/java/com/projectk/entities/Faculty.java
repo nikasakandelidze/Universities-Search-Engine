@@ -1,6 +1,7 @@
 package com.projectk.entities;
 
 public class Faculty {
+
 	private int facultyId;
 
 	private FacultyCategory category;

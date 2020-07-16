@@ -1,6 +1,7 @@
 package com.projectk.entities;
 
 public class Subject {
+
 	private int subjectId;
 
 	private int facultyId;
