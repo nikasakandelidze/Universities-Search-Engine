@@ -2,7 +2,7 @@ package com.projectk.storage.implementations;
 
 import com.projectk.entities.Subject;
 import com.projectk.entities.searchEntities.SearchSubject;
-import com.projectk.storage.connectionFactory.DatabaseConnection;
+import com.projectk.storage.dataBaseConnection.DatabaseConnection;
 import com.projectk.storage.interfaces.helpers.BaseStorage;
 
 import java.sql.Connection;

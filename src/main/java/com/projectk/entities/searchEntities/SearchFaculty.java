@@ -29,12 +29,12 @@ public class SearchFaculty {
 	}
 
 	public static class Builder {
-		private int universityID;
+		private Integer universityID;
 		private FacultyCategory category;
 		private Long minPrice;
 		private Long maxPrice;
 
-		public Builder universityId(int val) {
+		public Builder universityId(Integer val) {
 			universityID = val;
 			return this;
 		}

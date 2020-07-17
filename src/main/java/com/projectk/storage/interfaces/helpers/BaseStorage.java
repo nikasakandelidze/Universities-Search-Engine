@@ -1,7 +1,6 @@
 package com.projectk.storage.interfaces.helpers;
 
 import com.projectk.entities.Faculty;
-import com.projectk.entities.searchEntities.SearchFaculty;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -21,10 +21,10 @@ create table University(
 create table Faculty (
     faculty_id integer primary key not null auto_increment,
     category varchar(100) not null,
-    university_id INT NOT NULL,
+        university_id INT NOT NULL,
     name varchar(255) not null,
     dean_info varchar(500) not null,
-    price varchar(100) not null,
+    price INT not null,
     description varchar(1000) not null,
     web_page_link varchar(100),
     foreign key(university_id)

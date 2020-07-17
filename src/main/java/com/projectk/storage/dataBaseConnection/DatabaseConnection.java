@@ -1,4 +1,4 @@
-package com.projectk.storage.connectionFactory;
+package com.projectk.storage.dataBaseConnection;
 
 import java.sql.Connection;
 import java.sql.SQLException;
