@@ -6,6 +6,7 @@ import com.projectk.storage.dataBaseConnection.DatabaseConnection;
 import com.projectk.storage.interfaces.helpers.BaseStorage;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -25,7 +26,25 @@ public class UniversityManager implements BaseStorage<University, SearchUniversi
 
         return null;
     }
-
+    private void fillPreparedStatement(PreparedStatement statement, SearchUniversity searchUniversity) throws  SQLException{
+        int variableIndex=1;
+        if(searchUniversity.getUniversityId()!=null){
+            statement.setInt(variableIndex,searchUniversity.getUniversityId());
+            variableIndex++;
+        }
+        if(searchUniversity.getCity()!=null){
+            statement.setString(variableIndex,searchUniversity.getCity());
+            variableIndex++;
+        }
+        if(searchUniversity.getUniversityName()!=null){
+            statement.setString(variableIndex,searchUniversity.getUniversityName());
+            variableIndex++;
+        }
+//        if(searchUniversity.getFaculty()!=null){
+//            statement.setString(variableIndex,searchUniversity.getFaculty());
+//            variableIndex++;
+//        }
+    }
     private String getSqlCommand(SearchUniversity searchUniversity) {
         StringBuilder builder = new StringBuilder("SELECT * FROM university U WHERE 1 = 1");
         if (searchUniversity.getUniversityId() != null) {
