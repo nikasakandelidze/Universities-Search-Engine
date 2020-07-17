@@ -1,11 +1,11 @@
 package com.projectk.entities.searchEntities;
 
-import com.projectk.entities.Faculty;
+
 import com.projectk.entities.FacultyCategory;
 
 public class SearchUniversity {
 
-    private Faculty faculty;
+    private FacultyCategory facultyCategory;
 
     private String universityName;
 
@@ -13,12 +13,12 @@ public class SearchUniversity {
 
     private String city;
 
-    public Faculty getFaculty() {
-        return faculty;
+    public FacultyCategory getFacultyCategory() {
+        return facultyCategory;
     }
 
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
+    public void setFacultyCategory(FacultyCategory facultyCategory) {
+        this.facultyCategory = facultyCategory;
     }
 
     public String getUniversityName() {
@@ -45,7 +45,7 @@ public class SearchUniversity {
         this.city = city;
     }
     public static class Builder{
-        private Faculty faculty;
+        private FacultyCategory faculty;
 
         private String universityName;
 
@@ -57,7 +57,7 @@ public class SearchUniversity {
             universityId=val;
             return this;
         }
-        public SearchUniversity.Builder faculty(Faculty fac){
+        public SearchUniversity.Builder faculty(FacultyCategory fac){
             faculty=fac;
             return this;
         }
@@ -72,7 +72,7 @@ public class SearchUniversity {
     }
 
     private SearchUniversity(SearchUniversity.Builder builder){
-        this.faculty = builder.faculty;
+        this.facultyCategory = builder.faculty;
         this.city = builder.city;
         this.universityId = builder.universityId;
         this.universityName = builder.universityName;

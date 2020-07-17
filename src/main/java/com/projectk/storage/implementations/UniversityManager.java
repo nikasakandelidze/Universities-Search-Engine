@@ -1,10 +1,8 @@
 package com.projectk.storage.implementations;
 
-import com.projectk.entities.Faculty;
 import com.projectk.entities.University;
-import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.storage.connectionFactory.DatabaseConnection;
+import com.projectk.storage.dataBaseConnection.DatabaseConnection;
 import com.projectk.storage.interfaces.helpers.BaseStorage;
 
 import java.sql.Connection;
@@ -20,9 +18,9 @@ public class UniversityManager implements BaseStorage<University, SearchUniversi
     }
 
     @Override
-    public List<University> filter(SearchUniversity searchEntity) throws SQLException {
+    public List<University> filter(SearchUniversity searchUniversity) throws SQLException {
         Connection connection = databaseConnection.getConnection();
-        String sqlCommand = getSqlCommand(searchEntity);
+        String sqlCommand = getSqlCommand(searchUniversity);
         Statement statement = connection.prepareStatement(sqlCommand);
 
         return null;
@@ -39,8 +37,8 @@ public class UniversityManager implements BaseStorage<University, SearchUniversi
 		if (searchUniversity.getUniversityName() != null) {
 			builder.append("and U.university_name = ?");
 		}
-		if (searchUniversity.getFaculty() != null) {
-			builder.append("and U.faculty = ?");
+		if (searchUniversity.getFacultyCategory() != null) {
+			builder.append("and U.facultyCategory = ?");
 		}
         return null;
     }
