@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.helpers.PreparedStatementGenerator.implementations;
+package com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations;
 
 import com.projectk.entities.searchEntities.SearchFaculty;
-import com.projectk.storage.storageManager.implementations.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

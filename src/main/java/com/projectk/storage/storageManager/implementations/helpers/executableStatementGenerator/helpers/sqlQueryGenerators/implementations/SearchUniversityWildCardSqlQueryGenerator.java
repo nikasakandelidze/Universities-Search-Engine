@@ -1,9 +1,9 @@
-package com.projectk.storage.storageManager.implementations.helpers.sqlQueryGenerators.implementations;
+package com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.sqlQueryGenerators.implementations;
 
 import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.storage.storageManager.implementations.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 
-public class SearchUniversityWildCardWildCardSqlQueryGenerator implements WildCardSqlQueryGenerator<SearchUniversity> {
+public class SearchUniversityWildCardSqlQueryGenerator implements WildCardSqlQueryGenerator<SearchUniversity> {
     @Override
     public String generateWildCardQueryFromSearchEntity(SearchUniversity searchUniversity) {
         StringBuilder builder = new StringBuilder("SELECT * FROM university U WHERE 1 = 1");
