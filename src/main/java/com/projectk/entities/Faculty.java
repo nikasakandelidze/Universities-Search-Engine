@@ -1,5 +1,7 @@
 package com.projectk.entities;
 
+import com.projectk.entities.enums.FacultyCategory;
+
 public class Faculty {
 
 	private int facultyId;

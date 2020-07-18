@@ -1,6 +1,6 @@
 package com.projectk.entities.searchEntities;
 
-import com.projectk.entities.FacultyCategory;
+import com.projectk.entities.enums.FacultyCategory;
 
 public class SearchFaculty {
 

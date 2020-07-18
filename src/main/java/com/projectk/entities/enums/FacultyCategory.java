@@ -1,4 +1,4 @@
-package com.projectk.entities;
+package com.projectk.entities.enums;
 
 public enum FacultyCategory {
     BUSINESS,
