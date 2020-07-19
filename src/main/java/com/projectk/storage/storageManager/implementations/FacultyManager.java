@@ -3,18 +3,24 @@ package com.projectk.storage.storageManager.implementations;
 import com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.storage.connectionManager.ConnectionManager;
+import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.ExecutableStatementGenerator;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.JdbcExecutableStatementGenerator;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations.SearchFacultyPreparedStatementGenerator;
+import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchFacultyWildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 
 import java.sql.*;
 import java.util.List;
 
 public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
-	private ConnectionManager connectionManager;
+	private final ConnectionManager connectionManager;
 
 	public FacultyManager(ConnectionManager connectionManager) {
 		this.connectionManager = connectionManager;
 	}
+
 
 	@Override
 	public List<Faculty> filter(SearchFaculty searchEntity) throws StorageException {
