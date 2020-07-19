@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.sqlQueryGenerators.implementations;
+package com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator.helpers.sqlQueryGenerators.implementations;
 
 import com.projectk.entities.searchEntities.SearchSubject;
-import com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
+import com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 
 public class SearchSubjectWildCardSqlQueryGenerator implements WildCardSqlQueryGenerator<SearchSubject> {
     @Override

@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator;
+package com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator;
 
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 

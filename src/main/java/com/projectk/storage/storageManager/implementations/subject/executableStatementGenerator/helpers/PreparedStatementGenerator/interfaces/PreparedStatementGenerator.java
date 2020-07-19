@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.helpers.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces;
+package com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces;
 
 import java.sql.SQLException;
 
