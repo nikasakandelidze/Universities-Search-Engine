@@ -69,6 +69,10 @@ public class SearchUniversity {
             universityName = UniName;
             return this;
         }
+
+        public SearchUniversity build(){
+            return  new SearchUniversity(this);
+        }
     }
 
     private SearchUniversity(SearchUniversity.Builder builder){
