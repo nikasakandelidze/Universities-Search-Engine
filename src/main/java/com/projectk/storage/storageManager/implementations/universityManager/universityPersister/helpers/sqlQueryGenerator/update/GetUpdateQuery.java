@@ -3,7 +3,7 @@ package com.projectk.storage.storageManager.implementations.universityManager.un
 import com.projectk.entities.University;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
 
-public class UpdateQueryStep implements Step<University, String> {
+public class GetUpdateQuery implements Step<University, String> {
     @Override
     public String process(University input) throws StepException {
         StringBuilder builder = new StringBuilder("update university set ");

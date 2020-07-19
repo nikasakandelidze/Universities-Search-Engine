@@ -3,7 +3,7 @@ package com.projectk.storage.storageManager.implementations.universityManager.un
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
 
-public class SearchQueryStep implements Step<SearchUniversity,String> {
+public class GetSearchQuery implements Step<SearchUniversity,String> {
     @Override
     public String process(SearchUniversity input) {
         StringBuilder builder = new StringBuilder("SELECT * FROM university U WHERE 1 = 1");

@@ -9,10 +9,10 @@ import com.projectk.storage.storageManager.implementations.universityManager.uni
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.preparedStatementGenerator.insert.PrepareInsertStatement;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.preparedStatementGenerator.select.PrepareSearchStatementStep;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.preparedStatementGenerator.update.PrepareUpdateStatementStep;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.delete.DeleteQueryStep;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.insert.InsertQueryStep;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.select.SearchQueryStep;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.update.UpdateQueryStep;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.delete.GetDeleteQuery;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.insert.GetInsertQuery;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.select.GetSearchQuery;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.update.GetUpdateQuery;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,13 +26,14 @@ public class JdbcUniversityPersister implements UniversityPersister {
     public List<University> filter(Connection connection, SearchUniversity searchEntity) throws StorageException {
         ResultSet resultSet = null;
         try {
-            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new SearchQueryStep())
+            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetSearchQuery())
                     .pipe(new PrepareSearchStatementStep(connection, searchEntity))
                     .process(searchEntity);
             resultSet = statement.executeQuery();
         } catch (SQLException | Step.StepException throwable) {
             throw new StorageException(throwable);
         }
+
 
         //todo: process resultSet
         return null;
@@ -42,7 +43,7 @@ public class JdbcUniversityPersister implements UniversityPersister {
     public University add(Connection connection, University entity) throws StorageException {
         boolean wasAdded;
         try {
-            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new InsertQueryStep())
+            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetInsertQuery())
                     .pipe(new PrepareInsertStatement(connection, entity))
                     .process(entity);
             wasAdded = statement.execute();
@@ -56,7 +57,7 @@ public class JdbcUniversityPersister implements UniversityPersister {
     public University update(Connection connection, University entity) throws StorageException {
         int resultSet;
         try {
-            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new UpdateQueryStep())
+            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetUpdateQuery())
                     .pipe(new PrepareUpdateStatementStep(connection, entity))
                     .process(entity);
             resultSet = statement.executeUpdate();
@@ -70,7 +71,7 @@ public class JdbcUniversityPersister implements UniversityPersister {
     public University delete(Connection connection, University entity) throws StorageException {
         int rowsDeleted = 0;
         try {
-            PreparedStatement statement =(PreparedStatement) new Pipeline<>(new DeleteQueryStep())
+            PreparedStatement statement =(PreparedStatement) new Pipeline<>(new GetDeleteQuery())
                     .pipe(new PrepareDeleteStatement(connection, entity))
                     .process(entity);
             rowsDeleted = statement.executeUpdate();
