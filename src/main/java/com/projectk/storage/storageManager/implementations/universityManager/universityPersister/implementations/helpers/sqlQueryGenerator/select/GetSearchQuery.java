@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.select;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.select;
 
 import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
 
 public class GetSearchQuery implements Step<SearchUniversity,String> {
     @Override

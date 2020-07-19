@@ -4,7 +4,7 @@ import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.UniversityPersister;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.interfaces.UniversityPersister;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 
 import java.sql.Connection;

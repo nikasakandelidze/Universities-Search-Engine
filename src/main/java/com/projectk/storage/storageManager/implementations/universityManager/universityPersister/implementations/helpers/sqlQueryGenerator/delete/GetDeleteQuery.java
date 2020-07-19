@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.delete;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.delete;
 
 import com.projectk.entities.University;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
 
 import java.sql.SQLException;
 

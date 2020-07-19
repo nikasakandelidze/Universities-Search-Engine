@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers;
 
 public class Pipeline<I,O> {
     private final Step<I,O> currentStep;

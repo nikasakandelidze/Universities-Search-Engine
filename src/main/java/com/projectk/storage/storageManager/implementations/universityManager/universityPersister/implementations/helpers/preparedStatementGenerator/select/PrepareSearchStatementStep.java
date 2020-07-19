@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.preparedStatementGenerator.select;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.select;
 
 import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

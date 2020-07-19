@@ -1,7 +1,7 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.sqlQueryGenerator.insert;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.insert;
 
 import com.projectk.entities.University;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.helpers.Step;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
 
 public class GetInsertQuery implements Step<University,String> {
     @Override

@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.interfaces;
 
 import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchUniversity;
