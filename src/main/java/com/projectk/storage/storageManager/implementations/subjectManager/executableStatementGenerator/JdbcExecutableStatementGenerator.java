@@ -1,8 +1,8 @@
-package com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator;
+package com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator;
 
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
-import com.projectk.storage.storageManager.implementations.subject.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
+import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
+import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 
 import java.sql.SQLException;
 
