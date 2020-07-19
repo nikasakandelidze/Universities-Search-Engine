@@ -2,7 +2,7 @@ package com.projectk.entities.searchEntities;
 
 import com.projectk.entities.enums.FacultyCategory;
 
-public class SearchFaculty {
+public class SearchFaculty implements SearchEntity{
 
 	private Integer universityID;
 
