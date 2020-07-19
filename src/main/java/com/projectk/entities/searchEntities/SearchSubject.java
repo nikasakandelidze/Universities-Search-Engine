@@ -56,6 +56,11 @@ public class SearchSubject {
             facultyId=fa_id;
             return this;
         }
+
+        public SearchSubject build() {
+            return new SearchSubject(this);
+        }
+
     }
 
     private SearchSubject(Builder builder){

@@ -4,6 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface ConnectionManager {
-    Connection getConnection() throws ConnectionException, SQLException;
-    void closeConnection() throws ConnectionException, SQLException;
+    Connection getConnection() throws SQLException;
+    void closeConnection() throws SQLException;
 }

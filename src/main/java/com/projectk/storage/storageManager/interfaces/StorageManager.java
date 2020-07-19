@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface StorageManager<T, Q> {
-	List<T> filter(Q searchEntity) throws SQLException, ConnectionException, StorageException;
+	List<T> filter(Q searchEntity) throws SQLException, StorageException;
 
 	void add(T entity);
 

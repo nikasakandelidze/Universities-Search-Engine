@@ -10,7 +10,7 @@ public class MysqlConnectionManager implements ConnectionManager {
     private Connection connection;
     private static final String DB_NAME = "projectK";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "1234";
+    private static final String DB_PASSWORD = "Karameli123#";
 
     {
         source.setDatabaseName(DB_NAME);
