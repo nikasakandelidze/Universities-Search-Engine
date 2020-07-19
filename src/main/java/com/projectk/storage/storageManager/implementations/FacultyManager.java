@@ -3,7 +3,6 @@ package com.projectk.storage.storageManager.implementations;
 import com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.storage.connectionManager.ConnectionManager;
-import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 

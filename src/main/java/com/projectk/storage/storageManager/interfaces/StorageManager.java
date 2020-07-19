@@ -8,9 +8,9 @@ import java.util.List;
 public interface StorageManager<T, Q> {
 	List<T> filter(Q searchEntity) throws SQLException, StorageException;
 
-	void add(T entity);
+	void add(T entity) throws StorageException;
 
-	void delete(T entity);
+	void delete(T entity) throws StorageException;
 
-	void update(T entity);
+	void update(T entity) throws StorageException;
 }
