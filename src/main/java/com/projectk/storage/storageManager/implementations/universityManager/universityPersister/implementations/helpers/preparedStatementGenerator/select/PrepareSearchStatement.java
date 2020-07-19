@@ -7,10 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PrepareSearchStatementStep implements Step<String, Object> {
+public class PrepareSearchStatement implements Step<String, Object> {
     private Connection connection;
     private SearchUniversity searchUniversity;
-    public PrepareSearchStatementStep(Connection connection, SearchUniversity searchUniversity){
+    public PrepareSearchStatement(Connection connection, SearchUniversity searchUniversity){
         this.connection = connection;
         this.searchUniversity = searchUniversity;
     }

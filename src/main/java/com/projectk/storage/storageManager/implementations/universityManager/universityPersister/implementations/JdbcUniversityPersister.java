@@ -7,8 +7,8 @@ import com.projectk.storage.storageManager.implementations.universityManager.uni
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.delete.PrepareDeleteStatement;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.insert.PrepareInsertStatement;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.select.PrepareSearchStatementStep;
-import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.update.PrepareUpdateStatementStep;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.select.PrepareSearchStatement;
+import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.update.PrepareUpdateStatement;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.delete.GetDeleteQuery;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.insert.GetInsertQuery;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.select.GetSearchQuery;
@@ -28,7 +28,7 @@ public class JdbcUniversityPersister implements UniversityPersister {
         ResultSet resultSet = null;
         try {
             PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetSearchQuery())
-                    .pipe(new PrepareSearchStatementStep(connection, searchEntity))
+                    .pipe(new PrepareSearchStatement(connection, searchEntity))
                     .process(searchEntity);
             resultSet = statement.executeQuery();
         } catch (SQLException | Step.StepException throwable) {
@@ -59,7 +59,7 @@ public class JdbcUniversityPersister implements UniversityPersister {
         int resultSet;
         try {
             PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetUpdateQuery())
-                    .pipe(new PrepareUpdateStatementStep(connection, entity))
+                    .pipe(new PrepareUpdateStatement(connection, entity))
                     .process(entity);
             resultSet = statement.executeUpdate();
         } catch (SQLException | Step.StepException throwables) {

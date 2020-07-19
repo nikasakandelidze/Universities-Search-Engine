@@ -7,11 +7,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PrepareUpdateStatementStep implements Step<String, Object> {
+public class PrepareUpdateStatement implements Step<String, Object> {
     private Connection connection;
     private University university;
 
-    public PrepareUpdateStatementStep(Connection connection, University university) {
+    public PrepareUpdateStatement(Connection connection, University university) {
         this.connection = connection;
         this.university = university;
     }
