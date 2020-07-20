@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.select;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQuerySteps.select;
 
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;

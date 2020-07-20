@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQueryGenerator.delete;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.sqlQuerySteps.delete;
 
 import com.projectk.entities.University;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;

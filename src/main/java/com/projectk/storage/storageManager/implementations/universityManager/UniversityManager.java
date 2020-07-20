@@ -6,24 +6,29 @@ import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.interfaces.UniversityPersister;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class UniversityManager implements StorageManager<University, SearchUniversity> {
-    private final ConnectionManager connectionManager;
-    private final UniversityPersister universityPersister;
+    private  ConnectionManager connectionManager;
+    private  UniversityPersister universityPersister;
 
-    public UniversityManager(ConnectionManager connectionManager, UniversityPersister universityPersister) {
+    @Autowired
+    public void setConnectionManager(ConnectionManager connectionManager){
         this.connectionManager = connectionManager;
+    }
+    @Autowired
+    public void setUniversityPersister(UniversityPersister universityPersister){
         this.universityPersister = universityPersister;
     }
 
     @Override
     public List<University> filter(SearchUniversity searchUniversity) throws StorageException {
-        List<University> result = new ArrayList<>();
+        List<University> result;
         try(Connection connection = connectionManager.getConnection()){
             result = universityPersister.filter(connection, searchUniversity);
         } catch (SQLException throwables) {

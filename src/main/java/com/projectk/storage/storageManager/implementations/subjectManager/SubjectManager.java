@@ -5,15 +5,13 @@ import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations.SearchSubjectPreparedStatementGenerator;
-import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
-import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchSubjectWildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.List;
-
+@Repository
 public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     private ConnectionManager connectionManager;
 
