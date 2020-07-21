@@ -14,7 +14,7 @@ public class Faculty {
 
 	private String deanInfo;
 
-	private String price;
+	private Long price;
 
 	private String description;
 
@@ -60,11 +60,11 @@ public class Faculty {
 		this.deanInfo = deanInfo;
 	}
 
-	public String getPrice() {
+	public Long getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 
@@ -90,7 +90,7 @@ public class Faculty {
 		private int universityId;
 		private String name;
 		private String deanInfo;
-		private String price;
+		private Long price;
 		private String description;
 		private String webPageLink;
 
@@ -119,7 +119,7 @@ public class Faculty {
 			return this;
 		}
 
-		public Builder price(String val) {
+		public Builder price(Long val) {
 			price = val;
 			return this;
 		}

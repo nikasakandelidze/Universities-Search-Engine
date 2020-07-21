@@ -10,6 +10,7 @@ import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyAddStatementBuilder;
 import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyDeleteStatementBuilder;
 import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultySelectStatementBuilder;
+import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyUpdateStatementBuilder;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,24 +27,11 @@ public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
 		this.connectionManager = connectionManager;
 	}
 
-	public static void main(String[] args) throws StorageException {
-		FacultyManager m = new FacultyManager(new MysqlConnectionManager());
-		Faculty f = new Faculty.Builder()
-				.facultyId(32)
-				.build();
-		m.delete(f);
-	}
-
 	@Override
 	public List<Faculty> filter(SearchFaculty searchEntity) throws StorageException {
 		List<Faculty> resultList = new ArrayList<>();
 		try {
-			PreparedStatement statement = new FacultySelectStatementBuilder(connectionManager.getConnection())
-					.byCategory(searchEntity.getFacultyCategory())
-					.byMinPrice(searchEntity.getMinPrice())
-					.byMaxPrice(searchEntity.getMaxPrice())
-					.byUniversityId(searchEntity.getUniversityID())
-					.build();
+			PreparedStatement statement = FacultyUtils.getSelectStatement(searchEntity, connectionManager.getConnection());
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
 				resultList.add(FacultyUtils.getFaculty(rs));
@@ -76,6 +64,11 @@ public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
 
 	@Override
 	public void update(Faculty entity) throws StorageException {
-
+		try {
+			PreparedStatement statement = FacultyUtils.getUpdateStatement(entity, connectionManager.getConnection());
+			statement.executeUpdate();
+		} catch (Exception e) {
+			throw new StorageException(e);
+		}
 	}
 }
