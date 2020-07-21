@@ -1,4 +1,4 @@
 package com.projectk.requester.interfaces;
 
-public class UserRequester {
+public interface UserRequester {
 }
