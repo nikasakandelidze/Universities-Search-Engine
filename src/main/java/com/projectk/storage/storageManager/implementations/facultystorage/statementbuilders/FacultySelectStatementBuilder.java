@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.facultystorage;
+package com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders;
 
 import com.projectk.entities.enums.FacultyCategory;
 
