@@ -37,7 +37,7 @@ public class FacultyAddStatementBuilder {
 		ps.setInt(2, faculty.getUniversityId());
 		ps.setString(3, faculty.getName());
 		ps.setString(4, faculty.getDeanInfo());
-		ps.setString(5, faculty.getPrice());
+		ps.setLong(5, faculty.getPrice());
 		ps.setString(6, faculty.getDescription());
 		ps.setString(7, faculty.getWebPageLink());
 		return ps;

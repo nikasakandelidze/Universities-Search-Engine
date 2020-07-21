@@ -2,6 +2,12 @@ package com.projectk.storage.storageManager.implementations.facultystorage;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.enums.FacultyCategory;
+import com.projectk.entities.searchEntities.SearchFaculty;
+import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultySelectStatementBuilder;
+import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyUpdateStatementBuilder;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -22,7 +28,7 @@ public class FacultyUtils {
 				.universityId(rs.getInt(COLUMNS[2]))
 				.name(rs.getString(COLUMNS[3]))
 				.deanInfo(rs.getString(COLUMNS[4]))
-				.price(rs.getString(COLUMNS[5]))
+				.price(rs.getLong(COLUMNS[5]))
 				.description(rs.getString(COLUMNS[6]))
 				.webpage(rs.getString(COLUMNS[7]))
 				.build();
@@ -39,4 +45,26 @@ public class FacultyUtils {
 		}
 		return null;
 	}
+
+	public static PreparedStatement getSelectStatement (SearchFaculty searchFaculty, Connection connection) throws SQLException {
+		return new FacultySelectStatementBuilder(connection)
+				.byCategory(searchFaculty.getFacultyCategory())
+				.byMinPrice(searchFaculty.getMinPrice())
+				.byMaxPrice(searchFaculty.getMaxPrice())
+				.byUniversityId(searchFaculty.getUniversityID())
+				.build();
+	}
+
+	public static PreparedStatement getUpdateStatement (Faculty faculty, Connection connection) throws SQLException {
+		return new FacultyUpdateStatementBuilder(connection)
+				.byCategory(faculty.getCategory())
+				.byDeanInfo(faculty.getDeanInfo())
+				.byDescription(faculty.getDescription())
+				.byname(faculty.getName())
+				.byPrice(faculty.getPrice())
+				.byWebPage(faculty.getWebPageLink())
+				.where(faculty.getFacultyId())
+				.build();
+	}
+
 }
