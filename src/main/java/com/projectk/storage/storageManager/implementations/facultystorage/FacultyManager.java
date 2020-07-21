@@ -6,13 +6,16 @@ import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.List;
-
+@Repository
 public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
 	private final ConnectionManager connectionManager;
 
+	@Autowired
 	public FacultyManager(ConnectionManager connectionManager) {
 		this.connectionManager = connectionManager;
 	}

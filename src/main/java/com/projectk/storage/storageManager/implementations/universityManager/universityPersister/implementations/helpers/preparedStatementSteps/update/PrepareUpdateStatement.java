@@ -1,4 +1,4 @@
-package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementGenerator.update;
+package com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.preparedStatementSteps.update;
 
 import com.projectk.entities.University;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;

@@ -1,4 +1,4 @@
-package com.projectk.exceptions;
+package com.projectk.Utilities.exceptions;
 
 public class ProjectKException extends Exception{
 

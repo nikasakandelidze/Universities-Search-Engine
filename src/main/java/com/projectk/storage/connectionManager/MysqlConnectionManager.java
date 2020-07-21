@@ -1,10 +1,11 @@
 package com.projectk.storage.connectionManager;
 
 import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
+@Service
 public class MysqlConnectionManager implements ConnectionManager {
     private final MysqlConnectionPoolDataSource source = new MysqlConnectionPoolDataSource();
     private Connection connection;
