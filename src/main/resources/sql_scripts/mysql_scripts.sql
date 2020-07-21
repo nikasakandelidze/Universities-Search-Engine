@@ -13,7 +13,9 @@ create table University(
     city varchar(100) not null,
     address varchar(100) not null,
 	web_page_link varchar(100),
-	descriptions varchar(255)
+	descriptions varchar(255),
+	username varchar(45) NOT NULL,
+	foreign key(username)
     REFERENCES users (username)
 );
 
@@ -50,6 +52,6 @@ CREATE  TABLE users (
         PRIMARY KEY (username)
  );
 insert into users values('testUser','password',1);
-insert into university values(2,'TSU','Tbilisi','Melikishili','bla.com','good');
+insert into university values(2,'TSU','Tbilisi','Melikishili','bla.com','good','testUser');
 insert into faculty values (1, 'CS', 2, 'Mathematics and Computer science', 'Shota gv',10000,'magaria','axala.ge');
 insert into university_subject values (1, 1, 'Calculus I', 6, 'sigua magari kacia', 2);
