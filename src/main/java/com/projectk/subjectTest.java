@@ -7,7 +7,8 @@ import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.subject.SubjectManager;
+import com.projectk.storage.storageManager.implementations.subjectManager.SubjectManager;
+import com.projectk.storage.storageManager.implementations.subjectManager.SubjectManager;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
