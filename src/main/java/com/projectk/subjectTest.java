@@ -61,7 +61,7 @@ public class subjectTest {
         subject3.setDescriptions("this course encapsules the roots of Excel");
         assertEquals(2, subject3.getCredits());
         assertEquals(7, subject3.getSubjectId());
-        assertEquals("Excel", subject3.getSubjectName());
+        assertEquals("Excel for business", subject3.getSubjectName());
         assertEquals(5, subject3.getSemester());
         assertEquals(23, subject3.getFacultyId());
         assertEquals("this course encapsules the roots of Excel", subject3.getDescriptions());
@@ -69,6 +69,7 @@ public class subjectTest {
 
     }
 
+    @Test
     public void testSubjectManager(Subject subject) {
         ConnectionManager connectionManager = new MysqlConnectionManager();
         SubjectManager subjectManager = new SubjectManager(connectionManager);

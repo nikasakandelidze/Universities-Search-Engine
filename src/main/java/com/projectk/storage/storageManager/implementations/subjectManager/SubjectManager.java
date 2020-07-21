@@ -5,12 +5,16 @@ import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
+import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations.SearchSubjectPreparedStatementGenerator;
+import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
+import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchSubjectWildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.List;
+
 @Repository
 public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     private ConnectionManager connectionManager;
@@ -31,12 +35,12 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         entity.setFacultyId(121);
         entity.setSubjectId(121);
         String a = "INSERT INTO university_subject ";
-        a+= "VALUES(";
+        a += "VALUES(";
         a += entity.getSubjectId() + ", ";
         a += entity.getFacultyId() + ", ";
-        a += "'"+entity.getSubjectName() +"'"+ ", ";
+        a += "'" + entity.getSubjectName() + "'" + ", ";
         a += entity.getCredits() + ", ";
-        a += "'"+entity.getDescriptions()+"'" + ", ";
+        a += "'" + entity.getDescriptions() + "'" + ", ";
         a += entity.getSemester() + ")";
         System.out.println(a);
     }
@@ -61,15 +65,13 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         return null;
     }
 
-    private String insertValues(Subject entity) {
-        String ans = "VALUES(";
-        ans += entity.getSubjectId() + ", ";
-        ans += entity.getFacultyId() + ", ";
-        ans += "'"+entity.getSubjectName() +"'"+ ", ";
-        ans += entity.getCredits() + ", ";
-        ans += "'"+entity.getDescriptions()+"'" + ", ";
-        ans += entity.getSemester() + ")";
-        return ans;
+    private void insertValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setInt(1, entity.getSubjectId());
+        preparedStatement.setInt(2, entity.getFacultyId());
+        preparedStatement.setString(3, entity.getSubjectName());
+        preparedStatement.setInt(4, entity.getCredits());
+        preparedStatement.setString(5, entity.getDescriptions());
+        preparedStatement.setInt(6, entity.getSemester());
     }
 
     @Override
@@ -77,8 +79,10 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO university_subject " + insertValues(entity));
+            String query = "INSERT INTO university_subject VALUES(?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            insertValues(entity, preparedStatement);
+            preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -90,8 +94,9 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("DELETE FROM university_subject WHERE subject_id=" + entity.getSubjectId());
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM university_subject WHERE subject_id=");
+            preparedStatement.setInt(1, entity.getSubjectId());
+            preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -102,21 +107,23 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("UPDATE university_subject SET " + updateValues(entity));
+
+            String query = "UPDATE university_subject SET faculty_id=? AND subject_name=? " +
+                    "AND credits=? AND descriptions=? AND semester=? WHERE subject_id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            updateValues(entity, preparedStatement);
+            preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    private String updateValues(Subject entity) {
-        String ans = "";
-        ans += "faculty_id=" + entity.getFacultyId() + " and ";
-        ans += "subject_name=" + "'"+entity.getSubjectName()+"'" + " and ";
-        ans += "credits=" + entity.getCredits() + " and ";
-        ans += "descriptions=" + "'"+entity.getDescriptions()+ "'"+ " and ";
-        ans += "semester=" + entity.getSemester();
-        ans += " WHERE subject_id=" + entity.getSubjectId();
-        return ans;
+    private void updateValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setInt(1, entity.getFacultyId());
+        preparedStatement.setString(2, entity.getSubjectName());
+        preparedStatement.setInt(3, entity.getCredits());
+        preparedStatement.setString(4, entity.getDescriptions());
+        preparedStatement.setInt(5, entity.getSemester());
+        preparedStatement.setInt(6, entity.getSubjectId());
     }
 }
