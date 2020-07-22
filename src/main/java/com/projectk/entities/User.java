@@ -6,6 +6,11 @@ public class User {
 
     public User() {}
 
+    public User(String username, String encoded_password) {
+        this.username = username;
+        this.encoded_password = encoded_password;
+    }
+
     public String getUsername() {
         return username;
     }
