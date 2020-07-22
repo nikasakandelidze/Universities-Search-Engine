@@ -7,10 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class SearchSubjectPreparedStatementGenerator implements PreparedStatementGenerator<SearchSubject> {
+public class searchSubjectPreparedStatementGenerator implements PreparedStatementGenerator<SearchSubject> {
     private Connection connection;
 
-    public SearchSubjectPreparedStatementGenerator(Connection connection){
+    public searchSubjectPreparedStatementGenerator(Connection connection){
         this.connection = connection;
     }
 
