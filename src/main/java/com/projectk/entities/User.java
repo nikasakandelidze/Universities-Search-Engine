@@ -3,8 +3,12 @@ package com.projectk.entities;
 public class User {
     private String username;
     private String encoded_password;
+    private int enabled;
 
     public User() {}
+    public int getEnabled(){ return enabled; }
+
+    public void setEnabled(int enabled) { this.enabled=enabled; }
 
     public String getUsername() {
         return username;
