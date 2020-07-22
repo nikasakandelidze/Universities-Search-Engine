@@ -1,21 +1,17 @@
 package com.projectk.storage.storageManager.implementations.facultystorage;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import com.projectk.entities.Faculty;
-import com.projectk.entities.enums.FacultyCategory;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.storage.connectionManager.ConnectionManager;
-import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyAddStatementBuilder;
 import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyDeleteStatementBuilder;
-import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultySelectStatementBuilder;
-import com.projectk.storage.storageManager.implementations.facultystorage.statementbuilders.FacultyUpdateStatementBuilder;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
