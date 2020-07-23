@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class UserLoginService implements UserService {
     @Override
     public ServiceResult isUserAuthenticated(User user) {
-        return new ServiceResult("UserHomePage", new HashMap<>());
+        return new ServiceResult("UserLoginPage", new HashMap<>());
     }
 
     @Override
