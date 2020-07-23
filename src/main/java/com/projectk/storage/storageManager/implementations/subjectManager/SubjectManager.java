@@ -1,12 +1,10 @@
 package com.projectk.storage.storageManager.implementations.subjectManager;
 
-import com.projectk.entities.Faculty;
 import com.projectk.entities.Subject;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.facultystorage.FacultyUtils;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations.searchSubjectPreparedStatementGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchSubjectWildCardSqlQueryGenerator;
@@ -16,8 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -34,9 +30,9 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         //m.filter(new SearchSubject.Builder().subjectName(name).build());
         Subject entity = new Subject();
         entity.setSemester(6);
-        entity.setDescriptions("test");
+        entity.setDescriptions("src/test");
         entity.setCredits(6);
-        entity.setSubjectName("test");
+        entity.setSubjectName("src/test");
         entity.setFacultyId(121);
         entity.setSubjectId(121);
         String a = "INSERT INTO university_subject ";
@@ -113,8 +109,8 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         try {
             connection = connectionManager.getConnection();
 
-            String query = "UPDATE university_subject SET faculty_id=? AND subject_name=? " +
-                    "AND credits=? AND descriptions=? AND semester=? WHERE subject_id=?";
+            String query = "UPDATE university_subject SET  subject_name=? " +
+                    ", credits=? , descriptions=? , semester=? WHERE subject_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             updateValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
@@ -124,11 +120,10 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     }
 
     private void updateValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setInt(1, entity.getFacultyId());
-        preparedStatement.setString(2, entity.getSubjectName());
-        preparedStatement.setInt(3, entity.getCredits());
-        preparedStatement.setString(4, entity.getDescriptions());
-        preparedStatement.setInt(5, entity.getSemester());
-        preparedStatement.setInt(6, entity.getSubjectId());
+        preparedStatement.setString(1, entity.getSubjectName());
+        preparedStatement.setInt(2, entity.getCredits());
+        preparedStatement.setString(3, entity.getDescriptions());
+        preparedStatement.setInt(4, entity.getSemester());
+        preparedStatement.setInt(5, entity.getSubjectId());
     }
 }

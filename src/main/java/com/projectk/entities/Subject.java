@@ -69,12 +69,12 @@ public class Subject {
 		this.semester = semester;
 	}
 	public static class Builder {
-		private int subjectId;
-		private int facultyId;
+		private Integer subjectId;
+		private Integer facultyId;
 		private String subject_name;
-		private int credits;
+		private Integer credits;
 		private String descriptions;
-		private int semester;
+		private Integer semester;
 
 
 		public Subject.Builder subject_id(Integer val) {
@@ -82,7 +82,7 @@ public class Subject {
 			return this;
 		}
 
-		public Subject.Builder faculty_id(int val) {
+		public Subject.Builder faculty_id(Integer val) {
 			facultyId = val;
 			return this;
 		}
@@ -92,7 +92,7 @@ public class Subject {
 			return this;
 		}
 
-		public Subject.Builder credits(int val) {
+		public Subject.Builder credits(Integer val) {
 			credits = val;
 			return this;
 		}
@@ -102,7 +102,7 @@ public class Subject {
 			return this;
 		}
 
-		public Subject.Builder semester(int val) {
+		public Subject.Builder semester(Integer val) {
 			semester = val;
 			return this;
 		}
@@ -131,5 +131,18 @@ public class Subject {
 				", descriptions='" + descriptions + '\'' +
 				", semester='" + semester + '\'' +
 				'}';
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Subject){
+			Subject element = (Subject) obj;
+			if(element != null && this.subjectId==(element.getSubjectId()) &&
+			this.subjectName.equals(element.getSubjectName()) && this.facultyId ==element.getFacultyId()
+			&& this.credits==element.getCredits() &&this.descriptions.equals(element.getDescriptions())
+			&& this.semester ==element.getSemester() ){
+				return true;
+			}
+		}
+		return false;
 	}
 }
