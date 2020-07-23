@@ -67,4 +67,10 @@ public class FacultyUtils {
 				.build();
 	}
 
+	public static PreparedStatement getFindStatement (Integer facultyId, Connection connection) throws SQLException {
+		return new FacultySelectStatementBuilder(connection)
+				.byFacultyId(facultyId)
+				.build();
+	}
+
 }
