@@ -23,6 +23,21 @@ public class FacultySelectStatementBuilder {
 		parameterCounter = 1;
 	}
 
+	public FacultySelectStatementBuilder byFacultyId(final Integer id) {
+		if (id == null) {
+			return this;
+		}
+		appendSeparator();
+		query.append("f.faculty_id = ?");
+		valueSetters.add(new ValueSetter() {
+			public void setValue(PreparedStatement ps) throws SQLException {
+				ps.setInt(parameterCounter, id);
+				parameterCounter++;
+			}
+		});
+		return this;
+	}
+
 	public FacultySelectStatementBuilder byUniversityId(final Integer id) {
 		if (id == null) {
 			return this;

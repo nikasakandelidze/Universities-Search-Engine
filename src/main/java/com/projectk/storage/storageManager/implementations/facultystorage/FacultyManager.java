@@ -67,4 +67,18 @@ public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
 			throw new StorageException(e);
 		}
 	}
+
+	public Faculty find(Integer facultyId) throws StorageException {
+		List<Faculty> resultList = new ArrayList<>();
+		try {
+			PreparedStatement statement = FacultyUtils.getFindStatement(facultyId, connectionManager.getConnection());
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				resultList.add(FacultyUtils.getFaculty(rs));
+			}
+		} catch (Exception e) {
+			throw new StorageException(e);
+		}
+		return resultList.isEmpty() ? null : resultList.get(0);
+	}
 }

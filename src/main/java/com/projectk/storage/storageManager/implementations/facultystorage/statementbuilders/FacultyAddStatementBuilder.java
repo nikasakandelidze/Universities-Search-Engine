@@ -21,25 +21,26 @@ public class FacultyAddStatementBuilder {
 	private String getQuery() {
 		StringBuilder query = new StringBuilder("INSERT INTO Faculty ");
 		query.append("(");
-		for (int i = 1; i < FIELD_COUNT; i++) {
+		for (int i = 0; i < FIELD_COUNT; i++) {
 			query.append(FacultyUtils.COLUMNS[i]);
 			if (i < FIELD_COUNT - 1) {
 				query.append(", ");
 			}
 		}
-		query.append(") VALUES(?, ?, ?, ?, ?, ?, ?)");
+		query.append(") VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 		return query.toString();
 	}
 
 	public PreparedStatement build() throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(getQuery());
-		ps.setString(1, faculty.getCategory().name());
-		ps.setInt(2, faculty.getUniversityId());
-		ps.setString(3, faculty.getName());
-		ps.setString(4, faculty.getDeanInfo());
-		ps.setLong(5, faculty.getPrice());
-		ps.setString(6, faculty.getDescription());
-		ps.setString(7, faculty.getWebPageLink());
+		ps.setInt(1, faculty.getFacultyId());
+		ps.setString(2, faculty.getCategory().name());
+		ps.setInt(3, faculty.getUniversityId());
+		ps.setString(4, faculty.getName());
+		ps.setString(5, faculty.getDeanInfo());
+		ps.setLong(6,faculty.getPrice());
+		ps.setString(7, faculty.getDescription());
+		ps.setString(8, faculty.getWebPageLink());
 		return ps;
 	}
 }
