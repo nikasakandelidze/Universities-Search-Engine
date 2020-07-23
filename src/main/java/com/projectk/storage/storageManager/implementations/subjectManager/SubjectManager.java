@@ -1,10 +1,12 @@
 package com.projectk.storage.storageManager.implementations.subjectManager;
 
+import com.projectk.entities.Faculty;
 import com.projectk.entities.Subject;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
+import com.projectk.storage.storageManager.implementations.facultystorage.FacultyUtils;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.implementations.searchSubjectPreparedStatementGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.PreparedStatementGenerator.interfaces.PreparedStatementGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchSubjectWildCardSqlQueryGenerator;
@@ -13,6 +15,7 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +53,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     @Override
     public List<Subject> filter(SearchSubject searchEntity) throws StorageException, SQLException {
         Connection connection = null;
+        List<Subject> resultList = new ArrayList<>();
         try {
             connection = connectionManager.getConnection();
             PreparedStatementGenerator statementGenerator = new searchSubjectPreparedStatementGenerator(connection);
@@ -58,14 +62,12 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             PreparedStatement statement = (PreparedStatement) statementGenerator.generatePreparedStatementFromSqlQuery(query, searchEntity);
             ResultSet set = statement.executeQuery();
             while (set.next()) {
-
-                int a = set.getInt(1);
-                System.out.println(a);
+                resultList.add(SubjectUtils.getSubject(set));
             }
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }
-        return null;
+        return resultList;
     }
 
     private void insertValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
