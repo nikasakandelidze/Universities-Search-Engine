@@ -163,4 +163,22 @@ public class Faculty {
 				", webPageLink='" + webPageLink + '\'' +
 				'}';
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) {
+			return false;
+		}
+		if(obj instanceof Faculty) {
+			Faculty f = (Faculty) obj;
+			return (f.category == category) &&
+					(f.description.equals(description)) &&
+					(f.deanInfo.equals(deanInfo)) &&
+					(f.name.equals(name)) &&
+					(f.price.equals(price)) &&
+					(f.universityId == universityId) &&
+					(f.webPageLink.equals(webPageLink));
+		}
+		return false;
+	}
 }
