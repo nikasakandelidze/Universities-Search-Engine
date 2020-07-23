@@ -7,15 +7,15 @@
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd"
        xmlns:context="http://www.springframework.org/schema/context">
 
-<!-- This tag is needed as spring doesn't scan all packages by default   -->
+    <!-- This tag is needed as spring doesn't scan all packages by default   -->
     <context:component-scan base-package="com.projectk"/>
 
-<!--    <mvc:interceptors>-->
-<!--        <mvc:interceptor>-->
-<!--            <mvc:mapping path="/"/>-->
-<!--            <bean class=""></bean>-->
-<!--        </mvc:interceptor>-->
-<!--    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user"/>
+            <bean class="com.projectk.interceptors.AuthenticationFilter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
