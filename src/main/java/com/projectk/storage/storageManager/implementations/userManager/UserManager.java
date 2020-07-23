@@ -7,22 +7,29 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager implements StorageManager<User, User> {
     private ConnectionManager connectionManager;
 
     @Override
-    public List<User> filter(User searchEntity) throws SQLException, StorageException {
+    public List<User> filter(User searchEntity) throws SQLException {
         Connection connection = null;
+        List<User> resultList = new ArrayList<>();
+        connection = connectionManager.getConnection();
         SearchUserSqlQueryGenerator searchUserSqlQueryGenerator = new SearchUserSqlQueryGenerator();
         String query = searchUserSqlQueryGenerator.SearchUserSqlQueryGenerator(searchEntity);
-        connection = connectionManager.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         insertValuesToSelectStatement(preparedStatement,searchEntity);
-        preparedStatement.executeUpdate();
-        return null;
+        ResultSet set = preparedStatement.executeQuery();
+        while (set.next()) {
+            resultList.add(UsersUtils.getUser(set));
+        }
+
+        return resultList;
     }
 
     private void insertValuesToSelectStatement(PreparedStatement preparedStatement, User user) throws SQLException {

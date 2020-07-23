@@ -13,8 +13,7 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -31,9 +30,9 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         //m.filter(new SearchSubject.Builder().subjectName(name).build());
         Subject entity = new Subject();
         entity.setSemester(6);
-        entity.setDescriptions("test");
+        entity.setDescriptions("src/test");
         entity.setCredits(6);
-        entity.setSubjectName("test");
+        entity.setSubjectName("src/test");
         entity.setFacultyId(121);
         entity.setSubjectId(121);
         String a = "INSERT INTO university_subject ";
@@ -50,6 +49,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     @Override
     public List<Subject> filter(SearchSubject searchEntity) throws StorageException, SQLException {
         Connection connection = null;
+        List<Subject> resultList = new ArrayList<>();
         try {
             connection = connectionManager.getConnection();
             PreparedStatementGenerator statementGenerator = new searchSubjectPreparedStatementGenerator(connection);
@@ -58,14 +58,12 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             PreparedStatement statement = (PreparedStatement) statementGenerator.generatePreparedStatementFromSqlQuery(query, searchEntity);
             ResultSet set = statement.executeQuery();
             while (set.next()) {
-
-                int a = set.getInt(1);
-                System.out.println(a);
+                resultList.add(SubjectUtils.getSubject(set));
             }
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }
-        return null;
+        return resultList;
     }
 
     private void insertValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
@@ -111,8 +109,8 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         try {
             connection = connectionManager.getConnection();
 
-            String query = "UPDATE university_subject SET faculty_id=? AND subject_name=? " +
-                    "AND credits=? AND descriptions=? AND semester=? WHERE subject_id=?";
+            String query = "UPDATE university_subject SET  subject_name=? " +
+                    ", credits=? , descriptions=? , semester=? WHERE subject_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             updateValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
@@ -122,11 +120,10 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     }
 
     private void updateValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setInt(1, entity.getFacultyId());
-        preparedStatement.setString(2, entity.getSubjectName());
-        preparedStatement.setInt(3, entity.getCredits());
-        preparedStatement.setString(4, entity.getDescriptions());
-        preparedStatement.setInt(5, entity.getSemester());
-        preparedStatement.setInt(6, entity.getSubjectId());
+        preparedStatement.setString(1, entity.getSubjectName());
+        preparedStatement.setInt(2, entity.getCredits());
+        preparedStatement.setString(3, entity.getDescriptions());
+        preparedStatement.setInt(4, entity.getSemester());
+        preparedStatement.setInt(5, entity.getSubjectId());
     }
 }

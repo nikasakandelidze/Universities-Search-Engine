@@ -8,6 +8,11 @@ public class SearchSubject {
 
     private String subjectName;
 
+    public SearchSubject() {
+
+    }
+
+
     public Integer getUniversityId() {
         return universityId;
     }
@@ -63,7 +68,7 @@ public class SearchSubject {
 
     }
 
-    private SearchSubject(Builder builder){
+    public SearchSubject(Builder builder){
         this.universityId=builder.universityId;
         this.facultyId=builder.facultyId;
         this.subjectName=builder.subjectName;

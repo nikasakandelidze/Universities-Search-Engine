@@ -30,4 +30,45 @@ public class User {
     public void setEncoded_password(String encoded_password) {
         this.encoded_password = encoded_password;
     }
+
+    public static class Builder {
+        private String username;
+        private String encoded_password;
+        private int enabled;
+
+
+        public User.Builder username(String val) {
+            username = val;
+            return this;
+        }
+
+        public User.Builder encoded_password(String  val) {
+            encoded_password = val;
+            return this;
+        }
+
+        public User.Builder enabled(int val) {
+            enabled = val;
+            return this;
+        }
+
+        public User build() {
+            return new User(this);
+        }
+    }
+
+    private User(User.Builder builder) {
+        this.username = builder.username;
+        this.encoded_password = builder.encoded_password;
+        this.enabled = builder.enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username=" + username +
+                ", encoded_password=" + encoded_password +
+                ", enabled='" + enabled + '\'' +
+                '}';
+    }
 }
