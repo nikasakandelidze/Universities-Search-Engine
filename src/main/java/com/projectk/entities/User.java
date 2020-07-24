@@ -4,16 +4,29 @@ public class User {
     private String username;
     private String encoded_password;
     private int enabled;
+    private int university_id;
 
-    public User() {}
+    public User(int university_id,String username, String encoded_password) {
+        this.university_id = university_id;
+        this.encoded_password=encoded_password;
+        this.username=username;
+        this.enabled=1;
+    }
+
+
+    public User(String username, String password) {
+    }
+
+
+    public int getUniversity_id(){ return  university_id;}
+
+    private  void setUniversity_id(int university_id){
+        this.university_id=university_id;
+    }
     public int getEnabled(){ return enabled; }
 
     public void setEnabled(int enabled) { this.enabled=enabled; }
 
-    public User(String username, String encoded_password) {
-        this.username = username;
-        this.encoded_password = encoded_password;
-    }
 
     public String getUsername() {
         return username;
@@ -34,9 +47,13 @@ public class User {
     public static class Builder {
         private String username;
         private String encoded_password;
+        private int university_id;
         private int enabled;
 
-
+        public User.Builder university_id(int val) {
+            university_id = val;
+            return this;
+        }
         public User.Builder username(String val) {
             username = val;
             return this;
@@ -61,14 +78,27 @@ public class User {
         this.username = builder.username;
         this.encoded_password = builder.encoded_password;
         this.enabled = builder.enabled;
+        this.university_id=builder.university_id;
     }
 
     @Override
     public String toString() {
         return "User{" +
+                "university_id=" + university_id +
                 "username=" + username +
                 ", encoded_password=" + encoded_password +
                 ", enabled='" + enabled + '\'' +
                 '}';
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof User){
+            User element = (User) obj;
+            if(element != null && this.username.equals(element.getUsername()) &&
+                    this.encoded_password.equals(element.getEncoded_password()) ){
+                return true;
+            }
+        }
+        return false;
     }
 }
