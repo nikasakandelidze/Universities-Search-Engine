@@ -24,28 +24,6 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         this.connectionManager = connectionManager;
     }
 
-    public static void main(String[] args) throws SQLException, StorageException {
-        SubjectManager m = new SubjectManager(new MysqlConnectionManager());
-        String name = "CALCULUS 1";
-        //m.filter(new SearchSubject.Builder().subjectName(name).build());
-        Subject entity = new Subject();
-        entity.setSemester(6);
-        entity.setDescriptions("src/test");
-        entity.setCredits(6);
-        entity.setSubjectName("src/test");
-        entity.setFacultyId(121);
-        entity.setSubjectId(121);
-        String a = "INSERT INTO university_subject ";
-        a += "VALUES(";
-        a += entity.getSubjectId() + ", ";
-        a += entity.getFacultyId() + ", ";
-        a += "'" + entity.getSubjectName() + "'" + ", ";
-        a += entity.getCredits() + ", ";
-        a += "'" + entity.getDescriptions() + "'" + ", ";
-        a += entity.getSemester() + ")";
-        System.out.println(a);
-    }
-
     @Override
     public List<Subject> filter(SearchSubject searchEntity) throws StorageException, SQLException {
         Connection connection = null;
@@ -109,8 +87,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         try {
             connection = connectionManager.getConnection();
 
-            String query = "UPDATE university_subject SET  subject_name=? " +
-                    ", credits=? , descriptions=? , semester=? WHERE subject_id=?";
+            String query = "UPDATE university_subject SET  subject_name=? " + ", credits=? , descriptions=? , semester=? WHERE subject_id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             updateValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
