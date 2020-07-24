@@ -46,7 +46,8 @@ CREATE TABLE University_Subject (
 );
 
 CREATE  TABLE users (
-        username VARCHAR(45) NOT NULL ,
+
+        username VARCHAR(45) NOT NULL primary key ,
         password VARCHAR(45) NOT NULL ,
         enabled TINYINT NOT NULL DEFAULT 1 ,
         PRIMARY KEY (username)

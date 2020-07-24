@@ -10,7 +10,7 @@ public class SearchUserSqlQueryGenerator {
             stringBuilder.append("where u.username=?");
         }
         if (user.getUsername() != null) {
-            stringBuilder.append(" and where u.password=?");
+            stringBuilder.append(" and u.password=?");
         }
         return stringBuilder.toString();
     }
