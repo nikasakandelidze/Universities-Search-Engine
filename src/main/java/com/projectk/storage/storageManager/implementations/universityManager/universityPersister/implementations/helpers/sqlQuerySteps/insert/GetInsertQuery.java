@@ -6,7 +6,7 @@ import com.projectk.storage.storageManager.implementations.universityManager.uni
 public class GetInsertQuery implements Step<University,String> {
     @Override
     public String process(University input){
-        StringBuilder builder = new StringBuilder("insert into university values(?,?,?,?,?)");
+        StringBuilder builder = new StringBuilder("insert into university values(?,?,?,?,?,?,?)");
         return builder.toString();
     }
 }

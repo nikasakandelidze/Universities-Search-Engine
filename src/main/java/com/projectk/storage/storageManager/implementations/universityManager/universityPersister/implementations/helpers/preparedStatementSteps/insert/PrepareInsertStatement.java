@@ -21,11 +21,13 @@ public class PrepareInsertStatement implements Step<String, Object> {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(input);
-            preparedStatement.setString(1,university.getUniversityName());
-            preparedStatement.setString(2,university.getCity());
-            preparedStatement.setString(3,university.getAddress());
-            preparedStatement.setString(4,university.getWebPageLink());
-            preparedStatement.setString(5,university.getDescriptions());
+            preparedStatement.setInt(1,university.getId());
+            preparedStatement.setString(2,university.getUniversityName());
+            preparedStatement.setString(3,university.getCity());
+            preparedStatement.setString(4,university.getAddress());
+            preparedStatement.setString(5,university.getWebPageLink());
+            preparedStatement.setString(6,university.getDescriptions());
+            preparedStatement.setString(7,university.getUsername());
         } catch (SQLException throwables) {
             throw new StepException(throwables);
         }

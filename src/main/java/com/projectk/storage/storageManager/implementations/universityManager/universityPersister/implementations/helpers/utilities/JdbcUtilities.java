@@ -30,6 +30,7 @@ public class JdbcUtilities {
             university.setAddress(resultUnit.getString("address"));
             university.setWebPageLink(resultUnit.getString("web_page_link"));
             university.setDescriptions(resultUnit.getString("descriptions"));
+            university.setUsername(resultUnit.getString("username"));
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }
