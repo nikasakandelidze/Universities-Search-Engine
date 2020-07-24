@@ -78,7 +78,7 @@ public class UserManager implements StorageManager<User, User> {
         try {
             connection = connectionManager.getConnection();
 
-            String query = "UPDATE users SET password=? AND enabled=? " +
+            String query = "UPDATE users SET password=? , enabled=? " +
                     "WHERE username=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             updateValues(entity, preparedStatement);
