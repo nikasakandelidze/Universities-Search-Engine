@@ -15,6 +15,10 @@ import java.util.List;
 public class UserManager implements StorageManager<User, User> {
     private ConnectionManager connectionManager;
 
+    public UserManager(ConnectionManager connectionManager) {
+        this.connectionManager = connectionManager;
+    }
+
     @Override
     public List<User> filter(User searchEntity) throws SQLException {
         Connection connection = null;
