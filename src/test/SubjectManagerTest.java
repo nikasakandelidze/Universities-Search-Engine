@@ -1,19 +1,12 @@
-
-import com.projectk.entities.Faculty;
 import com.projectk.entities.Subject;
-import com.projectk.entities.enums.FacultyCategory;
-import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
-import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
 import com.projectk.storage.storageManager.implementations.subjectManager.SubjectManager;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
-import javax.validation.constraints.AssertTrue;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +15,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class testSubject {
+public class SubjectManagerTest {
     private SubjectManager manager;
 
     @Test

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class GetDeleteQuery implements Step<University,String> {
     @Override
     public String process(University input)  {
-        StringBuilder builder = new StringBuilder("DELETE FROM university U WHERE and U.id = ?" );
+        StringBuilder builder = new StringBuilder("DELETE FROM university U WHERE U.id = ?;" );
         return builder.toString();
     }
 }
