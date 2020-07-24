@@ -6,13 +6,21 @@ import com.projectk.requester.implementations.services.interfaces.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 @Service
 public class UserLoginService implements UserService {
     @Override
     public ServiceResult isUserAuthenticated(User user) {
-        return new ServiceResult("UserLoginPage", new HashMap<>());
+        String view = "login";
+        Map<String,Object> modelMap = new HashMap<>();
+        if(user.getUsername().equals("nika") && user.getEncoded_password().equals("123")){
+            view = "UserLoginPage";
+        }else{
+            modelMap.put("errorMessage","Username or password incorrect.");
+        }
+        return new ServiceResult( view, modelMap);
     }
 
     @Override
