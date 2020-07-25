@@ -12,20 +12,43 @@
 <html>
 <head>
     <title>Login</title>
+    <style>
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+            width: 35%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
     <p>
-        <h3>
+        <h1 style="text-align: center; font-family: Chandas">
             Login Page
-        </h3>
+        </h1>
     </p>
     <p style="color:darkred">
       <c:out value="${errorMessage}"></c:out>
 
     </p>
-    <form name="loginForm" action="/login" method="post" onsubmit="return validateInput()" >
-        Username: <input id="username" type="text" name="username"><h4 id="name_error" style="color:darkred"></h4><br><br>
-        Password: <input id="password" type="password" name="password"><h4 id="pass_error" style="color:darkred"></h4><br>
+    <form style="text-align: center" name="loginForm" action="/login" method="post" onsubmit="return validateInput()" >
+        Username: <input id="username" placeholder="Username" type="text" name="username"><br>
+        Password: <input id="password" type="password" placeholder="Password" name="password"><br>
         <input type="submit" value="Login">
     </form>
 </body>
@@ -39,16 +62,16 @@
         var errorMessage = "EmptyField"
         var inputsNotEmpty = true
         if( username == "" ){
-            document.getElementById("name_error").innerText = errorMessage
             inputsNotEmpty = false
+            document.forms["loginForm"]["username"].style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("name_error").innerText = ""
+            document.forms["loginForm"]["username"].style.backgroundColor=""
         }
         if( password == "" ){
-            document.getElementById("pass_error").innerText = errorMessage
             inputsNotEmpty = false
+            document.forms["loginForm"]["password"].style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("pass_error").innerText = ""
+            document.forms["loginForm"]["username"].style.backgroundColor=""
         }
         return inputsNotEmpty
     }

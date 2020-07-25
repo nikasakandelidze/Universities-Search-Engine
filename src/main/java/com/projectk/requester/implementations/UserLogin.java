@@ -30,7 +30,6 @@ public class UserLogin implements UserRequester {
     public ModelAndView executeLogin(@RequestParam String username,
                                      @RequestParam String password) {
         ServiceResult serviceResult = userService.isUserAuthenticated(new User(username, password));
-        ModelAndView modelAndView = new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
-        return modelAndView;
+        return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 }
