@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Registration</title>
@@ -66,29 +68,29 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="registerForm" action="/register" method="post" onsubmit="return validateInput()">
+            <form style="text-align: center" name="registerForm" action="/register" method="post" onsubmit="return validate()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>
-                        <input type="text" class="form-control" placeholder="Username" name="username">
+                        <input type="text" id="txtUsername"class="form-control" placeholder="Username" name="username">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
-                        <input type="text" class="form-control" placeholder="University Code" name="code">
+                        <input type="text" id="txtCode"class="form-control" placeholder="University Code" name="code">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" id="txtPassword" class="form-control" placeholder="Password" name="password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" class="form-control" placeholder="Confirm Password" name="confPassword">
+                        <input type="password" id="txtConfirmPassword" class="form-control" placeholder="Confirm Password" name="confPassword">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
@@ -99,37 +101,52 @@
 </body>
 </html>
 <script>
-    function validateInput(){
-        var username = document.forms["registerForm"]["username"].value;
-        var password = document.forms["registerForm"]["password"].value;
-        var confPassword = document.forms["registerForm"]["confPassword"].value;
-        var code = document.forms["registerForm"]["code"].value;
+    function validate() {
+        return validatePassword() && validateRequiredFields();
+    }
+
+    function validateRequiredFields(){
+        var username = document.getElementById("txtUsername").value;
+        var password = document.getElementById("txtPassword").value;
+        var confPassword = document.getElementById("txtConfirmPassword").value;
+        var code = document.getElementById("txtCode").value;
         var inputsNotEmpty = true
         if( username == "" ){
             inputsNotEmpty = false
-            document.forms["registerForm"]["username"].style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("txtUsername").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.forms["registerForm"]["username"].style.backgroundColor=""
+            document.getElementById("txtUsername").style.backgroundColor=""
         }
         if( password == "" ){
             inputsNotEmpty = false
-            document.forms["registerForm"]["password"].style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("txtPassword").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.forms["registerForm"]["username"].style.backgroundColor=""
+            document.fgetElementById("txtPassword").style.backgroundColor=""
         }
         var inputsNotEmpty = true
         if( confPassword == "" ){
             inputsNotEmpty = false
-            document.forms["registerForm"]["confPassword"].style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("txtConfirmPassword").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.forms["registerForm"]["confPassword"].style.backgroundColor=""
+            document.getElementById("txtConfirmPassword").style.backgroundColor=""
         }
         if( code == "" ){
             inputsNotEmpty = false
-            document.forms["registerForm"]["code"].style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("txtCode").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.forms["registerForm"]["code"].style.backgroundColor=""
+            document.getElementById("txtCode").style.backgroundColor=""
         }
         return inputsNotEmpty
     }
+
+    function validatePassword() {
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        if (password != confirmPassword) {
+            window.alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+
 </script>

@@ -21,19 +21,22 @@ public class UserManager implements StorageManager<User, User> {
     }
 
     @Override
-    public List<User> filter(User searchEntity) throws SQLException {
+    public List<User> filter(User searchEntity) throws StorageException {
         Connection connection = null;
         List<User> resultList = new ArrayList<>();
-        connection = connectionManager.getConnection();
-        SearchUserSqlQueryGenerator searchUserSqlQueryGenerator = new SearchUserSqlQueryGenerator();
-        String query = searchUserSqlQueryGenerator.SearchUserSqlQueryGenerator(searchEntity);
-        PreparedStatement preparedStatement = connection.prepareStatement(query);
-        insertValuesToSelectStatement(preparedStatement,searchEntity);
-        ResultSet set = preparedStatement.executeQuery();
-        while (set.next()) {
-            resultList.add(UsersUtils.getUser(set));
+        try {
+            connection = connectionManager.getConnection();
+            SearchUserSqlQueryGenerator searchUserSqlQueryGenerator = new SearchUserSqlQueryGenerator();
+            String query = searchUserSqlQueryGenerator.SearchUserSqlQueryGenerator(searchEntity);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            insertValuesToSelectStatement(preparedStatement, searchEntity);
+            ResultSet set = preparedStatement.executeQuery();
+            while (set.next()) {
+                resultList.add(UsersUtils.getUser(set));
+            }
+        } catch (SQLException throwables) {
+            throw new StorageException(throwables);
         }
-
         return resultList;
     }
 
@@ -54,7 +57,7 @@ public class UserManager implements StorageManager<User, User> {
             preparedStatement.setInt(3,entity.getEnabled());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw new StorageException(throwables);
         }
     }
 

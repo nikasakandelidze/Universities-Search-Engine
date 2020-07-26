@@ -3,6 +3,7 @@ package com.projectk.requester.implementations;
 import com.projectk.entities.User;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UserService;
+import com.projectk.requester.implementations.services.utils.EncryptionUtils;
 import com.projectk.requester.interfaces.UserRegistrationRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class UserRegistration implements UserRegistrationRequester {
 	public ModelAndView executeRegistration(@RequestParam String code,
 											@RequestParam String username,
 											@RequestParam String password) {
-		ServiceResult serviceResult = userService.addUser(new User("da", "dada"));
+		ServiceResult serviceResult = userService.addUser(new User(username, EncryptionUtils.encodeSHA1(password)));
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
 }
