@@ -65,6 +65,9 @@
                 <a class="nav-link" href="/homepage">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
+                <a  class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">about</a>
             </li>
             <li class="nav-item dropdown">
@@ -82,8 +85,8 @@
     </div>
 </nav>
     <p>
-        <h1 style="text-align: center">Welcome to ProjectK</h1>
-        <h4 style="text-align: center; padding-top:30px ;">Get all the information about universities</h4>
+        <h1 style="text-align: center; color:cadetblue;">Welcome to ProjectK</h1>
+        <h4 style="text-align: center; padding-top:30px; color:cadetblue;">Get all the information about universities</h4>
     </p>
     <form action="/homepage/search" method="post"  style="text-align: center; padding-top: 70px">
         <input  type="text" placeholder="Search" name="searchData" aria-label="Search">
