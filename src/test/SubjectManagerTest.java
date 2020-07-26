@@ -1,8 +1,11 @@
+import com.projectk.entities.Faculty;
 import com.projectk.entities.Subject;
+import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
+import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
 import com.projectk.storage.storageManager.implementations.subjectManager.SubjectManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
@@ -15,7 +18,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class SubjectManagerTest {
+public class SubjectManagerTests {
     private SubjectManager manager;
 
     @Test
@@ -53,6 +56,100 @@ public class SubjectManagerTest {
         Optional<Subject> found = subjectList
                 .stream()
                 .findAny();
+        Assert.notEmpty(subjectList, "jkefkef");
+        assertTrue(subjectList.contains(subject));
+        manager.update(updatedSubject);
+        subjectList = manager.filter(searchSubject);
+        assertFalse(subjectList.contains(subject));
+        assertTrue(subjectList.contains(updatedSubject));
+        manager.delete(updatedSubject);
+        subjectList = manager.filter(searchSubject);
+        assertFalse(subjectList.contains(updatedSubject));
+    }
+
+    @Test
+    public void testSubjectManagerByFacultyId() throws SQLException, StorageException {
+        ConnectionManager connectionManager = new MysqlConnectionManager();
+        manager = new SubjectManager(connectionManager);
+        String name = "test";
+        Subject subject = new Subject.Builder()
+                .subject_id(121121)
+                .faculty_id(1)
+                .subject_name(name)
+                .credits(3)
+                .descriptions("www.macs.ge")
+                .semester(2)
+                .build();
+        Subject updatedSubject = new Subject.Builder()
+                .subject_id(121121)
+                .faculty_id(1)
+                .subject_name(name)
+                .credits(3)
+                .descriptions("updated.ge")
+                .semester(3)
+                .build();
+        SearchSubject searchSubject = new SearchSubject.Builder()
+                .facultyId(subject.getFacultyId())
+                .build();
+        List<Subject> subjectList = new ArrayList<>();
+        try {
+            manager.delete(subject);
+            manager.add(subject);
+            subjectList = (manager.filter(searchSubject));
+        } catch (StorageException | SQLException e) {
+            e.printStackTrace();
+        }
+        Optional<Subject> found = subjectList
+                .stream()
+                .findAny();
+        Assert.notEmpty(subjectList, "jkefkef");
+        assertTrue(subjectList.contains(subject));
+        manager.update(updatedSubject);
+        subjectList = manager.filter(searchSubject);
+        assertFalse(subjectList.contains(subject));
+        assertTrue(subjectList.contains(updatedSubject));
+        manager.delete(updatedSubject);
+        subjectList = manager.filter(searchSubject);
+        assertFalse(subjectList.contains(updatedSubject));
+    }
+    @Test
+    public void testSubjectManagerByFacultyIdUniversityId() throws SQLException, StorageException {
+        ConnectionManager connectionManager = new MysqlConnectionManager();
+        manager = new SubjectManager(connectionManager);
+        String name = "test";
+        Subject subject = new Subject.Builder()
+                .subject_id(121121)
+                .faculty_id(1)
+                .subject_name(name)
+                .credits(3)
+                .descriptions("www.macs.ge")
+                .semester(2)
+                .build();
+        Subject updatedSubject = new Subject.Builder()
+                .subject_id(121121)
+                .faculty_id(1)
+                .subject_name(name)
+                .credits(3)
+                .descriptions("updated.ge")
+                .semester(3)
+                .build();
+        FacultyManager managerFaculty=new FacultyManager(connectionManager);
+        Faculty foundFaculty=managerFaculty.find(subject.getFacultyId());
+        SearchSubject searchSubject = new SearchSubject.Builder()
+                .universityFaculty(foundFaculty.getUniversityId(),subject.getFacultyId())
+                .build();
+        List<Subject> subjectList = new ArrayList<>();
+        try {
+            manager.delete(subject);
+            manager.add(subject);
+            subjectList = (manager.filter(searchSubject));
+        } catch (StorageException | SQLException e) {
+            e.printStackTrace();
+        }
+        Optional<Subject> found = subjectList
+                .stream()
+                .findAny();
+        subjectList=manager.filter(searchSubject);
         Assert.notEmpty(subjectList, "jkefkef");
         assertTrue(subjectList.contains(subject));
         manager.update(updatedSubject);
