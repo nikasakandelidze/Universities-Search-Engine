@@ -1,14 +1,10 @@
 package com.projectk.requester.implementations.services.implementations;
 
-import com.projectk.entities.Faculty;
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.implementations.utils.UserServiceUtils;
 import com.projectk.requester.implementations.services.interfaces.UserService;
-import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;
-import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +14,7 @@ import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private StorageManager<User,SearchUser> userManager;
+    private UserManager userManager;
 
     @Autowired
     public UserServiceImpl(UserManager userManager) {
@@ -29,9 +25,9 @@ public class UserServiceImpl implements UserService {
     public ServiceResult isUserAuthenticated(User user) {
         String view = "login";
         Map<String, Object> modelMap = new HashMap<>();
-        if (UserServiceUtils.isAuthenticated(user,userManager)) {
-            modelMap.put("user",user);
-            view = "UserPage";
+        //todo: checking is now hard coded change it so that database is checked for user
+        if (user.getUsername().equals("nika") && user.getEncoded_password().equals("123")) {
+            view = "UserLoginPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
         }
@@ -48,8 +44,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public ServiceResult addUser(User user) {
-        return null;
-    }
+	@Override
+	public ServiceResult addUser(User user) {
+		String view = "register";
+		Map<String, Object> modelMap = new HashMap<>();
+		modelMap.put("errorMessage", "Username or password incorrect.");
+		return new ServiceResult(view, modelMap);
+	}
 }
