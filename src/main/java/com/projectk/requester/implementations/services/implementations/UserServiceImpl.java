@@ -13,11 +13,11 @@ import java.util.Map;
 
 
 @Service
-public class UserLoginService implements UserService {
+public class UserServiceImpl implements UserService {
     private UserManager userManager;
 
     @Autowired
-    public UserLoginService(UserManager userManager) {
+    public UserServiceImpl(UserManager userManager) {
         this.userManager = userManager;
     }
 

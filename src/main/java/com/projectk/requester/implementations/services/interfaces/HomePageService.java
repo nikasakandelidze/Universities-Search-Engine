@@ -4,4 +4,5 @@ import com.projectk.requester.implementations.services.ServiceResult;
 
 public interface HomePageService {
     ServiceResult getHomePage();
+    ServiceResult search(String searchData);
 }
