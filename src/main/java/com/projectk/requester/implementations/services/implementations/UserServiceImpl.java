@@ -14,12 +14,12 @@ import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserManager userManager;
+	private UserManager userManager;
 
-    @Autowired
-    public UserServiceImpl(UserManager userManager) {
-        this.userManager = userManager;
-    }
+	@Autowired
+	public UserServiceImpl(UserManager userManager) {
+		this.userManager = userManager;
+	}
 
     @Override
     public ServiceResult isUserAuthenticated(User user) {
@@ -44,8 +44,11 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
-    public ServiceResult addUser(User user) {
-        return null;
-    }
+	@Override
+	public ServiceResult addUser(User user) {
+		String view = "register";
+		Map<String, Object> modelMap = new HashMap<>();
+		modelMap.put("errorMessage", "Username or password incorrect.");
+		return new ServiceResult(view, modelMap);
+	}
 }

@@ -4,5 +4,5 @@ import com.projectk.entities.User;
 
 public interface UserRegistrationRequester {
 	Object displayRegistration();
-	Object executeRegistration(User user);
+	Object executeRegistration(String username, String code, String password);
 }

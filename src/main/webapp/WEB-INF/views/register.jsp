@@ -63,29 +63,32 @@
                 Registration Page
             </h1>
             </p>
-            <form style="text-align: center" name="registerForm" action="/register" method="post">
+            <p style="color:darkred">
+                <c:out value="${errorMessage}"></c:out>
+            </p>
+            <form style="text-align: center" name="registerForm" action="/register" method="post" onsubmit="return validateInput()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
-                        <input type="text" class="form-control" placeholder="University Code">
+                        <input type="text" class="form-control" placeholder="University Code" name="code">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" class="form-control" placeholder="Confirm Password">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="confPassword">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
@@ -95,4 +98,38 @@
 </div>
 </body>
 </html>
-
+<script>
+    function validateInput(){
+        var username = document.forms["registerForm"]["username"].value;
+        var password = document.forms["registerForm"]["password"].value;
+        var confPassword = document.forms["registerForm"]["confPassword"].value;
+        var code = document.forms["registerForm"]["code"].value;
+        var inputsNotEmpty = true
+        if( username == "" ){
+            inputsNotEmpty = false
+            document.forms["registerForm"]["username"].style.backgroundColor="rgba(255,69,0, 0.2)"
+        }else{
+            document.forms["registerForm"]["username"].style.backgroundColor=""
+        }
+        if( password == "" ){
+            inputsNotEmpty = false
+            document.forms["registerForm"]["password"].style.backgroundColor="rgba(255,69,0, 0.2)"
+        }else{
+            document.forms["registerForm"]["username"].style.backgroundColor=""
+        }
+        var inputsNotEmpty = true
+        if( confPassword == "" ){
+            inputsNotEmpty = false
+            document.forms["registerForm"]["confPassword"].style.backgroundColor="rgba(255,69,0, 0.2)"
+        }else{
+            document.forms["registerForm"]["confPassword"].style.backgroundColor=""
+        }
+        if( code == "" ){
+            inputsNotEmpty = false
+            document.forms["registerForm"]["code"].style.backgroundColor="rgba(255,69,0, 0.2)"
+        }else{
+            document.forms["registerForm"]["code"].style.backgroundColor=""
+        }
+        return inputsNotEmpty
+    }
+</script>
