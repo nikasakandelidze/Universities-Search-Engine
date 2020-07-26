@@ -1,6 +1,7 @@
 package com.projectk.storage.storageManager.implementations.userManager;
 
 import com.projectk.entities.User;
+import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
-public class UserManager implements StorageManager<User, User> {
+public class UserManager implements StorageManager<User,SearchUser> {
     private ConnectionManager connectionManager;
 
     public UserManager(ConnectionManager connectionManager) {
@@ -21,7 +22,7 @@ public class UserManager implements StorageManager<User, User> {
     }
 
     @Override
-    public List<User> filter(User searchEntity) throws SQLException {
+    public List<User> filter(SearchUser searchEntity) throws SQLException {
         Connection connection = null;
         List<User> resultList = new ArrayList<>();
         connection = connectionManager.getConnection();
@@ -37,10 +38,12 @@ public class UserManager implements StorageManager<User, User> {
         return resultList;
     }
 
-    private void insertValuesToSelectStatement(PreparedStatement preparedStatement, User user) throws SQLException {
-        if (user.getUsername() != null) preparedStatement.setString(1, user.getUsername());
-        if (user.getEncoded_password() != null) preparedStatement.setString(2, user.getEncoded_password());
+    private void insertValuesToSelectStatement(PreparedStatement preparedStatement, SearchUser user) throws SQLException {
+        String user1=user.getUserName();
+        if (user.getUserName() != null) preparedStatement.setString(1, user.getUserName());
+        if (user.getPassword() != null) preparedStatement.setString(2, user.getPassword());
     }
+
 
     @Override
     public void add(User entity) throws StorageException {

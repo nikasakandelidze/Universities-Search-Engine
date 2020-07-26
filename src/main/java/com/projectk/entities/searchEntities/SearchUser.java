@@ -4,6 +4,8 @@ public class SearchUser {
 
     private String username;
 
+    private String password;
+
     public SearchUser() {
 
     }
@@ -13,8 +15,16 @@ public class SearchUser {
         return username;
     }
 
-    public void setUsername(String universityId) {
+    public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.username = password;
     }
 
 
@@ -22,8 +32,14 @@ public class SearchUser {
 
         private String userName;
 
+        private String  password;
+
         public SearchUser.Builder userName(String  val){
             userName=val;
+            return this;
+        }
+        public SearchUser.Builder password(String  val){
+            password=val;
             return this;
         }
 
@@ -35,5 +51,6 @@ public class SearchUser {
 
     public SearchUser(SearchUser.Builder builder){
         this.username=builder.userName;
+        this.password=builder.password;
     }
 }

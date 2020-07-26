@@ -37,7 +37,7 @@ public class UserTest {
         try {
             manager.delete(user);
             manager.add(user);
-            subjectList = (manager.filter(user));
+            subjectList = (manager.filter(searchUser));
         } catch (StorageException | SQLException e) {
             e.printStackTrace();
         }
@@ -56,12 +56,13 @@ public class UserTest {
         String name = "test";
         User user = new User.Builder()
                 .university_id(1)
-                .username("test1")
+                .username("test2")
                 .encoded_password("test1")
                 .build();
+        manager.delete(user);
         User updatedUser = new User.Builder()
                 .university_id(1)
-                .username("test1")
+                .username("test2")
                 .encoded_password("test" + "test")
                 .build();
         SearchUser searchUser = new SearchUser.Builder()
@@ -71,7 +72,7 @@ public class UserTest {
         try {
             manager.delete(user);
             manager.add(user);
-            subjectList = (manager.filter(user));
+            subjectList = (manager.filter(searchUser));
         } catch (StorageException | SQLException e) {
             e.printStackTrace();
         }
@@ -81,19 +82,19 @@ public class UserTest {
         Assert.notEmpty(subjectList, "jkefkef");
         assertTrue(subjectList.contains(user));
         manager.update(updatedUser);
-        SearchUser searchUser1 = new SearchUser.Builder()
+        SearchUser updatedSearchUser = new SearchUser.Builder()
                 .userName(updatedUser.getUsername())
                 .build();
 
-        subjectList = (manager.filter(updatedUser));
+        subjectList = (manager.filter(updatedSearchUser));
         Assert.notEmpty(subjectList, "jkefkef");
         assertTrue(!subjectList.contains(user));
         assertTrue(subjectList.contains(updatedUser));
         manager.delete(user);
         manager.delete(updatedUser);
-        subjectList = (manager.filter(updatedUser));
+        subjectList = (manager.filter(updatedSearchUser));
         assertTrue(!subjectList.contains(updatedUser));
-        subjectList = (manager.filter(user));
+        subjectList = (manager.filter(searchUser));
         assertTrue(!subjectList.contains(user));
     }
 }
