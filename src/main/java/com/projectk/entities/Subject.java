@@ -15,7 +15,8 @@ public class Subject {
 
     private int semester;
 
-    public Subject() {}
+    public Subject() {
+    }
 
     private Subject(Subject.Builder builder) {
         this.subjectId = builder.subjectId;

@@ -42,14 +42,14 @@ public class UniversityManagerTest {
     }
 
     @Test
-    public void testContainsAfterAndBeforeDelete() throws StorageException{
+    public void testContainsAfterAndBeforeDelete() throws StorageException {
         University university = new University.Builder().withId(6).withWebPageLink("uni.com").withCity("Tbilisi").withAddress("Avlabari").withName("Uni2").withDescriptions("best university in whole nothing").withUserName("testuser").build();
         universityManager.add(university);
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().build());
-        assertEquals(true,filter.contains(university));
+        assertEquals(true, filter.contains(university));
         universityManager.delete(university);
         List<University> filter2 = universityManager.filter(new SearchUniversity.Builder().build());
-        assertEquals(false,filter2.contains(university));
+        assertEquals(false, filter2.contains(university));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class UniversityManagerTest {
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().build());
         universityManager.delete(university);
         List<University> filter2 = universityManager.filter(new SearchUniversity.Builder().build());
-        assertEquals(filter.size(),filter2.size()+1);
+        assertEquals(filter.size(), filter2.size() + 1);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class UniversityManagerTest {
         University updateUniversity = new University.Builder().withId(10).withWebPageLink("zoro.com").withCity("Batumi").withAddress("Avlabari").withName("Uni7").withDescriptions("best university in whole nothing").withUserName("testuser").build();
         universityManager.update(updateUniversity);
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().build());
-        assertEquals(true,filter.contains(updateUniversity));
+        assertEquals(true, filter.contains(updateUniversity));
 
         //finalize
         universityManager.delete(university);
@@ -82,7 +82,7 @@ public class UniversityManagerTest {
         universityManager.add(university1);
         universityManager.add(university2);
         List<University> batumiUnis = universityManager.filter(new SearchUniversity.Builder().city("Batumi").build());
-        assertEquals(2,batumiUnis.size());
+        assertEquals(2, batumiUnis.size());
 
         //finalize
         universityManager.delete(university1);
@@ -94,8 +94,8 @@ public class UniversityManagerTest {
         University university1 = new University.Builder().withId(10).withWebPageLink("uni.com").withCity("Batumi").withAddress("Avlabari").withName("Uni7").withDescriptions("best university in whole nothing").withUserName("testuser").build();
         universityManager.add(university1);
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().universityId(university1.getId()).build());
-        assertEquals(1,filter.size());
-        assertEquals(university1,filter.get(0));
+        assertEquals(1, filter.size());
+        assertEquals(university1, filter.get(0));
 
         //finalize
         universityManager.delete(university1);
@@ -106,8 +106,8 @@ public class UniversityManagerTest {
         University university1 = new University.Builder().withId(10).withWebPageLink("uni.com").withCity("Batumi").withAddress("Avlabari").withName("Uni7").withDescriptions("best university in whole nothing").withUserName("testuser").build();
         universityManager.add(university1);
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().universityName(university1.getUniversityName()).build());
-        assertEquals(1,filter.size());
-        assertEquals(university1,filter.get(0));
+        assertEquals(1, filter.size());
+        assertEquals(university1, filter.get(0));
 
         //finalize
         universityManager.delete(university1);
@@ -118,8 +118,8 @@ public class UniversityManagerTest {
         University university1 = new University.Builder().withId(10).withWebPageLink("uni.com").withCity("Batumi").withAddress("Avlabari").withName("Uni7").withDescriptions("best university in whole nothing").withUserName("testuser").build();
         universityManager.add(university1);
         List<University> filter = universityManager.filter(new SearchUniversity.Builder().universityName(university1.getUniversityName()).build());
-        assertEquals(1,filter.size());
-        assertEquals(university1,filter.get(0));
+        assertEquals(1, filter.size());
+        assertEquals(university1, filter.get(0));
 
         //finalize
         universityManager.delete(university1);
@@ -135,10 +135,10 @@ public class UniversityManagerTest {
         universityManager.add(university2);
         universityManager.add(university3);
         List<University> filter1 = universityManager.filter(new SearchUniversity.Builder().build());
-        assertEquals(filter.size()+3,filter1.size());
-        assertEquals(true,filter1.contains(university1));
-        assertEquals(true,filter1.contains(university2));
-        assertEquals(true,filter1.contains(university3));
+        assertEquals(filter.size() + 3, filter1.size());
+        assertEquals(true, filter1.contains(university1));
+        assertEquals(true, filter1.contains(university2));
+        assertEquals(true, filter1.contains(university3));
 
         //finalise
         universityManager.delete(university1);

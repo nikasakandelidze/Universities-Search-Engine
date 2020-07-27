@@ -112,6 +112,7 @@ public class SubjectManagerTests {
         subjectList = manager.filter(searchSubject);
         assertFalse(subjectList.contains(updatedSubject));
     }
+
     @Test
     public void testSubjectManagerByFacultyIdUniversityId() throws SQLException, StorageException {
         ConnectionManager connectionManager = new MysqlConnectionManager();
@@ -133,10 +134,10 @@ public class SubjectManagerTests {
                 .descriptions("updated.ge")
                 .semester(3)
                 .build();
-        FacultyManager managerFaculty=new FacultyManager(connectionManager);
-        Faculty foundFaculty=managerFaculty.find(subject.getFacultyId());
+        FacultyManager managerFaculty = new FacultyManager(connectionManager);
+        Faculty foundFaculty = managerFaculty.find(subject.getFacultyId());
         SearchSubject searchSubject = new SearchSubject.Builder()
-                .universityFaculty(foundFaculty.getUniversityId(),subject.getFacultyId())
+                .universityFaculty(foundFaculty.getUniversityId(), subject.getFacultyId())
                 .build();
         List<Subject> subjectList = new ArrayList<>();
         try {
@@ -149,7 +150,7 @@ public class SubjectManagerTests {
         Optional<Subject> found = subjectList
                 .stream()
                 .findAny();
-        subjectList=manager.filter(searchSubject);
+        subjectList = manager.filter(searchSubject);
         Assert.notEmpty(subjectList, "jkefkef");
         assertTrue(subjectList.contains(subject));
         manager.update(updatedSubject);

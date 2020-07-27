@@ -38,7 +38,7 @@ public class UserTest {
             manager.delete(user);
             manager.add(user);
             subjectList = (manager.filter(searchUser));
-        } catch (StorageException | SQLException e) {
+        } catch (StorageException e) {
             e.printStackTrace();
         }
         Optional<User> found = subjectList
@@ -73,7 +73,7 @@ public class UserTest {
             manager.delete(user);
             manager.add(user);
             subjectList = (manager.filter(searchUser));
-        } catch (StorageException | SQLException e) {
+        } catch (StorageException e) {
             e.printStackTrace();
         }
         Optional<User> found = subjectList
