@@ -13,6 +13,10 @@ public class SearchUniversity {
 
     private String city;
 
+    public static SearchUniversity selectAll(){
+        return new SearchUniversity.Builder().build();
+    }
+
     public FacultyCategory getFacultyCategory() {
         return facultyCategory;
     }

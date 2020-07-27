@@ -8,9 +8,14 @@ public class SearchUser {
 
     private String password;
 
-    public SearchUser(User user) {
-        this.username = user.getUsername();
-        this.password = user.getEncoded_password();
+    public static SearchUser UserToSearchUser(User user) {
+        return new SearchUser.Builder().userName(user.getUsername())
+                .password(user.getEncoded_password())
+                .build();
+    }
+
+    public static SearchUser selectAll(){
+        return new SearchUser.Builder().build();
     }
 
     public String getUserName() {

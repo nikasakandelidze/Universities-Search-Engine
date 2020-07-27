@@ -12,6 +12,9 @@ public class SearchSubject {
 
     }
 
+    public static SearchSubject selectAll(){
+        return new SearchSubject.Builder().build();
+    }
 
     public Integer getUniversityId() {
         return universityId;

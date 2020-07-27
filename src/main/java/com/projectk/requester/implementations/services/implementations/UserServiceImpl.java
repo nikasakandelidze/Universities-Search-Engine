@@ -1,5 +1,6 @@
 package com.projectk.requester.implementations.services.implementations;
 
+import com.projectk.entities.Faculty;
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.requester.implementations.services.ServiceResult;
@@ -7,6 +8,7 @@ import com.projectk.requester.implementations.services.implementations.utils.Use
 import com.projectk.requester.implementations.services.interfaces.UserService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;
+import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserManager userManager;
+    private StorageManager<User,SearchUser> userManager;
 
     @Autowired
     public UserServiceImpl(UserManager userManager) {

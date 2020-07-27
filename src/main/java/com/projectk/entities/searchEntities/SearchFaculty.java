@@ -12,6 +12,10 @@ public class SearchFaculty {
 
 	private Long maxPrice;
 
+	public static SearchFaculty selectAll(){
+		return new SearchFaculty.Builder().build();
+	}
+
 	public Integer getUniversityID() {
 		return universityID;
 	}
@@ -27,6 +31,7 @@ public class SearchFaculty {
 	public Long getMaxPrice() {
 		return maxPrice;
 	}
+
 
 	public static class Builder {
 		private Integer universityID;
