@@ -28,8 +28,7 @@ public class UserRegistration implements UserRegistrationRequester {
 
 	@Override
 	@PostMapping("/register")
-	public ModelAndView executeRegistration(@RequestParam String code,
-											@RequestParam String username,
+	public ModelAndView executeRegistration(@RequestParam String username,
 											@RequestParam String password) {
 		ServiceResult serviceResult = userService.addUser(new User(username, EncryptionUtils.encodeSHA1(password)));
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());

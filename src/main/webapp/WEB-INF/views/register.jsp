@@ -121,9 +121,8 @@
             inputsNotEmpty = false
             document.getElementById("txtPassword").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.fgetElementById("txtPassword").style.backgroundColor=""
+            document.getElementById("txtPassword").style.backgroundColor=""
         }
-        var inputsNotEmpty = true
         if( confPassword == "" ){
             inputsNotEmpty = false
             document.getElementById("txtConfirmPassword").style.backgroundColor="rgba(255,69,0, 0.2)"

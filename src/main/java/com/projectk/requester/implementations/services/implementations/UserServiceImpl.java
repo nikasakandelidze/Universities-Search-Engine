@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 		String view = "register";
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
-			Optional<User> found = userManager.filter(new User.Builder().username(user.getUsername()).build())
+			Optional<User> found = userManager.filter(new SearchUser.Builder().userName(user.getUsername()).build())
 					.stream()
 					.findAny();
 			if (found.isPresent()) {
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 			}
 		} catch (StorageException e) {
 			//todo: change this error message to user friendly
-			//modelMap.put("errorMessage", e.getMessage());
+			modelMap.put("errorMessage", "Ups something went wrong...");
 		}
 		return new ServiceResult(view, modelMap);
 	}
