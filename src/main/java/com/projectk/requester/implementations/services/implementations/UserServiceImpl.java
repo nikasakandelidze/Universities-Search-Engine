@@ -4,6 +4,7 @@ import com.projectk.entities.Faculty;
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.implementations.utils.UserServiceUtils;
 import com.projectk.requester.implementations.services.interfaces.UserService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;
@@ -29,9 +30,9 @@ public class UserServiceImpl implements UserService {
 	public ServiceResult isUserAuthenticated(User user) {
 		String view = "login";
 		Map<String, Object> modelMap = new HashMap<>();
-		//todo: checking is now hard coded change it so that database is checked for user
-		if (user.getUsername().equals("nika") && user.getEncoded_password().equals("123")) {
-			view = "UserLoginPage";
+		if (UserServiceUtils.isAuthenticated(user,userManager)) {
+			modelMap.put("user",user);
+			view = "UserPage";
 		} else {
 			modelMap.put("errorMessage", "Username or password incorrect.");
 		}
@@ -60,6 +61,7 @@ public class UserServiceImpl implements UserService {
 				modelMap.put("errorMessage", "This username already exists!");
 			} else {
 				userManager.add(user);
+				view = "login";
 			}
 		} catch (StorageException e) {
 			//todo: change this error message to user friendly

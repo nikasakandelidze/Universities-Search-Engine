@@ -3,6 +3,7 @@ package com.projectk.requester.implementations;
 import com.projectk.entities.User;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UserService;
+import com.projectk.requester.implementations.services.utils.EncryptionUtils;
 import com.projectk.requester.interfaces.UserRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class UserLogin implements UserRequester {
     @PostMapping("/login")
     public ModelAndView executeLogin(@RequestParam String username,
                                      @RequestParam String password) {
-        ServiceResult serviceResult = userService.isUserAuthenticated(new User(username, password));
+        ServiceResult serviceResult = userService.isUserAuthenticated(new User(username, EncryptionUtils.encodeSHA1(password)));
         return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 }
