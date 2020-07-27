@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService {
         String view = "login";
         Map<String, Object> modelMap = new HashMap<>();
         if (UserServiceUtils.isAuthenticated(user,userManager)) {
-            view = "UserLoginPage";
+            modelMap.put("user",user);
+            view = "UserPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
         }

@@ -17,6 +17,7 @@
         /* Full-width inputs */
         input[type=text], input[type=password] {
             width: 35%;
+            height: 40px;
             padding: 12px 20px;
             margin: 8px 0;
             display: inline-block;
@@ -74,7 +75,7 @@
             Login Page
         </h1>
     </p>
-    <p style="color:darkred">
+    <p style="color:darkred; text-align: center">
       <c:out value="${errorMessage}"></c:out>
 
     </p>
@@ -83,6 +84,12 @@
         Password: <input id="password" type="password" placeholder="Password" name="password"><br>
         <input type="submit" value="Login">
     </form>
+    <p style="text-align: center; padding-top: 20px">
+        Don't have an account?
+        <a href="/register">
+        Register now
+        </a>
+    </p>
 </body>
 </html>
 
