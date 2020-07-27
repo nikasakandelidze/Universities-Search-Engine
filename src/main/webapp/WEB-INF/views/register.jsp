@@ -52,6 +52,17 @@
         .forgot a:hover {
             color: #5cb85c;
         }
+         input[type=submit] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 150px;
+            height: 50px;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +104,7 @@
     <section id="inner-wrapper" class="register">
         <article>
             <p>
-            <h1 style="text-align: center; font-family: Chandas">
+            <h1 style="text-align: center; color:cadetblue;">
                 Registration Page
             </h1>
             </p>
@@ -128,7 +139,7 @@
                                placeholder="Confirm Password" name="confPassword">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Submit</button>
+                <input type="submit" ></input>
             </form>
         </article>
     </section>
