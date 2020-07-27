@@ -38,10 +38,18 @@ public class FacultyUtils {
 		switch (category) {
 			case "BUSINESS":
 				return FacultyCategory.BUSINESS;
-			case "CS":
-				return FacultyCategory.CS;
+			case "COMPUTERSCIENCE":
+				return FacultyCategory.COMPUTERSCIENCE;
 			case "ENGINEERING":
 				return FacultyCategory.ENGINEERING;
+			case "PSYCHOLOGY":
+				return FacultyCategory.PSYCHOLOGY;
+			case "LAW":
+				return FacultyCategory.LAW;
+			case "MEDICINE":
+				return FacultyCategory.MEDICINE;
+			case "PHILOSOPHY":
+				return FacultyCategory.PHILOSOPHY;
 		}
 		return null;
 	}
