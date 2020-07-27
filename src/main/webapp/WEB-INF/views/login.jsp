@@ -28,6 +28,7 @@
             background-color: #4CAF50;
             border: none;
             color: white;
+            height: 50px;
             padding: 16px 32px;
             text-decoration: none;
             margin: 4px 2px;
