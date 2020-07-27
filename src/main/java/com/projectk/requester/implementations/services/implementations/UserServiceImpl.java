@@ -3,7 +3,9 @@ package com.projectk.requester.implementations.services.implementations;
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.implementations.utils.UserServiceUtils;
 import com.projectk.requester.implementations.services.interfaces.UserService;
+import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +27,7 @@ public class UserServiceImpl implements UserService {
     public ServiceResult isUserAuthenticated(User user) {
         String view = "login";
         Map<String, Object> modelMap = new HashMap<>();
-        //todo: checking is now hard coded change it so that database is checked for user
-        if (user.getUsername().equals("nika") && user.getEncoded_password().equals("123")) {
+        if (UserServiceUtils.isAuthenticated(user,userManager)) {
             view = "UserLoginPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");

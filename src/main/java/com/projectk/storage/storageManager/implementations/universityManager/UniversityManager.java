@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class UniversityManager implements StorageManager<University, SearchUniversity> {
@@ -28,7 +29,7 @@ public class UniversityManager implements StorageManager<University, SearchUnive
 
     @Override
     public List<University> filter(SearchUniversity searchUniversity) throws StorageException {
-        List<University> result;
+        List<University> result = new ArrayList<>();
         try(Connection connection = connectionManager.getConnection()){
             result = universityPersister.filter(connection, searchUniversity);
         } catch (SQLException throwables) {

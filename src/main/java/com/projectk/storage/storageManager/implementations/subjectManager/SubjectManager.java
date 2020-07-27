@@ -10,6 +10,7 @@ import com.projectk.storage.storageManager.implementations.subjectManager.execut
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.implementations.SearchSubjectWildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.implementations.subjectManager.executableStatementGenerator.helpers.sqlQueryGenerators.interfaces.WildCardSqlQueryGenerator;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -20,12 +21,13 @@ import java.util.List;
 public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     private ConnectionManager connectionManager;
 
+    @Autowired
     public SubjectManager(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 
     @Override
-    public List<Subject> filter(SearchSubject searchEntity) throws StorageException, SQLException {
+    public List<Subject> filter(SearchSubject searchEntity) throws StorageException {
         Connection connection = null;
         List<Subject> resultList = new ArrayList<>();
         try {
@@ -54,7 +56,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     }
 
     @Override
-    public void add(Subject entity) {
+    public void add(Subject entity) throws  StorageException{
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
@@ -63,13 +65,13 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             insertValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw new StorageException(throwables);
         }
 
     }
 
     @Override
-    public void delete(Subject entity) {
+    public void delete(Subject entity) throws StorageException{
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
@@ -77,12 +79,12 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             preparedStatement.setInt(1, entity.getSubjectId());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw  new StorageException(throwables);
         }
     }
 
     @Override
-    public void update(Subject entity) {
+    public void update(Subject entity) throws StorageException {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
@@ -92,7 +94,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             updateValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw  new StorageException(throwables);
         }
     }
 
