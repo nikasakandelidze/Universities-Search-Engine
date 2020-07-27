@@ -98,7 +98,7 @@
         <h3 style=" text-align: center">Faculties</h3>
     <div class="facultyList" style="padding-left: 60px">
             <c:forEach items="${faculties}" var="faculty">
-                <a href="${faculty.category}" >
+                <a href="/homepage/faculties/${faculty.category}" >
                      <span class="facultyClass border" style="float:left; padding-right: 80px; padding-left: 70px; background-color: #c6c6c6; border:1px solid black;">
                         <div  class="facultyName" style="float:left; padding-right: 80px; padding-left: 70px ">
                             <c:out value="${faculty.category}"></c:out>
