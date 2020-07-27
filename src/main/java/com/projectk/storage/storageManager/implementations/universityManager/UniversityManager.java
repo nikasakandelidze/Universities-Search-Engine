@@ -13,24 +13,26 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class UniversityManager implements StorageManager<University, SearchUniversity> {
-    private  ConnectionManager connectionManager;
-    private  UniversityPersister universityPersister;
+    private ConnectionManager connectionManager;
+    private UniversityPersister universityPersister;
 
     @Autowired
-    public void setConnectionManager(ConnectionManager connectionManager){
+    public void setConnectionManager(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
+
     @Autowired
-    public void setUniversityPersister(UniversityPersister universityPersister){
+    public void setUniversityPersister(UniversityPersister universityPersister) {
         this.universityPersister = universityPersister;
     }
 
     @Override
     public List<University> filter(SearchUniversity searchUniversity) throws StorageException {
         List<University> result = new ArrayList<>();
-        try(Connection connection = connectionManager.getConnection()){
+        try (Connection connection = connectionManager.getConnection()) {
             result = universityPersister.filter(connection, searchUniversity);
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
@@ -40,7 +42,7 @@ public class UniversityManager implements StorageManager<University, SearchUnive
 
     @Override
     public void add(University entity) throws StorageException {
-        try(Connection connection = connectionManager.getConnection()){
+        try (Connection connection = connectionManager.getConnection()) {
             universityPersister.add(connection, entity);
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
@@ -49,7 +51,7 @@ public class UniversityManager implements StorageManager<University, SearchUnive
 
     @Override
     public void delete(University entity) throws StorageException {
-        try(Connection connection = connectionManager.getConnection()){
+        try (Connection connection = connectionManager.getConnection()) {
             universityPersister.delete(connection, entity);
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
@@ -58,7 +60,7 @@ public class UniversityManager implements StorageManager<University, SearchUnive
 
     @Override
     public void update(University entity) throws StorageException {
-        try(Connection connection = connectionManager.getConnection()){
+        try (Connection connection = connectionManager.getConnection()) {
             universityPersister.update(connection, entity);
         } catch (SQLException throwables) {
             throw new StorageException(throwables);

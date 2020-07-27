@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class ServiceResult {
     private String viewName;
-    private Map<String,Object> modelMap;
+    private Map<String, Object> modelMap;
 
     public ServiceResult(String viewName, Map<String, Object> modelMap) {
         this.viewName = viewName;

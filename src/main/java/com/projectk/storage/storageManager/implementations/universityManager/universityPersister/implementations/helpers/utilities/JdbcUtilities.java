@@ -12,7 +12,7 @@ public class JdbcUtilities {
     public static List<University> getListOfUniversities(ResultSet resultSet) throws StorageException {
         List<University> universities = new ArrayList<>();
         try {
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 universities.add(getUniversity(resultSet));
             }
         } catch (SQLException throwables) {

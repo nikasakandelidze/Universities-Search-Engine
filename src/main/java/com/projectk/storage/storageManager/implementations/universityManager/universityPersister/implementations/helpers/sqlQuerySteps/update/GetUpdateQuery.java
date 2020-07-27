@@ -19,7 +19,7 @@ public class GetUpdateQuery implements Step<University, String> {
         if (input.getWebPageLink() != null) {
             builder.append(", web_page_link = ? ");
         }
-        if (input.getDescriptions() != null){
+        if (input.getDescriptions() != null) {
             builder.append(", descriptions = ? ");
         }
         builder.append("where id = ?");

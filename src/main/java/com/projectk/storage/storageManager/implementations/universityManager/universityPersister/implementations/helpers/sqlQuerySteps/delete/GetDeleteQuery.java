@@ -5,10 +5,10 @@ import com.projectk.storage.storageManager.implementations.universityManager.uni
 
 import java.sql.SQLException;
 
-public class GetDeleteQuery implements Step<University,String> {
+public class GetDeleteQuery implements Step<University, String> {
     @Override
-    public String process(University input)  {
-        StringBuilder builder = new StringBuilder("DELETE FROM university U WHERE U.id = ?;" );
+    public String process(University input) {
+        StringBuilder builder = new StringBuilder("DELETE FROM university U WHERE U.id = ?;");
         return builder.toString();
     }
 }

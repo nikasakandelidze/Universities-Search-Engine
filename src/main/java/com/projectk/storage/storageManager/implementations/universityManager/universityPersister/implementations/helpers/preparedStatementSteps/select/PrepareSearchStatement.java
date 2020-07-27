@@ -10,7 +10,8 @@ import java.sql.SQLException;
 public class PrepareSearchStatement implements Step<String, Object> {
     private Connection connection;
     private SearchUniversity searchUniversity;
-    public PrepareSearchStatement(Connection connection, SearchUniversity searchUniversity){
+
+    public PrepareSearchStatement(Connection connection, SearchUniversity searchUniversity) {
         this.connection = connection;
         this.searchUniversity = searchUniversity;
     }
@@ -20,17 +21,17 @@ public class PrepareSearchStatement implements Step<String, Object> {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(input);
-            int variableIndex=1;
-            if(searchUniversity.getUniversityId()!=null){
-                statement.setInt(variableIndex,searchUniversity.getUniversityId());
+            int variableIndex = 1;
+            if (searchUniversity.getUniversityId() != null) {
+                statement.setInt(variableIndex, searchUniversity.getUniversityId());
                 variableIndex++;
             }
-            if(searchUniversity.getCity()!=null){
-                statement.setString(variableIndex,searchUniversity.getCity());
+            if (searchUniversity.getCity() != null) {
+                statement.setString(variableIndex, searchUniversity.getCity());
                 variableIndex++;
             }
-            if(searchUniversity.getUniversityName()!=null){
-                statement.setString(variableIndex,searchUniversity.getUniversityName());
+            if (searchUniversity.getUniversityName() != null) {
+                statement.setString(variableIndex, searchUniversity.getUniversityName());
                 variableIndex++;
             }
         } catch (SQLException throwables) {

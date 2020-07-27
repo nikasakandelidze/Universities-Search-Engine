@@ -14,7 +14,7 @@ public class SearchUser {
                 .build();
     }
 
-    public static SearchUser selectAll(){
+    public static SearchUser selectAll() {
         return new SearchUser.Builder().build();
     }
 

@@ -56,7 +56,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     }
 
     @Override
-    public void add(Subject entity) throws  StorageException{
+    public void add(Subject entity) throws StorageException {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
@@ -71,7 +71,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
     }
 
     @Override
-    public void delete(Subject entity) throws StorageException{
+    public void delete(Subject entity) throws StorageException {
         Connection connection = null;
         try {
             connection = connectionManager.getConnection();
@@ -79,7 +79,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             preparedStatement.setInt(1, entity.getSubjectId());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throw  new StorageException(throwables);
+            throw new StorageException(throwables);
         }
     }
 
@@ -94,7 +94,7 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
             updateValues(entity, preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throw  new StorageException(throwables);
+            throw new StorageException(throwables);
         }
     }
 

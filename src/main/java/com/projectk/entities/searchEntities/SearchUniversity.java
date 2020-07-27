@@ -13,7 +13,7 @@ public class SearchUniversity {
 
     private String city;
 
-    public static SearchUniversity selectAll(){
+    public static SearchUniversity selectAll() {
         return new SearchUniversity.Builder().build();
     }
 
@@ -48,7 +48,8 @@ public class SearchUniversity {
     public void setCity(String city) {
         this.city = city;
     }
-    public static class Builder{
+
+    public static class Builder {
         private FacultyCategory faculty;
 
         private String universityName;
@@ -57,29 +58,32 @@ public class SearchUniversity {
 
         private String city;
 
-        public SearchUniversity.Builder universityId(Integer val){
-            universityId=val;
+        public SearchUniversity.Builder universityId(Integer val) {
+            universityId = val;
             return this;
         }
-        public SearchUniversity.Builder faculty(FacultyCategory fac){
-            faculty=fac;
+
+        public SearchUniversity.Builder faculty(FacultyCategory fac) {
+            faculty = fac;
             return this;
         }
-        public SearchUniversity.Builder city(String cityVal){
-            city=cityVal;
+
+        public SearchUniversity.Builder city(String cityVal) {
+            city = cityVal;
             return this;
         }
-        public SearchUniversity.Builder universityName(String UniName){
+
+        public SearchUniversity.Builder universityName(String UniName) {
             universityName = UniName;
             return this;
         }
 
-        public SearchUniversity build(){
-            return  new SearchUniversity(this);
+        public SearchUniversity build() {
+            return new SearchUniversity(this);
         }
     }
 
-    private SearchUniversity(SearchUniversity.Builder builder){
+    private SearchUniversity(SearchUniversity.Builder builder) {
         this.facultyCategory = builder.faculty;
         this.city = builder.city;
         this.universityId = builder.universityId;

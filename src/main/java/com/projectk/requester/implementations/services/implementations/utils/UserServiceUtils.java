@@ -6,7 +6,7 @@ import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.interfaces.StorageManager;
 
 public class UserServiceUtils {
-    public static boolean isAuthenticated(User user, StorageManager<User,SearchUser> userManager) {
+    public static boolean isAuthenticated(User user, StorageManager<User, SearchUser> userManager) {
         try {
             return !userManager.filter(SearchUser.UserToSearchUser(user)).isEmpty();
         } catch (StorageException e) {

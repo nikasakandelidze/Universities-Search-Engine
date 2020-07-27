@@ -11,7 +11,7 @@ public class PrepareInsertStatement implements Step<String, Object> {
     private Connection connection;
     private University university;
 
-    public PrepareInsertStatement(Connection connection, University university){
+    public PrepareInsertStatement(Connection connection, University university) {
         this.connection = connection;
         this.university = university;
     }
@@ -21,13 +21,13 @@ public class PrepareInsertStatement implements Step<String, Object> {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(input);
-            preparedStatement.setInt(1,university.getId());
-            preparedStatement.setString(2,university.getUniversityName());
-            preparedStatement.setString(3,university.getCity());
-            preparedStatement.setString(4,university.getAddress());
-            preparedStatement.setString(5,university.getWebPageLink());
-            preparedStatement.setString(6,university.getDescriptions());
-            preparedStatement.setString(7,university.getUsername());
+            preparedStatement.setInt(1, university.getId());
+            preparedStatement.setString(2, university.getUniversityName());
+            preparedStatement.setString(3, university.getCity());
+            preparedStatement.setString(4, university.getAddress());
+            preparedStatement.setString(5, university.getWebPageLink());
+            preparedStatement.setString(6, university.getDescriptions());
+            preparedStatement.setString(7, university.getUsername());
         } catch (SQLException throwables) {
             throw new StepException(throwables);
         }

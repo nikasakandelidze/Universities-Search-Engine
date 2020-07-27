@@ -11,7 +11,7 @@ public class PrepareDeleteStatement implements Step<String, Object> {
     private Connection connection;
     private University university;
 
-    public PrepareDeleteStatement(Connection connection, University university){
+    public PrepareDeleteStatement(Connection connection, University university) {
         this.connection = connection;
         this.university = university;
     }
@@ -21,7 +21,7 @@ public class PrepareDeleteStatement implements Step<String, Object> {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(input);
-            preparedStatement.setInt(1,university.getId());
+            preparedStatement.setInt(1, university.getId());
         } catch (SQLException throwables) {
             throw new StepException(throwables);
         }

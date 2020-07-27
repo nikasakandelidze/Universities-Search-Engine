@@ -6,12 +6,12 @@ import com.projectk.storage.storageManager.implementations.subjectManager.execut
 
 import java.sql.SQLException;
 
-public class JdbcExecutableStatementGenerator<T,Q> implements ExecutableStatementGenerator<T,Q> {
+public class JdbcExecutableStatementGenerator<T, Q> implements ExecutableStatementGenerator<T, Q> {
     private PreparedStatementGenerator<T> preparedStatementGenerator;
     private WildCardSqlQueryGenerator<T> wildCardSqlQueryGenerator;
 
     public JdbcExecutableStatementGenerator(PreparedStatementGenerator<T> preparedStatementGenerator,
-                                            WildCardSqlQueryGenerator<T> wildCardSqlQueryGenerator){
+                                            WildCardSqlQueryGenerator<T> wildCardSqlQueryGenerator) {
         this.preparedStatementGenerator = preparedStatementGenerator;
         this.wildCardSqlQueryGenerator = wildCardSqlQueryGenerator;
     }
@@ -19,7 +19,7 @@ public class JdbcExecutableStatementGenerator<T,Q> implements ExecutableStatemen
     @Override
     public Object getSelectExecutableStatement(T searchEntity) throws StorageException {
         try {
-            return preparedStatementGenerator.generatePreparedStatementFromSqlQuery(wildCardSqlQueryGenerator.generateWildCardQueryFromSearchEntity(searchEntity),searchEntity);
+            return preparedStatementGenerator.generatePreparedStatementFromSqlQuery(wildCardSqlQueryGenerator.generateWildCardQueryFromSearchEntity(searchEntity), searchEntity);
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }

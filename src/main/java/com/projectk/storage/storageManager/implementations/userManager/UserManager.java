@@ -44,13 +44,13 @@ public class UserManager implements StorageManager<User, SearchUser> {
         }
     }
 
-    private void insertValuesToSelectStatement(PreparedStatement preparedStatement, SearchUser user) throws  SQLException {
+    private void insertValuesToSelectStatement(PreparedStatement preparedStatement, SearchUser user) throws SQLException {
         String user1 = user.getUserName();
-            if (user.getUserName() != null) {
-                preparedStatement.setString(1, user.getUserName());
-                if (user.getPassword() != null)
-                    preparedStatement.setString(2, user.getPassword());
-            }
+        if (user.getUserName() != null) {
+            preparedStatement.setString(1, user.getUserName());
+            if (user.getPassword() != null)
+                preparedStatement.setString(2, user.getPassword());
+        }
     }
 
 
