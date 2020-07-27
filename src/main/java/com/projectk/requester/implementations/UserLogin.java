@@ -14,8 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserLogin implements UserRequester {
     private UserService userService;
+
     @Autowired
-    public UserLogin(UserService userService){
+    public UserLogin(UserService userService) {
         this.userService = userService;
     }
 

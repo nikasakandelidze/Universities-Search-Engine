@@ -14,23 +14,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserRegistration implements UserRegistrationRequester {
-	private UserService userService;
-	@Autowired
-	public UserRegistration(UserService userService){
-		this.userService = userService;
-	}
+    private UserService userService;
 
-	@Override
-	@GetMapping("/register")
-	public Object displayRegistration() {
-		return "register";
-	}
+    @Autowired
+    public UserRegistration(UserService userService) {
+        this.userService = userService;
+    }
 
-	@Override
-	@PostMapping("/register")
-	public ModelAndView executeRegistration(@RequestParam String username,
-											@RequestParam String password) {
-		ServiceResult serviceResult = userService.addUser(new User(username, EncryptionUtils.encodeSHA1(password)));
-		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
-	}
+    @Override
+    @GetMapping("/register")
+    public Object displayRegistration() {
+        return "register";
+    }
+
+    @Override
+    @PostMapping("/register")
+    public ModelAndView executeRegistration(@RequestParam String username,
+                                            @RequestParam String password) {
+        ServiceResult serviceResult = userService.addUser(new User(username, EncryptionUtils.encodeSHA1(password)));
+        return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
+    }
 }

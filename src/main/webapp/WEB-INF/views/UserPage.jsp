@@ -11,6 +11,6 @@
     <title>Home Page</title>
 </head>
 <body>
-    Welcome <%=request.getParameter("username")%> + <%=request.getParameter("password")%>
+Welcome <%=request.getParameter("username")%> + <%=request.getParameter("password")%>
 </body>
 </html>

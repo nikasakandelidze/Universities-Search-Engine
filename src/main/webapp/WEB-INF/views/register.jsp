@@ -58,7 +58,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/homepage">ProjectK</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -68,13 +69,14 @@
                 <a class="nav-link" href="/homepage">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">about</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -98,29 +100,32 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="registerForm" action="/register" method="post" onsubmit="return validate()">
+            <form style="text-align: center" name="registerForm" action="/register" method="post"
+                  onsubmit="return validate()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>
-                        <input type="text" id="txtUsername"class="form-control" placeholder="Username" name="username">
+                        <input type="text" id="txtUsername" class="form-control" placeholder="Username" name="username">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
-                        <input type="text" id="txtCode"class="form-control" placeholder="University Code" name="code">
+                        <input type="text" id="txtCode" class="form-control" placeholder="University Code" name="code">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" id="txtPassword" class="form-control" placeholder="Password" name="password">
+                        <input type="password" id="txtPassword" class="form-control" placeholder="Password"
+                               name="password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="password" id="txtConfirmPassword" class="form-control" placeholder="Confirm Password" name="confPassword">
+                        <input type="password" id="txtConfirmPassword" class="form-control"
+                               placeholder="Confirm Password" name="confPassword">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
@@ -135,35 +140,35 @@
         return validatePassword() && validateRequiredFields();
     }
 
-    function validateRequiredFields(){
+    function validateRequiredFields() {
         var username = document.getElementById("txtUsername").value;
         var password = document.getElementById("txtPassword").value;
         var confPassword = document.getElementById("txtConfirmPassword").value;
         var code = document.getElementById("txtCode").value;
         var inputsNotEmpty = true
-        if( username == "" ){
+        if (username == "") {
             inputsNotEmpty = false
-            document.getElementById("txtUsername").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("txtUsername").style.backgroundColor=""
+            document.getElementById("txtUsername").style.backgroundColor = "rgba(255,69,0, 0.2)"
+        } else {
+            document.getElementById("txtUsername").style.backgroundColor = ""
         }
-        if( password == "" ){
+        if (password == "") {
             inputsNotEmpty = false
-            document.getElementById("txtPassword").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("txtPassword").style.backgroundColor=""
+            document.getElementById("txtPassword").style.backgroundColor = "rgba(255,69,0, 0.2)"
+        } else {
+            document.getElementById("txtPassword").style.backgroundColor = ""
         }
-        if( confPassword == "" ){
+        if (confPassword == "") {
             inputsNotEmpty = false
-            document.getElementById("txtConfirmPassword").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("txtConfirmPassword").style.backgroundColor=""
+            document.getElementById("txtConfirmPassword").style.backgroundColor = "rgba(255,69,0, 0.2)"
+        } else {
+            document.getElementById("txtConfirmPassword").style.backgroundColor = ""
         }
-        if( code == "" ){
+        if (code == "") {
             inputsNotEmpty = false
-            document.getElementById("txtCode").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("txtCode").style.backgroundColor=""
+            document.getElementById("txtCode").style.backgroundColor = "rgba(255,69,0, 0.2)"
+        } else {
+            document.getElementById("txtCode").style.backgroundColor = ""
         }
         return inputsNotEmpty
     }
