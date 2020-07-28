@@ -11,8 +11,6 @@
 <html>
 <head>
     <title>Home Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style> input {
         width: 35%;
         padding: 12px 20px;
@@ -21,15 +19,12 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-
     input:hover {
         border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
     }
-
     input:focus {
         border-color: #4d90fe;
     }
-
     input[type="submit"] {
         border-radius: 2px;
         background: #f2f2f2;
@@ -42,7 +37,6 @@
         padding: 0 16px;
         height: 47px;
     }
-
     input[type="submit"]:hover {
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         background: #f8f8f8;
@@ -50,11 +44,12 @@
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
         color: #222;
     }
-
     .nav-item:hover {
         background-color: #cccccc;
     }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -73,19 +68,7 @@
                 <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">about</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                <a class="nav-link" href="/WEB-INF/views/about.jsp">about</a>
             </li>
         </ul>
     </div>
