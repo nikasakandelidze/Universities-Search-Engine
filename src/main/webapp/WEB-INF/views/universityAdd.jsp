@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.projectk.entities.User" %><%--
   Created by IntelliJ IDEA.
   User: AzRy
   Date: 7/27/2020
@@ -6,7 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Add University</title>
@@ -55,7 +57,6 @@
 </head>
 <body>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="col-md-4 col-md-offset-4" id="register">
     <section id="inner-wrapper" class="register">
         <article>
@@ -107,7 +108,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="hidden" id="userName" value="${sessionScope.user.username})">
+                        <input type="hidden" name="username" value="${sessionScope.user.username}" >
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>

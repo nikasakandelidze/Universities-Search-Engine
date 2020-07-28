@@ -21,21 +21,16 @@ public class UniversityServiceImpl implements UniversityService {
 	public UniversityServiceImpl(UniversityManager universityManager) {
 		this.universityManager = universityManager;
 	}
+
 	@Override
 	public ServiceResult addUniversity(University university) {
 		String view = "universityAdd";
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
-			Optional<University> found = universityManager.filter(new SearchUniversity.Builder().universityName(university.getUniversityName()).build())
-					.stream()
-					.findAny();
-			if (found.isPresent()) {
-				modelMap.put("errorMessage", "University name already exists!");
-			} else {
-				universityManager.add(university);
-			}
+			universityManager.add(university);
+			view = "UserPage";
 		} catch (StorageException e) {
-			modelMap.put("errorMessage", "Ups something went wrong...");
+			modelMap.put("errorMessage", "University name already exists!");
 		}
 		return new ServiceResult(view, modelMap);
 	}

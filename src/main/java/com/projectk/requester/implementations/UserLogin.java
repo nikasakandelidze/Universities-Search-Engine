@@ -3,6 +3,7 @@ package com.projectk.requester.implementations;
 import com.projectk.entities.User;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UserService;
+import com.projectk.requester.implementations.services.utils.EncryptionUtils;
 import com.projectk.requester.interfaces.UserRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -34,7 +35,7 @@ public class UserLogin implements UserRequester {
     public ModelAndView executeLogin(@RequestParam String username,
                                      @RequestParam String password,
                                      HttpSession session) {
-        User user = new User(username, password);
+        User user = new User(username, EncryptionUtils.encodeSHA1(password));
         ServiceResult serviceResult = userService.isUserAuthenticated(user);
         if (successfulLogin(serviceResult)) {
             session.setAttribute("user", user);
