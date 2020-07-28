@@ -9,6 +9,9 @@ import com.projectk.requester.interfaces.UniversityRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,13 +24,19 @@ public class UniversityRegistration implements UniversityRequester {
 	}
 
 	@Override
-	@GetMapping("/universityAdd")
+	@GetMapping("/adduniversity")
 	public Object displayUniversityRegistration() {
 		return "universityAdd";
 	}
 
 	@Override
-	public ModelAndView executeUniversityRegistration(String username, String password) {
+	@PostMapping("/adduniversity")
+	public ModelAndView executeUniversityRegistration(@RequestParam String code,
+													  @RequestParam String name,
+													  @RequestParam String city,
+													  @RequestParam String address,
+													  @RequestParam String web,
+													  @RequestParam String description) {
 		ServiceResult serviceResult = universityService.addUniversity(new University.Builder().build());
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
