@@ -11,95 +11,11 @@
 <html>
 <head>
     <title>Registration</title>
-    <style>
-        body {
-            background: #333;
-        }
-
-        #register {
-            -webkit-perspective: 1000px;
-            -moz-perspective: 1000px;
-            perspective: 1000px;
-            margin-top: 50px;
-            margin-left: 30%;
-        }
-
-        .register .form-group {
-            margin-bottom: 17px;
-        }
-
-        .register .form-control,
-        .register .btn {
-            border-radius: 0;
-        }
-
-        .register .btn {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .input-group-addon {
-            border-radius: 0;
-            color: #fff;
-            background: #f3aa0c;
-            border: #f3aa0c;
-        }
-
-        .forgot a {
-            color: #333;
-        }
-
-        .forgot a:hover {
-            color: #5cb85c;
-        }
-         input[type=submit] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            width: 150px;
-            height: 50px;
-            padding: 16px 32px;
-            text-decoration: none;
-            margin: 4px 2px;
-            cursor: pointer;
-        }
-    </style>
+    <style><%@include file="styles/register.css"%></style>
 </head>
 <body>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/homepage">ProjectK</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/homepage">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">about</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+<%@include file="helpers/navbar.jsp"%>
 <div class="col-md-4 col-md-offset-4" id="register">
     <section id="inner-wrapper" class="register">
         <article>
@@ -146,52 +62,4 @@
 </div>
 </body>
 </html>
-<script>
-    function validate() {
-        return validatePassword() && validateRequiredFields();
-    }
-
-    function validateRequiredFields() {
-        var username = document.getElementById("txtUsername").value;
-        var password = document.getElementById("txtPassword").value;
-        var confPassword = document.getElementById("txtConfirmPassword").value;
-        var code = document.getElementById("txtCode").value;
-        var inputsNotEmpty = true
-        if (username == "") {
-            inputsNotEmpty = false
-            document.getElementById("txtUsername").style.backgroundColor = "rgba(255,69,0, 0.2)"
-        } else {
-            document.getElementById("txtUsername").style.backgroundColor = ""
-        }
-        if (password == "") {
-            inputsNotEmpty = false
-            document.getElementById("txtPassword").style.backgroundColor = "rgba(255,69,0, 0.2)"
-        } else {
-            document.getElementById("txtPassword").style.backgroundColor = ""
-        }
-        if (confPassword == "") {
-            inputsNotEmpty = false
-            document.getElementById("txtConfirmPassword").style.backgroundColor = "rgba(255,69,0, 0.2)"
-        } else {
-            document.getElementById("txtConfirmPassword").style.backgroundColor = ""
-        }
-        if (code == "") {
-            inputsNotEmpty = false
-            document.getElementById("txtCode").style.backgroundColor = "rgba(255,69,0, 0.2)"
-        } else {
-            document.getElementById("txtCode").style.backgroundColor = ""
-        }
-        return inputsNotEmpty
-    }
-
-    function validatePassword() {
-        var password = document.getElementById("txtPassword").value;
-        var confirmPassword = document.getElementById("txtConfirmPassword").value;
-        if (password != confirmPassword) {
-            window.alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
-
-</script>
+<script><%@include file="js/register.js"%></script>

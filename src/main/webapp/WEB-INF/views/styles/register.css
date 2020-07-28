@@ -1,0 +1,51 @@
+body {
+    background: #333;
+}
+
+#register {
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    margin-top: 50px;
+    margin-left: 30%;
+}
+
+.register .form-group {
+    margin-bottom: 17px;
+}
+
+.register .form-control,
+.register .btn {
+    border-radius: 0;
+}
+
+.register .btn {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.input-group-addon {
+    border-radius: 0;
+    color: #fff;
+    background: #f3aa0c;
+    border: #f3aa0c;
+}
+
+.forgot a {
+    color: #333;
+}
+
+.forgot a:hover {
+    color: #5cb85c;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 50px;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
