@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         String view = "";
         Map<String, Object> modelMap = new HashMap<>();
         if (userAttribute != null) {
-            view = "/user/UserPage";
+            view = "UserPage";
             modelMap.put("warningMessage", "You are already logged in");
         } else {
             view = "/login";
@@ -41,10 +41,10 @@ public class UserServiceImpl implements UserService {
         Map<String, Object> modelMap = new HashMap<>();
         Object sessionUserAttribute = null;
         if (userAttribute != null) {
-            view = "/user/UserPage";
+            view = "UserPage";
         } else if (UserServiceUtils.isAuthenticated(user, userManager)) {
             sessionUserAttribute = user;
-            view = "/user/UserPage";
+            view = "UserPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
             view = "login";

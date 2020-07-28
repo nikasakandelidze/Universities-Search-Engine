@@ -60,6 +60,7 @@
         </article>
     </section>
 </div>
+<%@include file="helpers/footer.jsp"%>
 </body>
 </html>
 <script><%@include file="js/register.js"%></script>

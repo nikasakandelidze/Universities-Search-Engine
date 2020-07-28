@@ -26,7 +26,7 @@ public class UniversityServiceImpl implements UniversityService {
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			universityManager.add(university);
-			view = "/user/UserPage";
+			view = "UserPage";
 		} catch (StorageException e) {
 			modelMap.put("errorMessage", "Couldn't add university");
 			view = "universityAdd";

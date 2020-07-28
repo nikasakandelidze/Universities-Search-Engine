@@ -23,7 +23,7 @@ public class UniversityRegistration implements UniversityRequester {
 	@Override
 	@GetMapping("/user/adduniversity")
 	public Object displayUniversityRegistration() {
-		return "user/universityAdd";
+		return "universityAdd";
 	}
 
 	@Override

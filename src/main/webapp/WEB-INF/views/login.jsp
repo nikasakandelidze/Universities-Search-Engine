@@ -36,6 +36,7 @@
         Register now
     </a>
 </p>
+<%@include file="helpers/footer.jsp"%>
 </body>
 </html>
 <script><%@include file="js/login.js"%></script>

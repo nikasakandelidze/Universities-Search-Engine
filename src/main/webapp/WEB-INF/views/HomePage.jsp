@@ -25,17 +25,17 @@
     <input type="submit" value="Search">
 </form>
 <h3 style=" text-align: center">Faculties</h3>
-<div class="facultyList" style="padding-left: 60px">
+<div class="facultyList" style="padding-left: 100px; padding-bottom: 100px">
     <c:forEach items="${faculties}" var="faculty">
         <a href="/homepage/faculties/${faculty.category}">
-                     <span class="facultyClass border"
-                           style="float:left; padding-right: 80px; padding-left: 70px; background-color: #c6c6c6; border:1px solid black;">
-                        <div class="facultyName" style="float:left; padding-right: 80px; padding-left: 70px ">
+                        <div class="facultyName" style="float:left; padding-left: 80px ">
                             <c:out value="${faculty.category}"></c:out>
                         </div>
-                    </span>
         </a>
     </c:forEach>
+</div>
+<div>
+    <%@include file="helpers/footer.jsp"%>
 </div>
 </body>
 </html>

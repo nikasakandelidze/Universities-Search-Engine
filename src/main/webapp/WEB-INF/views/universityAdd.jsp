@@ -12,11 +12,11 @@
 <html>
 <head>
     <title>Add University</title>
-    <style><%@include file="../styles/universityAdd.css"%></style>
+    <style><%@include file="styles/universityAdd.css"%></style>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
-<%@include file="../helpers/navbar.jsp"%>
+<%@include file="helpers/navbar.jsp"%>
 <div class="col-md-4 col-md-offset-4" id="register">
     <section id="inner-wrapper" class="register">
         <article>
@@ -76,6 +76,7 @@
         </article>
     </section>
 </div>
+<%@include file="helpers/footer.jsp"%>
 </body>
 </html>
-<script><%@include file="../js/universityAdd.js"%></script>
+<script><%@include file="js/universityAdd.js"%></script>
