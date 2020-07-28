@@ -1,6 +1,6 @@
 package com.projectk.requester.implementations;
 
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.HomePageService;
 import com.projectk.requester.interfaces.HomePageRequester;
 import org.springframework.beans.factory.annotation.Autowired;

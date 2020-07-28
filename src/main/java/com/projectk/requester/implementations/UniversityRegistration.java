@@ -1,15 +1,12 @@
 package com.projectk.requester.implementations;
 
 import com.projectk.entities.University;
-import com.projectk.entities.User;
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
-import com.projectk.requester.implementations.services.utils.EncryptionUtils;
 import com.projectk.requester.interfaces.UniversityRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,13 +21,13 @@ public class UniversityRegistration implements UniversityRequester {
 	}
 
 	@Override
-	@GetMapping("/adduniversity")
+	@GetMapping("/user/adduniversity")
 	public Object displayUniversityRegistration() {
-		return "universityAdd";
+		return "user/universityAdd";
 	}
 
 	@Override
-	@PostMapping("/adduniversity")
+	@PostMapping("/user/adduniversity")
 	public ModelAndView executeUniversityRegistration(@RequestParam int code,
 													  @RequestParam String name,
 													  @RequestParam String city,

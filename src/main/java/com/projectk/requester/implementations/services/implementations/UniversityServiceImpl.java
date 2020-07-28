@@ -1,8 +1,7 @@
 package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.University;
-import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class UniversityServiceImpl implements UniversityService {
@@ -24,13 +22,14 @@ public class UniversityServiceImpl implements UniversityService {
 
 	@Override
 	public ServiceResult addUniversity(University university) {
-		String view = "universityAdd";
+		String view = "";
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			universityManager.add(university);
-			view = "UserPage";
+			view = "/user/UserPage";
 		} catch (StorageException e) {
-			modelMap.put("errorMessage", "University name already exists!");
+			modelMap.put("errorMessage", "Couldn't add university");
+			view = "universityAdd";
 		}
 		return new ServiceResult(view, modelMap);
 	}

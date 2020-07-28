@@ -1,5 +1,7 @@
 package com.projectk.entities;
 
+import com.projectk.requester.implementations.services.utils.EncryptionUtils;
+
 public class User {
     private String username;
     private String encoded_password;
@@ -19,6 +21,9 @@ public class User {
         this.encoded_password = password;
     }
 
+    public static User newUserWithEncryptedPass(String username, String encoded_password){
+        return new User(username, EncryptionUtils.encodeSHA1(encoded_password));
+    }
 
     public int getUniversity_id() {
         return university_id;

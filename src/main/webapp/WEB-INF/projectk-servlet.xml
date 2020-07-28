@@ -12,8 +12,8 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/user"/>
-            <bean class="com.projectk.interceptors.AuthenticationFilter"></bean>
+            <mvc:mapping path="/user/**"/>
+            <bean class="com.projectk.interceptors.AuthenticationFilter"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

@@ -1,6 +1,6 @@
 package com.projectk.requester.implementations.services.interfaces;
 
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 
 public interface HomePageService {
     ServiceResult getHomePage();
