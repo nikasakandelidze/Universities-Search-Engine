@@ -12,48 +12,7 @@
 <html>
 <head>
     <title>Add University</title>
-    <style>
-        body {
-            background: #333;
-        }
-
-        #register {
-            -webkit-perspective: 1000px;
-            -moz-perspective: 1000px;
-            perspective: 1000px;
-            margin-top: 50px;
-            margin-left: 30%;
-        }
-
-        .register .form-group {
-            margin-bottom: 17px;
-        }
-
-        .register .form-control,
-        .register .btn {
-            border-radius: 0;
-        }
-
-        .register .btn {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .input-group-addon {
-            border-radius: 0;
-            color: #fff;
-            background: #f3aa0c;
-            border: #f3aa0c;
-        }
-
-        .forgot a {
-            color: #333;
-        }
-
-        .forgot a:hover {
-            color: #5cb85c;
-        }
-    </style>
+    <style><%@include file="styles/universityAdd.css"%></style>
 </head>
 <body>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -118,52 +77,4 @@
 </div>
 </body>
 </html>
-<script>
-    function validateRequiredFields(){
-        var code = document.getElementById("uniCode").value;
-        var name = document.getElementById("uniName").value;
-        var city = document.getElementById("uniCity").value;
-        var address = document.getElementById("uniAddress").value;
-        var web = document.getElementById("uniWeb").value;
-        var description = document.getElementById("uniDescription").value;
-        var inputsNotEmpty = true
-        if( code == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniCode").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniCode").style.backgroundColor=""
-        }
-        if( name == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniName").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniName").style.backgroundColor=""
-        }
-        if( city == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniCity").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniCity").style.backgroundColor=""
-        }
-        if( address == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniAddress").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniAddress").style.backgroundColor=""
-        }
-        if( web == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniWeb").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniWeb").style.backgroundColor=""
-        }
-        if( description == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniDescription").style.backgroundColor=""
-        }
-
-        return inputsNotEmpty
-    }
-</script>
+<script><%@include file="js/universityAdd.js"%></script>

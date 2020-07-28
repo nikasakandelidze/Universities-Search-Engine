@@ -24,7 +24,6 @@
     <input type="text" placeholder="Search" name="searchData" aria-label="Search">
     <input type="submit" value="Search">
 </form>
-<p style="color:darkred; text-align: center; padding-top: 50px">
 <h3 style=" text-align: center">Faculties</h3>
 <div class="facultyList" style="padding-left: 60px">
     <c:forEach items="${faculties}" var="faculty">
@@ -38,6 +37,5 @@
         </a>
     </c:forEach>
 </div>
-</p>
 </body>
 </html>
