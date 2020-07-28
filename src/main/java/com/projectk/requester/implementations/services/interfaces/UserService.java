@@ -6,7 +6,9 @@ import com.projectk.entities.ServiceResult;
 import javax.servlet.http.HttpSession;
 
 public interface UserService {
-    ServiceResult isUserAuthenticated(User user, HttpSession session);
+    ServiceResult displayLogin(Object userAttribute);
+
+    ServiceResult isUserAuthenticated(User user, Object userAttribute);
 
     ServiceResult updateUser(User user);
 

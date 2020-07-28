@@ -9,10 +9,8 @@ import com.projectk.storage.storageManager.implementations.userManager.UserManag
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-
 
 
 @Service
@@ -25,17 +23,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ServiceResult isUserAuthenticated(User user, HttpSession session) {
+    public ServiceResult displayLogin(Object userAttribute) {
         String view = "";
         Map<String, Object> modelMap = new HashMap<>();
-        if (UserServiceUtils.isAuthenticated(user, userManager)) {
-            session.setAttribute("user", user);
+        if (userAttribute != null) {
+            view = "/user/UserPage";
+            modelMap.put("warningMessage", "You are already logged in");
+        } else {
+            view = "/login";
+        }
+        return new ServiceResult(view, modelMap);
+    }
+
+    @Override
+    public ServiceResult isUserAuthenticated(User user, Object userAttribute) {
+        String view = "";
+        Map<String, Object> modelMap = new HashMap<>();
+        Object sessionUserAttribute = null;
+        if (userAttribute != null) {
+            view = "/user/UserPage";
+        } else if (UserServiceUtils.isAuthenticated(user, userManager)) {
+            sessionUserAttribute = user;
             view = "/user/UserPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
             view = "login";
         }
-        return new ServiceResult(view, modelMap);
+        return new ServiceResult(view, modelMap, sessionUserAttribute);
     }
 
     @Override

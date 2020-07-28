@@ -24,14 +24,18 @@ public class UserLogin implements UserRequester {
 
     @Override
     @GetMapping("/login")
-    public String displayLogin() {
-        return "login";
+    public ModelAndView displayLogin(HttpSession httpSession) {
+        ServiceResult serviceResult = userService.displayLogin(httpSession.getAttribute("user"));
+        return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 
     @Override
     @PostMapping("/login")
     public ModelAndView executeLogin(@RequestParam String username, @RequestParam String password, HttpSession session) {
-        ServiceResult serviceResult = userService.isUserAuthenticated(User.newUserWithEncryptedPass(username, password), session);
+        ServiceResult serviceResult = userService.isUserAuthenticated(User.newUserWithEncryptedPass(username, password), session.getAttribute("user"));
+        Object sessionUserAttribute = serviceResult.getSessionUserAttribute();
+        if (sessionUserAttribute != null)
+            session.setAttribute("user", sessionUserAttribute);
         return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 }

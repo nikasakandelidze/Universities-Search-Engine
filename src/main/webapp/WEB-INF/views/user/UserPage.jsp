@@ -18,24 +18,30 @@
 </head>
 <body>
 <%@include file="../helpers/navbar.jsp"%>
-<div>
-    Welcome ${sessionScope.user.username}
+<div style="text-align: center">
+    <div style="padding-bottom: 100px; padding-top:  100px; align-content: center; size: A5">
+        Welcome ${sessionScope.user.username}
+    </div>
+    <div style="color: darkred">
+        <c:out value="${warningMessage}"></c:out>
+    </div>
+    <div class="todos" >
+        <a href="/user/adduniversity">
+            <div style="border:1px solid black; float:left; width: 300px; height: 300px;">
+                <p>
+                    Add University
+                </p>
+            </div>
+        </a>
+        <a href="/user/listuniversities/${user.getUsername()}">
+            <div style="border:1px solid black; float:left; width: 300px; height: 300px;">
+                <p>
+                    List Universities
+                </p>
+            </div>
+        </a>
+    </div>
 </div>
-<div class="todos">
-    <a href="/user/adduniversity">
-        <div style="border:1px solid black; float:left">
-            <p>
-                Add University
-            </p>
-        </div>
-    </a>
-    <a href="/user/listuniversities/${user.getUsername()}">
-        <div style="border:1px solid black; float:left">
-            <p>
-                List Universities
-            </p>
-        </div>
-    </a>
-</div>
+
 </body>
 </html>
