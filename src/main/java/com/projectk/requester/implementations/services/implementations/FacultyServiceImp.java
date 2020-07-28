@@ -6,10 +6,11 @@ import com.projectk.requester.implementations.services.interfaces.FacultyService
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Service
 public class FacultyServiceImp implements FacultyService {
     private FacultyManager facultyManager;
 
