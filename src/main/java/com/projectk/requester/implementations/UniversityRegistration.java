@@ -31,13 +31,22 @@ public class UniversityRegistration implements UniversityRequester {
 
 	@Override
 	@PostMapping("/adduniversity")
-	public ModelAndView executeUniversityRegistration(@RequestParam String code,
+	public ModelAndView executeUniversityRegistration(@RequestParam int code,
 													  @RequestParam String name,
 													  @RequestParam String city,
 													  @RequestParam String address,
 													  @RequestParam String web,
-													  @RequestParam String description) {
-		ServiceResult serviceResult = universityService.addUniversity(new University.Builder().build());
+													  @RequestParam String description,
+													  @RequestParam String username) {
+		ServiceResult serviceResult = universityService.addUniversity(new University.Builder()
+				.withId(code)
+				.withName(name)
+				.withCity(city)
+				.withAddress(address)
+				.withDescriptions(description)
+				.withUserName(username)
+				.withWebPageLink(web)
+				.build());
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
 }

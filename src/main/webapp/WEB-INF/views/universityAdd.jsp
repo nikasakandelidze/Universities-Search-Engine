@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 <html>
 <head>
     <title>Add University</title>
@@ -100,7 +101,13 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input style="height:200px;" type="text" id="uniDescription" class="form-control" placeholder="Description" name="descripion">
+                        <input type="text" id="uniDescription" class="form-control" placeholder="Description" name="description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                        <input type="hidden" id="userName" value="${sessionScope.user.username})">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
