@@ -1,7 +1,8 @@
 package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.University;
-import com.projectk.entities.ServiceResult;
+import com.projectk.entities.searchEntities.SearchUniversity;
+import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 

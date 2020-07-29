@@ -1,0 +1,31 @@
+
+.uni-list{
+    width: 60%;
+    padding: 42px 20px;
+    margin: 5% 20%;
+}
+
+.uni-name{
+    color:cadetblue;
+    size:40px;
+}
+.uni-desc{
+    font-size: 100%;
+}
+.list-item{
+    height: 100px;
+}
+
+.list-group-item{
+    height: 160px;
+    border-style: solid;
+    border-color: cadetblue;
+    border-width: thick;
+}
+.uni-desc{
+    padding: 4px 2px;
+    width: 400px;
+    height: 100px;
+    resize: none;
+    overflow: no-display;
+}

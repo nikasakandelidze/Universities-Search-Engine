@@ -1,4 +1,4 @@
-package com.projectk.entities;
+package com.projectk.requester.implementations.services;
 
 import java.util.Map;
 

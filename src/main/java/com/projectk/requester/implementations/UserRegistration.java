@@ -1,7 +1,7 @@
 package com.projectk.requester.implementations;
 
 import com.projectk.entities.User;
-import com.projectk.entities.ServiceResult;
+import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UserService;
 import com.projectk.requester.implementations.services.utils.EncryptionUtils;
 import com.projectk.requester.interfaces.UserRegistrationRequester;

@@ -1,9 +1,7 @@
 package com.projectk.requester.implementations.services.interfaces;
 
 import com.projectk.entities.User;
-import com.projectk.entities.ServiceResult;
-
-import javax.servlet.http.HttpSession;
+import com.projectk.requester.implementations.services.ServiceResult;
 
 public interface UserService {
     ServiceResult displayLogin(Object userAttribute);

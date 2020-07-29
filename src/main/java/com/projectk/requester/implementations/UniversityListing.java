@@ -31,14 +31,32 @@ public class UniversityListing implements UniversityListingRequester {
 		University u2 = new University();
 		u2.setUniversityName("bbbbbbb");
 		u2.setDescriptions("dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda");
-		model.addObject("allUniversities", List.of(u, u2));
-
-		ServiceResult serviceResult = universityService.filterUniversities(new SearchUniversity.Builder()
-				.universityName(null)
-				.city(null)
-				.faculty(null)
-				.build());
-
-		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
+		University u3 = new University();
+		u3.setUniversityName("aaaa");
+		u3.setDescriptions("magaria, magaria,magaria,magaria,magaria,magaria,magaria,magaria,");
+		University u4 = new University();
+		u4.setUniversityName("bbbbbbb");
+		u4.setDescriptions("dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda");
+		University u5 = new University();
+		u5.setUniversityName("aaaa");
+		u5.setDescriptions("magaria, magaria,magaria,magaria,magaria,magaria,magaria,magaria,");
+		University u6 = new University();
+		u6.setUniversityName("bbbbbbb");
+		u6.setDescriptions("dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda");
+		University u7 = new University();
+		u7.setUniversityName("aaaa");
+		u7.setDescriptions("magaria, magaria,magaria,magaria,magaria,magaria,magaria,magaria,");
+		University u8 = new University();
+		u8.setUniversityName("bbbbbbb");
+		u8.setDescriptions("dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda, dsakjnda");
+		model.addObject("allUniversities", List.of(u, u2, u3, u4, u5, u6, u7, u8));
+		return model;
+//		ServiceResult serviceResult = universityService.filterUniversities(new SearchUniversity.Builder()
+//				.universityName(null)
+//				.city(null)
+//				.faculty(null)
+//				.build());
+//
+//		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
 }
