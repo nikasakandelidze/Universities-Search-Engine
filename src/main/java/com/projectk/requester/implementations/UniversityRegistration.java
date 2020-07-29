@@ -1,5 +1,6 @@
 package com.projectk.requester.implementations;
 
+import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.entities.University;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
