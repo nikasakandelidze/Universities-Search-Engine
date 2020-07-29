@@ -19,13 +19,14 @@
     <style><%@include file="styles/universityListing.css"%></style>
 </head>
 <body>
-<p>
-<h1 style="text-align: center; color:cadetblue;">
-    University
-</h1>
-</p>
+
 <div class="uni-item">
     <c:forEach items="${allUniversities}" var="university">
+        <p>
+        <h1 style="text-align: center; color:cadetblue;">
+            ${university.universityName}
+        </h1>
+        </p>
         <div class="list-group" style="height: 170px">
             <a class="list-group-item list-group-item-action" style="border-radius: 10px">
                 <div class="uni-name">
