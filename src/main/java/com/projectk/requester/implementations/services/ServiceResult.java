@@ -4,29 +4,30 @@ import com.projectk.entities.University;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class ServiceResult {
     private String viewName;
     private Map<String, Object> modelMap;
-    private List<Object> sessionUserAttributes;
+    private Map<String, Object> sessionUserAttributes;
 
     public ServiceResult(String viewName, Map<String, Object> modelMap) {
         this.viewName = viewName;
         this.modelMap = modelMap;
     }
 
-    public ServiceResult(String viewName, Map<String, Object> modelMap, List<Object> sessionUserAttributes) {
+    public ServiceResult(String viewName, Map<String, Object> modelMap, Map<String, Object> sessionUserAttributes) {
         this.viewName = viewName;
         this.modelMap = modelMap;
         this.sessionUserAttributes = sessionUserAttributes;
     }
 
-    public List<Object> getSessionUserAttribute() {
+    public Map<String, Object> getSessionUserAttributes() {
         return sessionUserAttributes;
     }
 
-    public void setSessionUserAttribute(List<Object> sessionUserAttribute) {
-        this.sessionUserAttributes = sessionUserAttributes;
+    public void setSessionUserAttributes(Map<String, Object> sessionUserAttributes) {
+        this.sessionUserAttributes = this.sessionUserAttributes;
     }
 
 

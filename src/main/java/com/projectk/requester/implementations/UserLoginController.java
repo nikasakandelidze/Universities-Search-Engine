@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserLoginController implements UserRequester {
@@ -34,11 +34,7 @@ public class UserLoginController implements UserRequester {
     @PostMapping("/login")
     public ModelAndView executeLogin(@RequestParam String username, @RequestParam String password, HttpSession session) {
         ServiceResult serviceResult = userService.isUserAuthenticated(User.newUserWithEncryptedPass(username, password), session.getAttribute("user"));
-        List<Object> sessionUserAttributes = serviceResult.getSessionUserAttribute();
-        if (sessionUserAttributes.size()>0 && sessionUserAttributes.get(0) != null)
-            session.setAttribute("user", sessionUserAttributes.get(0));
-        if (sessionUserAttributes.size()>1 && sessionUserAttributes.get(1) != null)
-            session.setAttribute("allUniversities",sessionUserAttributes.get(1));
+        serviceResult.getSessionUserAttributes().forEach(session::setAttribute);
         return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 }

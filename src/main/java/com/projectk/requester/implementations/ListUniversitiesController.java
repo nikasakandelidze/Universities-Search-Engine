@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UniversityListing implements UniversityListingRequester {
+public class ListUniversitiesController implements UniversityListingRequester {
 	private UniversityRegistrationService universityRegistrationService;
 
 	@Autowired
-	public UniversityListing(UniversityRegistrationService universityRegistrationService) {
+	public ListUniversitiesController(UniversityRegistrationService universityRegistrationService) {
 		this.universityRegistrationService = universityRegistrationService;
 	}
 

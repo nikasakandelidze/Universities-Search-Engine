@@ -12,10 +12,7 @@ import com.projectk.storage.storageManager.implementations.userManager.UserManag
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Service
@@ -43,21 +40,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ServiceResult isUserAuthenticated(User user, Object userAttribute) {
+    public ServiceResult isUserAuthenticated(User user, Object userSessionAttribute) {
         String view = "";
         Map<String, Object> modelMap = new HashMap<>();
-        List<Object> listOfAttributes = new ArrayList<>();
-        if (userAttribute != null) {
+        Map<String, Object> sessionUserAttributes = new HashMap<>();
+        if (userSessionAttribute != null) {
             view = "UserPage";
         } else if (UserServiceUtils.isAuthenticated(user, userManager)) {
-            listOfAttributes.add(user);
-            listOfAttributes.add(tryToSearchUniversitiesOfUser(user));
+            sessionUserAttributes.put("user",user);
+            sessionUserAttributes.put("allUniversities",tryToSearchUniversitiesOfUser(user));
             view = "UserPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
             view = "login";
         }
-        return new ServiceResult(view, modelMap, listOfAttributes);
+        return new ServiceResult(view, modelMap, sessionUserAttributes);
     }
 
     private List<University> tryToSearchUniversitiesOfUser(User user) {
