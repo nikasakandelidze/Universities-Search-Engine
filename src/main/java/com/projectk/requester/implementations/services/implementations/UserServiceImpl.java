@@ -2,7 +2,7 @@ package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.User;
 import com.projectk.entities.ServiceResult;
-import com.projectk.requester.implementations.services.implementations.utils.UserServiceUtils;
+import com.projectk.requester.implementations.services.utils.UserServiceUtils;
 import com.projectk.requester.implementations.services.interfaces.UserService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;

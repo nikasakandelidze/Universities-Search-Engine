@@ -1,4 +1,4 @@
-package com.projectk.requester.interfaces;
+package com.projectk.requester.interfaces.loggedInUserRequesters;
 
 public interface SubjectRequester {
     Object displaySubjectRegistration();

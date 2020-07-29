@@ -1,10 +1,10 @@
-package com.projectk.requester.implementations;
+package com.projectk.requester.implementations.loggedInUserControllers;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.enums.FacultyCategory;
 import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.FacultyService;
-import com.projectk.requester.interfaces.FacultyRequester;
+import com.projectk.requester.interfaces.loggedInUserRequesters.FacultyRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

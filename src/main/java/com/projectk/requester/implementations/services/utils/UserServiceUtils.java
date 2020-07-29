@@ -1,4 +1,4 @@
-package com.projectk.requester.implementations.services.implementations.utils;
+package com.projectk.requester.implementations.services.utils;
 
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;

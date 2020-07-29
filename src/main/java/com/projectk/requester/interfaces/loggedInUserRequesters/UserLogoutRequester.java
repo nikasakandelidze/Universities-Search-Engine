@@ -1,4 +1,4 @@
-package com.projectk.requester.interfaces;
+package com.projectk.requester.interfaces.loggedInUserRequesters;
 
 import javax.servlet.http.HttpSession;
 

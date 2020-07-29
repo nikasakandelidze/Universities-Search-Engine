@@ -1,9 +1,9 @@
-package com.projectk.requester.implementations;
+package com.projectk.requester.implementations.loggedInUserControllers;
 
 import com.projectk.entities.Subject;
 import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.SubjectService;
-import com.projectk.requester.interfaces.SubjectRequester;
+import com.projectk.requester.interfaces.loggedInUserRequesters.SubjectRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UserLogoutService;

@@ -69,6 +69,7 @@
             </div>
         </div>
     </div>
+    <%@include file="UniversityOfUser.jsp"%>
 </div>
 
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"

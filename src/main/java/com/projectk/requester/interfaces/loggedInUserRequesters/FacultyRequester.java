@@ -1,4 +1,4 @@
-package com.projectk.requester.interfaces;
+package com.projectk.requester.interfaces.loggedInUserRequesters;
 
 import com.projectk.entities.enums.FacultyCategory;
 
