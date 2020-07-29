@@ -1,7 +1,7 @@
 package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.Subject;
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.SubjectService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;

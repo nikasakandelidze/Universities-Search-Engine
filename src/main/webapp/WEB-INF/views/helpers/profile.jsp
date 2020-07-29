@@ -45,16 +45,24 @@
                                 Add university
                             </div>
                         </a>
-                        <a href="#favorite" style="color: #4d90fe;">
+                        <a href="/user/addfaculty" style="color: #4d90fe;">
                             <div style="width: 150px; height: 50px; float: left;">
-                                Edit info
+                                Add faculty
                             </div>
                         </a>
-                        <a href="/user/logout" style="color: #4d90fe;">
+                        </ul>
+                        <a href="/user/addsubject" style="color: #4d90fe;">
                             <div style="width: 150px; height: 50px; float: left;">
-                                Logout
+                                Add subject
                             </div>
                         </a>
+                        </ul>
+                        <ul>
+                            <a href="/user/logout" style="color: #4d90fe;">
+                                <div style="width: 150px; height: 50px; float: left;">
+                                    Logout
+                                </div>
+                            </a>
                         </ul>
                     </div>
                 </div>

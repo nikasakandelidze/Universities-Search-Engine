@@ -2,7 +2,7 @@ package com.projectk.requester.implementations;
 
 import com.projectk.entities.University;
 import com.projectk.entities.ServiceResult;
-import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.entities.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.requester.interfaces.UniversityRequester;
 import org.springframework.beans.factory.annotation.Autowired;
