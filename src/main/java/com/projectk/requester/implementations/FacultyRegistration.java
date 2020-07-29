@@ -27,23 +27,23 @@ public class FacultyRegistration implements FacultyRequester {
 
     @Override
     @PostMapping("/addfaculty")
-    public Object executeFacultyRegistration(@RequestParam int facultyId,
-                                             @RequestParam FacultyCategory category,
-                                             @RequestParam int universityId,
+    public Object executeFacultyRegistration(@RequestParam int code,
+                                             @RequestParam String category,
+                                             @RequestParam int uniId,
                                              @RequestParam String name,
-                                             @RequestParam String deanInfo,
+                                             @RequestParam String dean,
                                              @RequestParam long price,
                                              @RequestParam String description,
-                                             @RequestParam String webPageLink) {
+                                             @RequestParam String webPage) {
         ServiceResult serviceResult = facultyService.addFaculty(new Faculty.Builder()
-                .facultyId(facultyId)
-                .category(category)
-                .universityId(universityId)
+                .facultyId(code)
+                .category(FacultyCategory.valueOf(category))
+                .universityId(uniId)
                 .name(name)
-                .deanInfo(deanInfo)
+                .deanInfo(dean)
                 .price(price)
                 .description(description)
-                .webpage(webPageLink)
+                .webpage(webPage)
                 .build());
         return  new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }

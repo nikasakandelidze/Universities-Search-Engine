@@ -139,7 +139,7 @@
         var dean = document.getElementById("FacDeanInfo").value;
         var price = document.getElementById("FacPrice").value;
         var description = document.getElementById("uniDescription").value;
-        var web = document.getElementById("FacWebPage").value;
+        var webPage = document.getElementById("FacWebPage").value;
         var inputsNotEmpty = true
         if( code == "" ){
             inputsNotEmpty = false
@@ -177,7 +177,7 @@
         }else{
             document.getElementById("FacDescription").style.backgroundColor=""
         }
-        if( web == "" ){
+        if( webPage == "" ){
             inputsNotEmpty = false
             document.getElementById("FacWebPage").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{

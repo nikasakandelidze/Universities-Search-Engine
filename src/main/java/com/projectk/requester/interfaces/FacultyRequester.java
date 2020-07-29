@@ -5,6 +5,6 @@ import com.projectk.entities.enums.FacultyCategory;
 public interface FacultyRequester {
     Object displayFacultyRegistration();
 
-    Object executeFacultyRegistration(int facultyId, FacultyCategory category, int universityId, String name,
-                                      String deanInfo, long price, String description, String webPageLink);
+    Object executeFacultyRegistration(int facultyId, String  category, int uniId, String name,
+                                      String deanInfo, long price, String description, String webPage);
 }

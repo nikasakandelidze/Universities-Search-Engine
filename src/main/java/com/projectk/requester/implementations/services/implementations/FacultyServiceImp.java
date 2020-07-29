@@ -21,7 +21,7 @@ public class FacultyServiceImp implements FacultyService {
 
     @Override
     public ServiceResult addFaculty(Faculty faculty) {
-        String view = "FacultyAdd";
+        String view = "facultyAdd";
         Map<String, Object> modelMap = new HashMap<>();
         try {
             facultyManager.add(faculty);
@@ -34,7 +34,7 @@ public class FacultyServiceImp implements FacultyService {
 
     @Override
     public ServiceResult updateFaculty(Faculty faculty) {
-        String view = "FacultyAdd";
+        String view = "facultyAdd";
         Map<String, Object> modelMap = new HashMap<>();
         try {
             facultyManager.update(faculty);
