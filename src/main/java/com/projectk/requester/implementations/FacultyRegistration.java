@@ -17,8 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class FacultyRegistration implements FacultyRequester {
     private FacultyService facultyService;
+
     @Autowired
-    public FacultyRegistration(FacultyService facultyService){this.facultyService=facultyService;}
+    public FacultyRegistration(FacultyService facultyService) {
+        this.facultyService = facultyService;
+    }
+
     @Override
     @GetMapping("/addfaculty")
     public Object displayFacultyRegistration() {
@@ -45,6 +49,6 @@ public class FacultyRegistration implements FacultyRequester {
                 .description(description)
                 .webpage(webPage)
                 .build());
-        return  new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
+        return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
     }
 }
