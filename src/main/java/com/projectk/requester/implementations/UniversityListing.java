@@ -23,7 +23,7 @@ public class UniversityListing implements UniversityListingRequester {
 	@Override
 	@GetMapping("/universityListing")
 	public ModelAndView displayUniversityListing() {
-		ModelAndView model = new ModelAndView("/universityListing");
+		ModelAndView model = new ModelAndView("universityListing");
 		//todo: get this data from service
 		University u = new University();
 		u.setUniversityName("aaaa");

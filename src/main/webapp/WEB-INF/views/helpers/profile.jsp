@@ -4,15 +4,10 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <link rel="stylesheet"
           href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
           integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesgeet"
-          href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
     <style>
         <%@include file="styles/profile2.css" %>
     </style>
@@ -27,12 +22,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto">
-                    <div class="profile">
-                        <div class="avatar">
-                        </div>
-                        <div class="name">
-                            <h2>${sessionScope.user.username}</h2>
-                            <h6>user</h6>
+                    <div class="profile" >
+                        <div class="name" style="border-style: outset; background-color: #f3aa0c">
+                            <h2 style="font-size: 430%; font-family: -moz-fixed;">${sessionScope.user.username}</h2>
                         </div>
                     </div>
                 </div>
@@ -40,43 +32,38 @@
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto">
                     <div class="profile-tabs">
-                        <a href="/user/adduniversity" style="color: #4d90fe;">
+                        <a href="/user/adduniversity" style="color: #4d90fe; font-size: 160%">
                             <div style="width: 150px; height: 50px; float: left;">
                                 Add university
                             </div>
                         </a>
-                        <a href="/user/addfaculty" style="color: #4d90fe;">
+                        <a href="/user/addfaculty" style="color: #4d90fe;font-size: 160%">
                             <div style="width: 150px; height: 50px; float: left;">
                                 Add faculty
                             </div>
                         </a>
                         </ul>
-                        <a href="/user/addsubject" style="color: #4d90fe;">
+                        <a href="/user/addsubject" style="color: #4d90fe; font-size: 160%">
                             <div style="width: 150px; height: 50px; float: left;">
                                 Add subject
                             </div>
                         </a>
-                        </ul>
-                        <ul>
-                            <a href="/user/logout" style="color: #4d90fe;">
-                                <div style="width: 150px; height: 50px; float: left;">
-                                    Logout
-                                </div>
-                            </a>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div style="align-content: center; padding-top: 150px;">
+        <p style="font-family: Shruti; font-size: 200%; ">
+            Your Universities
+        </p>
+        <div>
+            <%@include file="../universityListing.jsp"%>
+        </div>
+    </div>
 
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-        crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-        crossorigin="anonymous"></script>
+</div>
 <script>
     <%@include file="styles/profile2.js" %>
 </script>

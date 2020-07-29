@@ -19,14 +19,12 @@
 <body>
 <%@include file="helpers/navbar.jsp"%>
 <div style="text-align: center">
-    <div style="color: darkred">
-       <h1>${warningMessage}</h1>
+    <div>
+       <h4>${warningMessage}</h4>
     </div>
     <%@include file="helpers/profile.jsp"%>
 </div>
 <%@include file="helpers/footer.jsp"%>
-</nav>
-    Welcome <c:out  value="${sessionScope.user.getUserName()}"></c:out>
 </div>
 </body>
 </html>
