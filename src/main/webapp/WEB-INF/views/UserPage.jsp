@@ -62,5 +62,22 @@
         </div>
     </a>
 </div>
+<div class="todos">
+    <a href="/addsubject">
+        <div style="border:1px solid black; float:left">
+            <p>
+                Add Subject
+            </p>
+        </div>
+
+    </a>
+    <a href="/listensubjects/${user.getUsername()}">
+        <div style="border:1px solid black; float:left">
+            <p>
+                List Subject
+            </p>
+        </div>
+    </a>
+</div>
 </body>
 </html>
