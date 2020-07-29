@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -40,6 +42,20 @@ public class UniversityServiceImpl implements UniversityService {
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			universityManager.update(university);
+		} catch (StorageException e) {
+			modelMap.put("errorMessage", "Ups something went wrong...");
+		}
+		return new ServiceResult(view, modelMap);
+	}
+
+	@Override
+	public ServiceResult filterUniversities(SearchUniversity searchUniversity) {
+		String view = "HomePage";
+		Map<String, Object> modelMap = new HashMap<>();
+		try {
+			List<University> resultList = universityManager.filter(searchUniversity);
+			modelMap.put("allUniversities", resultList);
+			view = "universityListing";
 		} catch (StorageException e) {
 			modelMap.put("errorMessage", "Ups something went wrong...");
 		}

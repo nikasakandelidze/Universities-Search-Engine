@@ -20,22 +20,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style>
-        .bs-example{
+        .uni-list{
             margin: 20px;
         }
     </style>
 </head>
 <body>
-<div class="bs-example">
-
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-                <h4>${uniName}</h4>
-            </div>
-            <p>${uniDescription}</p>
-        </a>
-    </div>
+<div class="uni-list">
+    <c:forEach items="${allUniversities}" var="university">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4>${university.universityName}</h4>
+                </div>
+                <p>${university.descriptions}</p>
+            </a>
+        </div>
+    </c:forEach>
 </div>
 </body>
 </html>
