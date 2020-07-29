@@ -19,6 +19,9 @@ public class GetSearchQuery implements Step<SearchUniversity, String> {
         if (input.getFacultyCategory() != null) {
             builder.append(" and U.facultyCategory = ?");
         }
+        if (input.getUsername() != null) {
+            builder.append(" and U.username = ?");
+        }
         return builder.toString();
     }
 }

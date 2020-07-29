@@ -28,7 +28,7 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="uniRegisterForm" action="/adduniversity" method="post" onsubmit="return validateRequiredFields()">
+            <form style="text-align: center" name="uniRegisterForm" action="/user/adduniversity" method="post" onsubmit="return validateRequiredFields()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>

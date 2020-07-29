@@ -1,6 +1,7 @@
 package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.University;
+import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;

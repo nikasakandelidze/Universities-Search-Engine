@@ -1,25 +1,32 @@
 package com.projectk.requester.implementations.services.implementations;
 
+import com.projectk.entities.University;
 import com.projectk.entities.User;
+import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.implementations.utils.UserServiceUtils;
 import com.projectk.requester.implementations.services.interfaces.UserService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
+import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
 import com.projectk.storage.storageManager.implementations.userManager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 @Service
 public class UserServiceImpl implements UserService {
     private UserManager userManager;
+    private UniversityManager universityManager;
 
     @Autowired
-    public UserServiceImpl(UserManager userManager) {
+    public UserServiceImpl(UserManager userManager,UniversityManager universityManager) {
         this.userManager = userManager;
+        this.universityManager = universityManager;
     }
 
     @Override
@@ -39,17 +46,26 @@ public class UserServiceImpl implements UserService {
     public ServiceResult isUserAuthenticated(User user, Object userAttribute) {
         String view = "";
         Map<String, Object> modelMap = new HashMap<>();
-        Object sessionUserAttribute = null;
+        List<Object> listOfAttributes = new ArrayList<>();
         if (userAttribute != null) {
             view = "UserPage";
         } else if (UserServiceUtils.isAuthenticated(user, userManager)) {
-            sessionUserAttribute = user;
+            listOfAttributes.add(user);
+            listOfAttributes.add(tryToSearchUniversitiesOfUser(user));
             view = "UserPage";
         } else {
             modelMap.put("errorMessage", "Username or password incorrect.");
             view = "login";
         }
-        return new ServiceResult(view, modelMap, sessionUserAttribute);
+        return new ServiceResult(view, modelMap, listOfAttributes);
+    }
+
+    private List<University> tryToSearchUniversitiesOfUser(User user) {
+        try {
+            return universityManager.filter(SearchUniversity.universitiedOfUser(user.getUsername()));
+        } catch (StorageException e) {
+            return new ArrayList<>();
+        }
     }
 
     @Override

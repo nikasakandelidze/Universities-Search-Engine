@@ -1,30 +1,32 @@
 package com.projectk.requester.implementations.services;
 
+import com.projectk.entities.University;
+
+import java.util.List;
 import java.util.Map;
 
 public class ServiceResult {
     private String viewName;
     private Map<String, Object> modelMap;
-
-    private Object sessionUserAttribute;
+    private List<Object> sessionUserAttributes;
 
     public ServiceResult(String viewName, Map<String, Object> modelMap) {
         this.viewName = viewName;
         this.modelMap = modelMap;
     }
 
-    public ServiceResult(String viewName, Map<String, Object> modelMap, Object sessionUserAttribute) {
+    public ServiceResult(String viewName, Map<String, Object> modelMap, List<Object> sessionUserAttributes) {
         this.viewName = viewName;
         this.modelMap = modelMap;
-        this.sessionUserAttribute = sessionUserAttribute;
+        this.sessionUserAttributes = sessionUserAttributes;
     }
 
-    public Object getSessionUserAttribute() {
-        return sessionUserAttribute;
+    public List<Object> getSessionUserAttribute() {
+        return sessionUserAttributes;
     }
 
-    public void setSessionUserAttribute(Object sessionUserAttribute) {
-        this.sessionUserAttribute = sessionUserAttribute;
+    public void setSessionUserAttribute(List<Object> sessionUserAttribute) {
+        this.sessionUserAttributes = sessionUserAttributes;
     }
 
 

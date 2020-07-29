@@ -16,22 +16,28 @@
 </head>
 <body>
 <%@include file="helpers/navbar.jsp"%>
-<p>
-<h1 style="text-align: center; color:cadetblue;">Welcome to ProjectK</h1>
-<h4 style="text-align: center; padding-top:30px; color:cadetblue;">Get all the information about universities</h4>
-</p>
+
+<div>
+    <h1 style=" text-align: center">Welcome to ProjectK</h1>
+    <h4 style=" text-align: center; padding-top:30px; ">Get all the information about universities</h4>
+</div>
+
 <form action="/homepage/search" method="post" style="text-align: center; padding-top: 70px">
     <input type="text" placeholder="Search" name="searchData" aria-label="Search">
     <input type="submit" value="Search">
 </form>
-<h3 style=" text-align: center">Faculties</h3>
-<div class="facultyList" style="padding-left: 100px; padding-bottom: 100px">
+<div style=" padding-bottom: 70px;">
+    <h3 style=" text-align: center">Faculties</h3>
+</div>
+<div class="row" style="padding-left: 200px; padding-bottom: 100px">
     <c:forEach items="${faculties}" var="faculty">
-        <a href="/homepage/faculties/${faculty.category}">
-                        <div class="facultyName" style="float:left; padding-left: 80px ">
-                            <c:out value="${faculty.category}"></c:out>
-                        </div>
-        </a>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4>${faculty.category}</h4>
+                </div>
+            </a>
+        </div>
     </c:forEach>
 </div>
 <div>

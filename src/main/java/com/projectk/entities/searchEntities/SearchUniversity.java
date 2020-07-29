@@ -13,8 +13,22 @@ public class SearchUniversity {
 
     private String city;
 
+    private String username;
+
     public static SearchUniversity selectAll() {
         return new SearchUniversity.Builder().build();
+    }
+
+    public static SearchUniversity universitiedOfUser(String username){
+        return new SearchUniversity.Builder().userName(username).build();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public FacultyCategory getFacultyCategory() {
@@ -58,6 +72,8 @@ public class SearchUniversity {
 
         private String city;
 
+        private String username;
+
         public SearchUniversity.Builder universityId(Integer val) {
             universityId = val;
             return this;
@@ -78,6 +94,11 @@ public class SearchUniversity {
             return this;
         }
 
+        public SearchUniversity.Builder userName(String username) {
+            this.username = username;
+            return this;
+        }
+
         public SearchUniversity build() {
             return new SearchUniversity(this);
         }
@@ -88,5 +109,6 @@ public class SearchUniversity {
         this.city = builder.city;
         this.universityId = builder.universityId;
         this.universityName = builder.universityName;
+        this.username = builder.username;
     }
 }
