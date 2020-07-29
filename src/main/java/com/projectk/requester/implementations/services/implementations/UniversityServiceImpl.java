@@ -59,7 +59,7 @@ public class UniversityServiceImpl implements UniversityService {
 				modelMap.put("errorMessage", "No results found!");
 			} else {
 				modelMap.put("allUniversities", resultList);
-				view = "universityListing";
+				view = searchUniversity.getUniversityId() == null ? "universityListing" : "universityPage";
 			}
 
 		} catch (StorageException e) {
