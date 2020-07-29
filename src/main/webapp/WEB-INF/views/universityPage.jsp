@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: AzRy
-  Date: 7/29/2020
-  Time: 12:20 AM
+  Date: 7/30/2020
+  Time: 12:03 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,20 +19,21 @@
     <style><%@include file="styles/universityListing.css"%></style>
 </head>
 <body>
-<p>
-<h1 style="text-align: center; color:cadetblue;">
-    Universities Page
-</h1>
-</p>
-<div class="uni-list">
+
+<div class="uni-item">
     <c:forEach items="${allUniversities}" var="university">
+        <p>
+        <h1 style="text-align: center; color:cadetblue;">
+            ${university.universityName}
+        </h1>
+        </p>
         <div class="list-group" style="height: 170px">
-            <a href="/universityPage/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px">
+            <a class="list-group-item list-group-item-action" style="border-radius: 10px">
                 <div class="uni-name">
-                    <h4>${university.universityName}</h4>
+                    <h4>${university.city}</h4>
                 </div>
-                <div class="uni-desc">
-                    <p id="demo">${university.descriptions}...</p>
+                <div class="uni-dean">
+<%--                    <p id="demo">${university.}...</p>--%>
                 </div>
             </a>
         </div>
@@ -40,4 +41,3 @@
 </div>
 </body>
 </html>
-

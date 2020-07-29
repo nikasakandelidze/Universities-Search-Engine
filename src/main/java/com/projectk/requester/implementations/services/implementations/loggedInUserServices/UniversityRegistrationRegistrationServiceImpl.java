@@ -1,24 +1,25 @@
-package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
+package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.University;
+import com.projectk.entities.ServiceResult;
 import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityRegistrationService;
+import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
 @Service
-public class UniversityRegistrationRegistrationServiceImpl implements UniversityRegistrationService {
+public class UniversityServiceImpl implements UniversityService {
 	private UniversityManager universityManager;
 
 	@Autowired
-	public UniversityRegistrationRegistrationServiceImpl(UniversityManager universityManager) {
+	public UniversityServiceImpl(UniversityManager universityManager) {
 		this.universityManager = universityManager;
 	}
 
@@ -54,8 +55,13 @@ public class UniversityRegistrationRegistrationServiceImpl implements University
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			List<University> resultList = universityManager.filter(searchUniversity);
-			modelMap.put("allUniversities", resultList);
-			view = "universityListing";
+			if (resultList.isEmpty()) {
+				modelMap.put("errorMessage", "No results found!");
+			} else {
+				modelMap.put("allUniversities", resultList);
+				view = searchUniversity.getUniversityId() == null ? "universityListing" : "universityPage";
+			}
+
 		} catch (StorageException e) {
 			modelMap.put("errorMessage", "Ups something went wrong...");
 		}
