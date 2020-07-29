@@ -25,5 +25,42 @@
     <%@include file="helpers/profile.jsp"%>
 </div>
 <%@include file="helpers/footer.jsp"%>
+</nav>
+    Welcome <c:out  value="${sessionScope.user.getUserName()}"></c:out>
+
+    <div class="todos">
+        <a href="/adduniversity">
+            <div style="border:1px solid black; float:left">
+                <p>
+                    Add University
+                </p>
+            </div>
+
+        </a>
+        <a href="/listuniversities/${user.getUsername()}">
+            <div style="border:1px solid black; float:left">
+                <p>
+                    List Universities
+                </p>
+            </div>
+        </a>
+    </div>
+<div class="todos">
+    <a href="/addfaculty">
+        <div style="border:1px solid black; float:left">
+            <p>
+                Add Faculty
+            </p>
+        </div>
+
+    </a>
+    <a href="/listenfaculties/${user.getUsername()}">
+        <div style="border:1px solid black; float:left">
+            <p>
+                List Faculties
+            </p>
+        </div>
+    </a>
+</div>
 </body>
 </html>

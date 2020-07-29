@@ -91,7 +91,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="hidden" name="username" value="${sessionScope.user.university_id}" >
+                        <input type="hidden" name="uniId" value="${sessionScope.user.university_id}" >
                     </div>
                 </div>
                 <div class="form-group">
@@ -135,7 +135,6 @@
     function validateRequiredFields(){
         var code = document.getElementById("facCode").value;
         var category = document.getElementById("facCategory").value;
-        var uniId = document.getElementById("facUniId").value;
         var name = document.getElementById("FacName").value;
         var dean = document.getElementById("FacDeanInfo").value;
         var price = document.getElementById("FacPrice").value;
@@ -144,51 +143,45 @@
         var inputsNotEmpty = true
         if( code == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniCode").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("facCode").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniCode").style.backgroundColor=""
+            document.getElementById("facCode").style.backgroundColor=""
         }
         if( category == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniName").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("facCategory").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniName").style.backgroundColor=""
-        }
-        if( uniId == "" ){
-            inputsNotEmpty = false
-            document.getElementById("uniCity").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("uniCity").style.backgroundColor=""
+            document.getElementById("facCategory").style.backgroundColor=""
         }
         if( name == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniAddress").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("FacName").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniAddress").style.backgroundColor=""
+            document.getElementById("FacName").style.backgroundColor=""
         }
         if( dean == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniWeb").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("FacDeanInfo").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniWeb").style.backgroundColor=""
+            document.getElementById("FacDeanInfo").style.backgroundColor=""
         }
         if( price == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("FacPrice").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniDescription").style.backgroundColor=""
+            document.getElementById("FacPrice").style.backgroundColor=""
         }
         if( description == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("FacDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniDescription").style.backgroundColor=""
+            document.getElementById("FacDescription").style.backgroundColor=""
         }
         if( web == "" ){
             inputsNotEmpty = false
-            document.getElementById("uniDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("FacWebPage").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("uniDescription").style.backgroundColor=""
+            document.getElementById("FacWebPage").style.backgroundColor=""
         }
 
         return inputsNotEmpty
