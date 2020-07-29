@@ -63,6 +63,7 @@
     </style>
 </head>
 <body>
+<%@include file="helpers/navbar.jsp"%>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <div class="col-md-4 col-md-offset-4" id="register">
     <section id="inner-wrapper" class="register">
@@ -75,7 +76,7 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="facRegisterForm" action="/addfaculty" method="post" onsubmit="return validateRequiredFields()">
+            <form style="text-align: center" name="facRegisterForm" action="/user/addfaculty" method="post" onsubmit="return validateRequiredFields()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>

@@ -34,6 +34,10 @@ public class PrepareSearchStatement implements Step<String, Object> {
                 statement.setString(variableIndex, searchUniversity.getUniversityName());
                 variableIndex++;
             }
+            if (searchUniversity.getUsername() != null) {
+                statement.setString(variableIndex, searchUniversity.getUsername());
+                variableIndex++;
+            }
         } catch (SQLException throwables) {
             throw new StepException(throwables);
         }
