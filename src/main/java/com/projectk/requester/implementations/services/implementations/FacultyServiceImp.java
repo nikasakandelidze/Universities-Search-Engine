@@ -2,6 +2,8 @@ package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.ServiceResult;
+import com.projectk.entities.University;
+import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.requester.implementations.services.interfaces.FacultyService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 @Service
 public class FacultyServiceImp implements FacultyService {
@@ -38,6 +41,20 @@ public class FacultyServiceImp implements FacultyService {
         Map<String, Object> modelMap = new HashMap<>();
         try {
             facultyManager.update(faculty);
+        } catch (StorageException e) {
+            modelMap.put("errorMessage", "Ups something went wrong...");
+        }
+        return new ServiceResult(view, modelMap);
+    }
+
+    @Override
+    public ServiceResult filterFaculties(SearchFaculty searchFaculty) {
+        String view = "HomePage";
+        Map<String, Object> modelMap = new HashMap<>();
+        try {
+            List<Faculty> resultList = facultyManager.filter(searchFaculty);
+            modelMap.put("allFaculties", resultList);
+            view = "facultyListing";
         } catch (StorageException e) {
             modelMap.put("errorMessage", "Ups something went wrong...");
         }

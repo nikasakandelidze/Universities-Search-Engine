@@ -2,6 +2,7 @@ package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.University;
 import com.projectk.entities.ServiceResult;
+import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.interfaces.UniversityService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
@@ -54,8 +55,13 @@ public class UniversityServiceImpl implements UniversityService {
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			List<University> resultList = universityManager.filter(searchUniversity);
-			modelMap.put("allUniversities", resultList);
-			view = "universityListing";
+			if (resultList.isEmpty()) {
+				modelMap.put("errorMessage", "No results found!");
+			} else {
+				modelMap.put("allUniversities", resultList);
+				view = "universityListing";
+			}
+
 		} catch (StorageException e) {
 			modelMap.put("errorMessage", "Ups something went wrong...");
 		}
