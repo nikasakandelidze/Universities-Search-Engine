@@ -1,7 +1,7 @@
 package com.projectk.requester.implementations;
 
 import com.projectk.entities.Subject;
-import com.projectk.entities.ServiceResult;
+import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.SubjectService;
 import com.projectk.requester.interfaces.SubjectRequester;
 import org.springframework.beans.factory.annotation.Autowired;

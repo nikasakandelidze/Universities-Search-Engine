@@ -2,7 +2,7 @@ package com.projectk.requester.implementations;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.enums.FacultyCategory;
-import com.projectk.entities.ServiceResult;
+import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.FacultyService;
 import com.projectk.requester.interfaces.FacultyRequester;
 import org.springframework.beans.factory.annotation.Autowired;
