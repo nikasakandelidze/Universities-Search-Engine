@@ -29,7 +29,7 @@ public class SubjectServiceImp implements SubjectService {
             subjectManager.add(subject);
             view = "UserPage";
         } catch (StorageException e) {
-            modelMap.put("errorMessage", "Faculty name already exists!");
+            modelMap.put("errorMessage", "Subject name already exists!");
         }
         return new ServiceResult(view, modelMap);
     }
