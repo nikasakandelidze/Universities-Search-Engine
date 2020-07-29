@@ -23,7 +23,8 @@
 </h1>
 </p>
 <p style="color:darkred; text-align: center">
-    <c:out value="${errorMessage}"></c:out>
+    <h2 style=" text-align: center">${errorMessage}</h2>
+    <h5 style=" text-align: center; color: #4d90fe">${logoutMessage}</h5>
 </p>
 <form style="text-align: center" name="loginForm" action="/login" method="post" onsubmit="return validateInput()">
     Username: <input id="username" placeholder="Username" type="text" name="username"><br>
