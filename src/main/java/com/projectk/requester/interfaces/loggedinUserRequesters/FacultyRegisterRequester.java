@@ -1,8 +1,8 @@
-package com.projectk.requester.interfaces;
+package com.projectk.requester.interfaces.loggedinUserRequesters;
 
 import com.projectk.entities.enums.FacultyCategory;
 
-public interface FacultyRequester {
+public interface FacultyRegisterRequester {
     Object displayFacultyRegistration();
 
     Object executeFacultyRegistration(int facultyId, String  category, int uniId, String name,

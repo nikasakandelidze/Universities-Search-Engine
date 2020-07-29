@@ -1,9 +1,9 @@
-package com.projectk.requester.implementations.services.interfaces;
+package com.projectk.requester.implementations.services.interfaces.loggedInUserServices;
 
 import com.projectk.entities.Faculty;
 import com.projectk.requester.implementations.services.ServiceResult;
 
-public interface FacultyService {
+public interface FacultyRegistartionService {
     ServiceResult addFaculty(Faculty faculty);
 
     ServiceResult updateFaculty(Faculty Faculty);

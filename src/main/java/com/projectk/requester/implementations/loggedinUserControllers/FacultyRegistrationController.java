@@ -1,10 +1,10 @@
-package com.projectk.requester.implementations;
+package com.projectk.requester.implementations.loggedinUserControllers;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.enums.FacultyCategory;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.FacultyService;
-import com.projectk.requester.interfaces.FacultyRequester;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyRegistartionService;
+import com.projectk.requester.interfaces.loggedinUserRequesters.FacultyRegisterRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/user")
-public class FacultyRegistration implements FacultyRequester {
-    private FacultyService facultyService;
+public class FacultyRegistrationController implements FacultyRegisterRequester {
+    private FacultyRegistartionService facultyRegistartionService;
 
     @Autowired
-    public FacultyRegistration(FacultyService facultyService) {
-        this.facultyService = facultyService;
+    public FacultyRegistrationController(FacultyRegistartionService facultyRegistartionService) {
+        this.facultyRegistartionService = facultyRegistartionService;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class FacultyRegistration implements FacultyRequester {
                                              @RequestParam long price,
                                              @RequestParam String description,
                                              @RequestParam String webPage) {
-        ServiceResult serviceResult = facultyService.addFaculty(new Faculty.Builder()
+        ServiceResult serviceResult = facultyRegistartionService.addFaculty(new Faculty.Builder()
                 .facultyId(code)
                 .category(FacultyCategory.valueOf(category))
                 .universityId(uniId)

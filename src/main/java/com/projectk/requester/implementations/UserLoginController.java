@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class UserLogin implements UserRequester {
+public class UserLoginController implements UserRequester {
     private UserService userService;
 
     @Autowired
-    public UserLogin(UserService userService) {
+    public UserLoginController(UserService userService) {
         this.userService = userService;
     }
 

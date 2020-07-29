@@ -1,6 +1,6 @@
 package com.projectk.entities;
 
-import com.projectk.requester.implementations.services.utils.EncryptionUtils;
+import com.projectk.requester.implementations.services.implementations.utils.EncryptionUtils;
 
 public class User {
     private String username;

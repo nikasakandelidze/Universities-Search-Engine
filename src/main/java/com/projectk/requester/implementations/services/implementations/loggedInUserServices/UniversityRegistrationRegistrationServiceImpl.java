@@ -1,9 +1,9 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.UniversityService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityRegistrationService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.universityManager.UniversityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class UniversityServiceImpl implements UniversityService {
+public class UniversityRegistrationRegistrationServiceImpl implements UniversityRegistrationService {
 	private UniversityManager universityManager;
 
 	@Autowired
-	public UniversityServiceImpl(UniversityManager universityManager) {
+	public UniversityRegistrationRegistrationServiceImpl(UniversityManager universityManager) {
 		this.universityManager = universityManager;
 	}
 

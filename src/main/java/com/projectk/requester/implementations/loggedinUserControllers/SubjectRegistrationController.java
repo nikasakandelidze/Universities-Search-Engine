@@ -1,9 +1,9 @@
-package com.projectk.requester.implementations;
+package com.projectk.requester.implementations.loggedinUserControllers;
 
 import com.projectk.entities.Subject;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.SubjectService;
-import com.projectk.requester.interfaces.SubjectRequester;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.SubjectRegistrationService;
+import com.projectk.requester.interfaces.loggedinUserRequesters.SubjectRegisterRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/user")
-public class SubjectRegistration implements SubjectRequester {
-    private SubjectService subjectService;
+public class SubjectRegistrationController implements SubjectRegisterRequester {
+    private SubjectRegistrationService subjectRegistrationService;
 
     @Autowired
-    public SubjectRegistration(SubjectService subjectService) {
-        this.subjectService = subjectService;
+    public SubjectRegistrationController(SubjectRegistrationService subjectRegistrationService) {
+        this.subjectRegistrationService = subjectRegistrationService;
     }
 
 
@@ -37,7 +37,7 @@ public class SubjectRegistration implements SubjectRequester {
                                              @RequestParam int credits,
                                              @RequestParam String descriptions,
                                              @RequestParam int semester) {
-        ServiceResult serviceResult = subjectService.addSubject(new Subject.Builder()
+        ServiceResult serviceResult = subjectRegistrationService.addSubject(new Subject.Builder()
                 .subject_id(subjectId)
                 .faculty_id(facultyId)
                 .subject_name(subjectName)

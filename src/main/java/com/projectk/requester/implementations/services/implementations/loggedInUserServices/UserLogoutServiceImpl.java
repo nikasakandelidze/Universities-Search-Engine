@@ -1,7 +1,7 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.UserLogoutService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UserLogoutService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomePage implements HomePageRequester {
+public class HomePageController implements HomePageRequester {
     private HomePageService homePageService;
 
     @Autowired
-    public HomePage(HomePageService homePageService) {
+    public HomePageController(HomePageService homePageService) {
         this.homePageService = homePageService;
     }
 

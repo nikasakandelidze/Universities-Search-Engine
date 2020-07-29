@@ -1,4 +1,4 @@
-package com.projectk.requester.implementations.services.utils;
+package com.projectk.requester.implementations.services.implementations.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

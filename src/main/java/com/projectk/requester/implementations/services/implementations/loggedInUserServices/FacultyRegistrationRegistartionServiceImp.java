@@ -1,8 +1,8 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.entities.Faculty;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.FacultyService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyRegistartionService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 @Service
-public class FacultyServiceImp implements FacultyService {
+public class FacultyRegistrationRegistartionServiceImp implements FacultyRegistartionService {
     private FacultyManager facultyManager;
 
     @Autowired
-    public FacultyServiceImp(FacultyManager facultyManager) {
+    public FacultyRegistrationRegistartionServiceImp(FacultyManager facultyManager) {
         this.facultyManager = facultyManager;
     }
 

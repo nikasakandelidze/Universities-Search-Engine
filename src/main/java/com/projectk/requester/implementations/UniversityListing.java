@@ -1,9 +1,7 @@
 package com.projectk.requester.implementations;
 
 import com.projectk.entities.University;
-import com.projectk.entities.searchEntities.SearchUniversity;
-import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.UniversityService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityRegistrationService;
 import com.projectk.requester.interfaces.UniversityListingRequester;
 import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UniversityListing implements UniversityListingRequester {
-	private UniversityService universityService;
+	private UniversityRegistrationService universityRegistrationService;
 
 	@Autowired
-	public UniversityListing(UniversityService universityService) {
-		this.universityService = universityService;
+	public UniversityListing(UniversityRegistrationService universityRegistrationService) {
+		this.universityRegistrationService = universityRegistrationService;
 	}
 
 	@Override

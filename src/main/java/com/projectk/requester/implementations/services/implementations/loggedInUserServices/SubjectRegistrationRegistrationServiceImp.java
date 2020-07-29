@@ -1,8 +1,8 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.entities.Subject;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.SubjectService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.SubjectRegistrationService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.subjectManager.SubjectManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class SubjectServiceImp implements SubjectService {
+public class SubjectRegistrationRegistrationServiceImp implements SubjectRegistrationService {
     private SubjectManager subjectManager;
 
     @Autowired
-    public SubjectServiceImp(SubjectManager subjectManager) {
+    public SubjectRegistrationRegistrationServiceImp(SubjectManager subjectManager) {
         this.subjectManager = subjectManager;
     }
 
