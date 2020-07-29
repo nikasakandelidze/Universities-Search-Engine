@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class SubjectRegistration implements SubjectRequester {
+public class UniversitySubjectRegistration implements SubjectRequester {
     private SubjectService subjectService;
 
     @Autowired
-    public SubjectRegistration(SubjectService subjectService) {
+    public UniversitySubjectRegistration(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
 

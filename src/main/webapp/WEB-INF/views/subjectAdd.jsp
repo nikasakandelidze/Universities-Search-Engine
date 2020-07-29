@@ -68,53 +68,41 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="facRegisterForm" action="/addfaculty" method="post" onsubmit="return validateRequiredFields()">
+            <form style="text-align: center" name="subRegisterForm" action="/addsubject" method="post" onsubmit="return validateRequiredFields()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>
-                        <input type="number" id="facCode"class="form-control" placeholder="Faculty Code" name="code">
+                        <input type="number" id="SubId"class="form-control" placeholder="Subject Code" name="subjectId">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
-                        <input type="text" id="facCategory"class="form-control" placeholder="Faculty Category" name="category">
+                        <input type="number" id="SubFacId"class="form-control" placeholder="Faculty Id" name="facultyId">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="hidden" name="uniId" value="${sessionScope.user.university_id}" >
+                        <input type="text" id="SubName"class="form-control" placeholder="Subject Name" name="subjectName">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="text" id="FacName" class="form-control" placeholder="Faculty Name" name="name">
+                        <input type="text" id="SubCredits" class="form-control" placeholder="Subject Credits" name="credits">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="text" id="FacDeanInfo" class="form-control" placeholder="Dean Info" name="dean">
+                        <input type="text" id="SubDescriptions" class="form-control" placeholder="Subject Description" name="descriptions">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="number" id="FacPrice" class="form-control" placeholder="Price" name="price">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="text" id="FacDescription" class="form-control" placeholder="Faculty Description" name="description">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="text" id="FacWebPage" class="form-control" placeholder="Faculty Web Page" name="webPage">
+                        <input type="number" id="SubSemester" class="form-control" placeholder="Semester" name="semester">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
@@ -126,55 +114,48 @@
 </html>
 <script>
     function validateRequiredFields(){
-        var code = document.getElementById("facCode").value;
-        var category = document.getElementById("facCategory").value;
-        var name = document.getElementById("FacName").value;
-        var dean = document.getElementById("FacDeanInfo").value;
-        var price = document.getElementById("FacPrice").value;
-        var description = document.getElementById("uniDescription").value;
-        var webPage = document.getElementById("FacWebPage").value;
+        var subjectId = document.getElementById("SubId").value;
+        var facultyId = document.getElementById("SubFacId").value;
+        var name = document.getElementById("SubName").value;
+        var credits = document.getElementById("SubCredits").value;
+        var descriptions = document.getElementById("SubDescriptions").value;
+        var semester = document.getElementById("SubSemester").value;
         var inputsNotEmpty = true
-        if( code == "" ){
+        if( subjectId == "" ){
             inputsNotEmpty = false
-            document.getElementById("facCode").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubId").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("facCode").style.backgroundColor=""
+            document.getElementById("SubId").style.backgroundColor=""
         }
-        if( category == "" ){
+        if( facultyId == "" ){
             inputsNotEmpty = false
-            document.getElementById("facCategory").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubFacId").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("facCategory").style.backgroundColor=""
+            document.getElementById("SubFacId").style.backgroundColor=""
         }
         if( name == "" ){
             inputsNotEmpty = false
-            document.getElementById("FacName").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubName").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("FacName").style.backgroundColor=""
+            document.getElementById("SubName").style.backgroundColor=""
         }
-        if( dean == "" ){
+        if( credits == "" ){
             inputsNotEmpty = false
-            document.getElementById("FacDeanInfo").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubCredits").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("FacDeanInfo").style.backgroundColor=""
+            document.getElementById("SubCredits").style.backgroundColor=""
         }
-        if( price == "" ){
+        if( descriptions == "" ){
             inputsNotEmpty = false
-            document.getElementById("FacPrice").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubDescriptions").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("FacPrice").style.backgroundColor=""
+            document.getElementById("SubDescriptions").style.backgroundColor=""
         }
-        if( description == "" ){
+        if( semester == "" ){
             inputsNotEmpty = false
-            document.getElementById("FacDescription").style.backgroundColor="rgba(255,69,0, 0.2)"
+            document.getElementById("SubSemester").style.backgroundColor="rgba(255,69,0, 0.2)"
         }else{
-            document.getElementById("FacDescription").style.backgroundColor=""
-        }
-        if( webPage == "" ){
-            inputsNotEmpty = false
-            document.getElementById("FacWebPage").style.backgroundColor="rgba(255,69,0, 0.2)"
-        }else{
-            document.getElementById("FacWebPage").style.backgroundColor=""
+            document.getElementById("SubSemester").style.backgroundColor=""
         }
 
         return inputsNotEmpty
