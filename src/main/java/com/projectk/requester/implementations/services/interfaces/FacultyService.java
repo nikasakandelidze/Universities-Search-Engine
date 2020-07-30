@@ -1,4 +1,4 @@
-package com.projectk.requester.implementations.services.interfaces.loggedInUserServices;
+package com.projectk.requester.implementations.services.interfaces;
 
 import  com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
@@ -11,4 +11,6 @@ public interface FacultyService {
     ServiceResult updateFaculty(Faculty Faculty);
 
     ServiceResult filterFaculties(SearchFaculty searchFaculty);
+
+    ServiceResult findFacultyById(int id);
 }

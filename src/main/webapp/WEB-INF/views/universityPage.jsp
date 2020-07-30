@@ -13,31 +13,39 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Universities</title>
+    <title>University Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style><%@include file="styles/universityListing.css"%></style>
+    <style><%@include file="styles/universityPage.css"%></style>
 </head>
 <body>
 
-<div class="uni-item">
+<div class="uni-item" style="float: left">
     <c:forEach items="${allUniversities}" var="university">
         <p>
         <h1 style="text-align: center; color:cadetblue;">
             ${university.universityName}
         </h1>
         </p>
-        <div class="list-group" style="height: 170px">
+        <div class="list-group">
             <a class="list-group-item list-group-item-action" style="border-radius: 10px">
-                <div class="uni-name">
-                    <h4>${university.city}</h4>
+                <div class="uni-desc">
+                    <h4>Description: ${university.descriptions}</h4>
                 </div>
-                <div class="uni-dean">
-<%--                    <p id="demo">${university.}...</p>--%>
+                <div class="uni-address">
+                    <h4>Address: ${university.city},  ${university.city}</h4>
+                </div>
+                <p>
+                </p>
+                <div class="uni-web">
+                    <h4>Web Page: ${university.webPageLink}</h4>
                 </div>
             </a>
         </div>
     </c:forEach>
+</div>
+<div class="faculty-list" style="float: left; ">
+    <%@include file="facultyListing.jsp"%>
 </div>
 </body>
 </html>

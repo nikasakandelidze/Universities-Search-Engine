@@ -1,8 +1,9 @@
-package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
+package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.interfaces.FacultyService;
 import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
@@ -58,5 +59,18 @@ public class FacultyServiceImp implements FacultyService {
             modelMap.put("errorMessage", "Ups something went wrong...");
         }
         return new ServiceResult(view, modelMap);
+    }
+
+    @Override
+    public ServiceResult findFacultyById(int id) {
+        String view= "faculty";
+        Map<String,Object> modelMap = new HashMap<>();
+        try {
+            modelMap.put("faculty",facultyManager.find(id));
+
+        } catch (StorageException e) {
+            view = "facultyListing";
+        }
+        return new ServiceResult(view,modelMap);
     }
 }

@@ -16,6 +16,10 @@ public class SearchFaculty {
         return new SearchFaculty.Builder().build();
     }
 
+    public static SearchFaculty selectFacultyWithUniversityId(int id) {
+        return new SearchFaculty.Builder().universityId(id).build();
+    }
+
     public Integer getUniversityID() {
         return universityID;
     }
