@@ -2,7 +2,7 @@ package com.projectk.requester.implementations.loggedinUserControllers;
 
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.entities.University;
-import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityRegistrationService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityService;
 import com.projectk.requester.interfaces.loggedinUserRequesters.UniversityRegisterRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class UniversityRegistrationController implements UniversityRegisterRequester {
-	private UniversityRegistrationService universityRegistrationService;
+	private UniversityService universityService;
 
 	@Autowired
-	public UniversityRegistrationController(UniversityRegistrationService universityRegistrationService) {
-		this.universityRegistrationService = universityRegistrationService;
+	public UniversityRegistrationController(UniversityService universityService) {
+		this.universityService = universityService;
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class UniversityRegistrationController implements UniversityRegisterReque
 													  @RequestParam String web,
 													  @RequestParam String description,
 													  @RequestParam String username) {
-		ServiceResult serviceResult = universityRegistrationService.addUniversity(new University.Builder()
+		ServiceResult serviceResult = universityService.addUniversity(new University.Builder()
 				.withId(code)
 				.withName(name)
 				.withCity(city)

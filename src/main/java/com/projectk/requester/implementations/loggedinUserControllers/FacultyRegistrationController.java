@@ -3,7 +3,7 @@ package com.projectk.requester.implementations.loggedinUserControllers;
 import com.projectk.entities.Faculty;
 import com.projectk.entities.enums.FacultyCategory;
 import com.projectk.requester.implementations.services.ServiceResult;
-import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyRegistartionService;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyService;
 import com.projectk.requester.interfaces.loggedinUserRequesters.FacultyRegisterRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class FacultyRegistrationController implements FacultyRegisterRequester {
-    private FacultyRegistartionService facultyRegistartionService;
+    private FacultyService facultyService;
 
     @Autowired
-    public FacultyRegistrationController(FacultyRegistartionService facultyRegistartionService) {
-        this.facultyRegistartionService = facultyRegistartionService;
+    public FacultyRegistrationController(FacultyService facultyService) {
+        this.facultyService = facultyService;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class FacultyRegistrationController implements FacultyRegisterRequester {
                                              @RequestParam long price,
                                              @RequestParam String description,
                                              @RequestParam String webPage) {
-        ServiceResult serviceResult = facultyRegistartionService.addFaculty(new Faculty.Builder()
+        ServiceResult serviceResult = facultyService.addFaculty(new Faculty.Builder()
                 .facultyId(code)
                 .category(FacultyCategory.valueOf(category))
                 .universityId(uniId)

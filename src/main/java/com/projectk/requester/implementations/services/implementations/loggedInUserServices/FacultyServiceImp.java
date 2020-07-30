@@ -1,10 +1,9 @@
-package com.projectk.requester.implementations.services.implementations;
+package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
 
 import com.projectk.entities.Faculty;
-import com.projectk.entities.ServiceResult;
-import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchFaculty;
-import com.projectk.requester.implementations.services.interfaces.FacultyService;
+import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyManager;
 import org.springframework.beans.factory.annotation.Autowired;
