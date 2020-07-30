@@ -5,6 +5,8 @@ import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.interfaces.FacultyService;
+import com.projectk.requester.implementations.services.interfaces.UniversityFacultyService;
 import com.projectk.requester.implementations.services.interfaces.UniversityFacultyService;
 import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.FacultyService;
 import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityService;
