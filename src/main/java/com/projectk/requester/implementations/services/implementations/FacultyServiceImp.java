@@ -1,4 +1,4 @@
-package com.projectk.requester.implementations.services.implementations.loggedInUserServices;
+package com.projectk.requester.implementations.services.implementations;
 
 import com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
