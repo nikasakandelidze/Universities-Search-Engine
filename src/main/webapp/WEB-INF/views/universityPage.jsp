@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<div class="uni-item">
+<div class="uni-item" style="float: left">
     <c:forEach items="${allUniversities}" var="university">
         <p>
         <h1 style="text-align: center; color:cadetblue;">
@@ -43,6 +43,9 @@
             </a>
         </div>
     </c:forEach>
+</div>
+<div class="faculty-list" style="float: left; ">
+    <%@include file="facultyListing.jsp"%>
 </div>
 </body>
 </html>

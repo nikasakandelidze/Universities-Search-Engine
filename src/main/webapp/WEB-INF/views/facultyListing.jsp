@@ -11,10 +11,10 @@
     <title>Faculties</title>
 </head>
 <body>
-<div class="faculty-list">
+<div class="faculty-list" style="float: left">
     <c:forEach items="${allFaculties}" var="faculty">
-        <div class="list-group" style="height: 170px">
-            <a href="/faculty/${faculty.id}" class="list-group-item list-group-item-action" style="border-radius: 10px">
+        <div class="list-group" style="height: 170px; width: 150px;">
+            <a href="/faculty/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px">
                 <div class="faculty-name">
                     <h4>${faculty.name}</h4>
                 </div>
