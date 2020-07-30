@@ -19,6 +19,7 @@
     <style><%@include file="styles/universityListing.css"%></style>
 </head>
 <body>
+<%@include file="helpers/navbar.jsp"%>
 <p>
 <h1 style="text-align: center; color:cadetblue;">
     Universities Page
