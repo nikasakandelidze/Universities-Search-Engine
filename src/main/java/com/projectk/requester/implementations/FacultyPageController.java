@@ -21,7 +21,7 @@ public class FacultyPageController implements FacultyPageRequester {
     }
 
     @Override
-    @GetMapping("/faculty/{universityId}")
+    @GetMapping("/faculty/{facultyId}")
     public Object displayFaculty(@PathVariable int facultyId) {
         ServiceResult facultyById = facultyService.findFacultyById(facultyId);
         return new ModelAndView(facultyById.getViewName(), facultyById.getModelMap());

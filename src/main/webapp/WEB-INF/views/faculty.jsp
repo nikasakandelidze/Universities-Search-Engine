@@ -27,7 +27,7 @@
 </p>
 <div class="faculty">
         ${faculty.name}
-        ${facul ty.price}
+        ${faculty.price}
 </div>
 </body>
 </html>
