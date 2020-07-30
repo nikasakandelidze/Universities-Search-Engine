@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class UniversityPage implements UniversityPageRequester {
+public class UniversityPageController implements UniversityPageRequester {
 	private UniversityService universityService;
 
 	@Autowired
-	public UniversityPage(UniversityService universityService) {
+	public UniversityPageController(UniversityService universityService) {
 		this.universityService = universityService;
 	}
 
