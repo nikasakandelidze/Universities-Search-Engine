@@ -2,6 +2,7 @@ package com.projectk.requester.implementations;
 
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.interfaces.UniversityFacultyService;
 import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityService;
 import com.projectk.requester.interfaces.UniversityPageRequester;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UniversityPageController implements UniversityPageRequester {
-	private UniversityService universityService;
+	private UniversityFacultyService universityFacultyService;
 
 	@Autowired
-	public UniversityPageController(UniversityService universityService) {
-		this.universityService = universityService;
+	public UniversityPageController(UniversityFacultyService universityFacultyService) {
+		this.universityFacultyService = universityFacultyService;
 	}
 
 	@Override
 	@GetMapping(path = "/universityPage/{universityId}")
 	public Object displayUniversityPage(@PathVariable("universityId") int universityId) {
-		ServiceResult serviceResult = universityService.filterUniversities(new SearchUniversity.Builder()
-				.universityId(universityId)
-				.build());
+		ServiceResult serviceResult = universityFacultyService.getUniversity(universityId);
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
 }
