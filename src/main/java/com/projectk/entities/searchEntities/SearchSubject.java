@@ -16,6 +16,8 @@ public class SearchSubject {
         return new SearchSubject.Builder().build();
     }
 
+    public static SearchSubject selectByFacultyId(String facultyId) { return new Builder().facultyId(Integer.parseInt(facultyId)).build(); }
+
     public Integer getUniversityId() {
         return universityId;
     }

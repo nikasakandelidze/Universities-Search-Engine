@@ -47,7 +47,7 @@
     </c:forEach>
 </div>
 <p>
-<h1 style="text-align: center; color:cadetblue;" ali>
+<h1 style="text-align: center; color:cadetblue;" >
     Faculties
 </h1>
 </p>

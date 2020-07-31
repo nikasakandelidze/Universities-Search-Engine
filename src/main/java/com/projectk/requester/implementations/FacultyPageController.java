@@ -3,6 +3,7 @@ package com.projectk.requester.implementations;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.FacultyService;
+import com.projectk.requester.implementations.services.interfaces.FacultySubjectService;
 import com.projectk.requester.interfaces.FacultyPageRequester;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class FacultyPageController implements FacultyPageRequester {
-    private FacultyService facultyService;
+    private FacultySubjectService facultySubjectService;
 
     @Autowired
-    public FacultyPageController(FacultyService facultyService){
-        this.facultyService = facultyService;
+    public FacultyPageController(FacultySubjectService facultySubjectService) {
+        this.facultySubjectService = facultySubjectService;
     }
 
     @Override
     @GetMapping("/faculty/{facultyId}")
     public Object displayFaculty(@PathVariable int facultyId) {
-        ServiceResult facultyById = facultyService.findFacultyById(facultyId);
+        ServiceResult facultyById = facultySubjectService.getFaculty(facultyId);
         return new ModelAndView(facultyById.getViewName(), facultyById.getModelMap());
     }
 }
