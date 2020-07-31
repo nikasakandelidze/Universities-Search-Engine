@@ -27,7 +27,6 @@
     }
 </style>
 <body class="profile-page">
-
 <div class="page-header header-filter" data-parallax="true"></div>
 <div class="main main-raised">
     <div class="profile-content">
@@ -41,6 +40,12 @@
                     </div>
                 </div>
             </div>
+            <form  id="myForm" action="/user/logout" method="get" onsubmit="true" method="get">
+                <button type="submit" style="border-style: outset; width: 100px; background-color: #f3aa0c; color: black" class="btn btn-success btn-block">
+                    Logout
+                </button>
+            </form>
+
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto">
                     <div class="profile-tabs">
