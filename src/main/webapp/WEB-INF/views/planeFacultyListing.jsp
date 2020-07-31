@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: basa
-  Date: 7/30/2020
-  Time: 9:08 PM
+  User: AzRy
+  Date: 8/1/2020
+  Time: 12:04 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,21 +19,18 @@
     <style><%@include file="styles/universityListing.css"%></style>
 </head>
 <body>
-<%@include file="helpers/navbar.jsp"%>
-<p>
-<h1 style="text-align: center; color:cadetblue;">
-    Faculties Page
-</h1>
-</p>
-<div class="uni-list">
+<div class="faculty-list" style="float: left">
     <c:forEach items="${allFaculties}" var="faculty">
-        <div class="list-group" style="height: 170px">
-            <a href="/faculty/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px">
-                <div class="uni-name">
-                    Faculty name : <h4>${faculty.name}</h4>
+        <div class="list-group" style="height: 150px; width: 600px;">
+            <a href="/faculty/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px;">
+                <div class="fac-name">
+                    Faculty name : ${faculty.name}
                 </div>
-                <div class="uni-name">
-                    Faculty description : <h4>${faculty.description}</h4>
+                <div class="fac-name">
+                    Faculty description : ${faculty.description}
+                </div>
+                <div class="fac-name">
+                    Faculty price : ${faculty.price}
                 </div>
             </a>
         </div>
