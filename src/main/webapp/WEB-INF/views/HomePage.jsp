@@ -23,14 +23,8 @@
     <h4 style=" text-align: center; padding-top:30px; ">Get all the information about universities</h4>
 </div>
 
-<form action="/homepage/search" method="post" style="text-align: center; padding-top: 70px">
-
-    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Search Option</label>
-    <select style="width: 200px;" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>University Search</option>
-        <option value="2">Faculty Search</option>
-    </select>
-    <input type="text" placeholder="Search" name="searchData" aria-label="Search">
+<form  id="myForm" onsubmit="return getValue()" method="post" style="text-align: center; padding-top: 70px">
+    <input type="text" placeholder="Search" id="searchData" aria-label="Search">
     <input type="submit" value="Search">
 </form>
 <div style=" padding-bottom: 70px;">
@@ -52,3 +46,9 @@
 </div>
 </body>
 </html>
+<script>
+   function getValue() {
+       document.getElementById("myForm").action = "/homepage/search/"+document.getElementById("searchData").value;
+        return true;
+   }
+</script>

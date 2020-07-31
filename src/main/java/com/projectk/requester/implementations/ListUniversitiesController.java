@@ -8,6 +8,7 @@ import com.projectk.requester.interfaces.UniversityListingRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -20,13 +21,9 @@ public class ListUniversitiesController implements UniversityListingRequester {
 	}
 
 	@Override
-	@GetMapping("/universityListing")
-	public ModelAndView displayUniversityListing() {
-		ServiceResult serviceResult = universityService.filterUniversities(new SearchUniversity.Builder()
-				.universityName(null)
-				.city(null)
-				.faculty(null)
-				.build());
+	@GetMapping("/universityListing/{universityName}")
+	public ModelAndView displayUniversityListing(@PathVariable String universityName) {
+		ServiceResult serviceResult = universityService.filterUniversities(SearchUniversity.selectByName(universityName));
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
 	}
 }

@@ -2,6 +2,7 @@ package com.projectk.storage.storageManager.implementations.universityManager.un
 
 import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.storage.storageManager.implementations.universityManager.universityPersister.implementations.helpers.Step;
+import org.junit.platform.commons.util.StringUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,12 +31,12 @@ public class PrepareSearchStatement implements Step<String, Object> {
                 statement.setString(variableIndex, searchUniversity.getCity());
                 variableIndex++;
             }
-            if (searchUniversity.getUniversityName() != null) {
-                statement.setString(variableIndex, searchUniversity.getUniversityName());
-                variableIndex++;
-            }
             if (searchUniversity.getUsername() != null) {
                 statement.setString(variableIndex, searchUniversity.getUsername());
+                variableIndex++;
+            }
+            if (searchUniversity.getUniversityName() != null) {
+                statement.setString(variableIndex, searchUniversity.getUniversityName().toLowerCase());
                 variableIndex++;
             }
         } catch (SQLException throwables) {

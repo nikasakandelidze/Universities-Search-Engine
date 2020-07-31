@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class HomePageController implements HomePageRequester {
@@ -28,10 +29,9 @@ public class HomePageController implements HomePageRequester {
     }
 
     @Override
-    @PostMapping("/homepage/search")
-    public Object search(@RequestBody String searchData) {
-        ServiceResult searchResult = homePageService.search(searchData);
-        return new ModelAndView(searchResult.getViewName(), searchResult.getModelMap());
+    @PostMapping("/homepage/search/{universityName}")
+    public Object search(@PathVariable String universityName) {
+        return "redirect:/universityListing/"+universityName;
     }
 
     @Override

@@ -19,6 +19,8 @@ public class SearchUniversity {
         return new SearchUniversity.Builder().build();
     }
 
+    public static SearchUniversity selectByName(String name) { return new Builder().universityName(name).build(); }
+
     public static SearchUniversity universitiedOfUser(String username){
         return new SearchUniversity.Builder().userName(username).build();
     }

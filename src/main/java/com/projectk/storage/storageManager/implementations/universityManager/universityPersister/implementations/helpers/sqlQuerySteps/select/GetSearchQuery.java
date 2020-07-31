@@ -13,14 +13,14 @@ public class GetSearchQuery implements Step<SearchUniversity, String> {
         if (input.getCity() != null) {
             builder.append(" and U.city = ?");
         }
-        if (input.getUniversityName() != null) {
-            builder.append(" and U.university_name = ?");
-        }
         if (input.getFacultyCategory() != null) {
             builder.append(" and U.facultyCategory = ?");
         }
         if (input.getUsername() != null) {
             builder.append(" and U.username = ?");
+        }
+        if (input.getUniversityName() != null) {
+            builder.append(" and lower(U.university_name) like CONCAT( '%',?,'%')");
         }
         return builder.toString();
     }
