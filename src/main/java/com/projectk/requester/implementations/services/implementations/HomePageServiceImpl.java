@@ -3,6 +3,7 @@ package com.projectk.requester.implementations.services.implementations;
 import com.projectk.entities.Faculty;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.requester.implementations.services.ServiceResult;
+import com.projectk.requester.implementations.services.implementations.utils.HomePageUtils;
 import com.projectk.requester.implementations.services.interfaces.HomePageService;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
 import com.projectk.storage.storageManager.implementations.facultystorage.FacultyUtils;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class HomePageServiceImpl implements HomePageService {
@@ -28,7 +30,11 @@ public class HomePageServiceImpl implements HomePageService {
     public ServiceResult getHomePage() {
         List<Faculty> filter = new ArrayList<>();
         try {
-            filter = facultyStorageManager.filter(SearchFaculty.selectAll());
+            filter = facultyStorageManager.filter(SearchFaculty.selectAll())
+            .stream()
+            .filter(HomePageUtils.distinctByKey(faculty -> faculty.getCategory()))
+            .collect(Collectors.toList());
+
         } catch (StorageException e) {
             e.printStackTrace();
         }
