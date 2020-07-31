@@ -11,25 +11,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UniversityFacultyServiceImpl implements UniversityFacultyService {
+public class UniversityAndFacultyServiceFacade implements UniversityFacultyService {
     private UniversityService universityService;
     private FacultyService facultyService;
 
     @Autowired
-    public UniversityFacultyServiceImpl(UniversityService universityService, FacultyService facultyService) {
+    public UniversityAndFacultyServiceFacade(UniversityService universityService, FacultyService facultyService) {
         this.universityService = universityService;
         this.facultyService = facultyService;
     }
 
     @Override
     public ServiceResult getUniversity(int universityId) {
-        ServiceResult universityServiceResult = universityService.filterUniversities(new SearchUniversity.Builder()
-                .universityId(universityId)
-                .build());
-        ServiceResult facultyServiceResult = facultyService.filterFaculties(new SearchFaculty.Builder()
-                .universityId(universityId)
-                .build());
-        universityServiceResult.getModelMap().putAll(facultyServiceResult.getModelMap());
-        return universityServiceResult;
+        ServiceResult mainServiceResult = universityService
+                .filterUniversities(SearchUniversity.selectUnviersityById(universityId));
+        ServiceResult secondaryServiceResult = facultyService
+                .filterFaculties(SearchFaculty.selectFacultyWithUniversityId(universityId));
+        mainServiceResult.getModelMap().putAll(secondaryServiceResult.getModelMap());
+        return mainServiceResult;
     }
 }
