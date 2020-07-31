@@ -12,4 +12,5 @@
 /target
 *.iml
 
-
+# database credentials
+/src/main/java/com/projectk/storage/connectionManager/StorageCustomerInfo.java
