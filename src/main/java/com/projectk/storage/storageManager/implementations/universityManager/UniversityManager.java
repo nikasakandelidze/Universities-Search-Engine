@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UniversityManager implements StorageManager<University, SearchUniversity> {
@@ -66,4 +67,17 @@ public class UniversityManager implements StorageManager<University, SearchUnive
             throw new StorageException(throwables);
         }
     }
+
+    @Override
+    public Optional<University> find(int id) throws StorageException {
+        University university = null;
+        try(Connection connection = connectionManager.getConnection()){
+            university = universityPersister.find(connection,SearchUniversity.selectUnviersityById(id));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return Optional.ofNullable(university);
+    }
+
+
 }

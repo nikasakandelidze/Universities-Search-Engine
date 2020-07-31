@@ -45,30 +45,11 @@
                     Logout
                 </button>
             </form>
-
-            <div class="row">
-                <div class="col-md-6 ml-auto mr-auto">
-                    <div class="profile-tabs">
-                        <a href="/user/adduniversity" style="color: #4d90fe; font-size: 160%">
-                            <div style="width: 150px; height: 50px; float: left;">
-                                Add university
-                            </div>
-                        </a>
-                        <a href="/user/addfaculty" style="color: #4d90fe;font-size: 160%">
-                            <div style="width: 150px; height: 50px; float: left;">
-                                Add faculty
-                            </div>
-                        </a>
-                        </ul>
-                        <a href="/user/addsubject" style="color: #4d90fe; font-size: 160%">
-                            <div style="width: 150px; height: 50px; float: left;">
-                                Add subject
-                            </div>
-                        </a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <form  id="myForm2" action="/user/adduniversity" method="get" onsubmit="true" method="get">
+                <button type="submit" style="border-style: outset; width: 150px; background-color: #f3aa0c; color: black" class="btn btn-success btn-block">
+                    Add University
+                </button>
+            </form>
         </div>
     </div>
     <div style="align-content: center; padding-top: 150px;">

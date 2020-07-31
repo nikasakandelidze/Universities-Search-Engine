@@ -1,6 +1,7 @@
 package com.projectk.storage.storageManager.implementations.facultystorage;
 
 import com.projectk.entities.Faculty;
+import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.customExceptions.StorageException;
@@ -10,10 +11,13 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
@@ -69,10 +73,11 @@ public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
         }
     }
 
-    public Faculty find(Integer facultyId) throws StorageException {
+    @Override
+    public Optional<Faculty> find(int id) throws StorageException {
         List<Faculty> resultList = new ArrayList<>();
         try {
-            PreparedStatement statement = FacultyUtils.getFindStatement(facultyId, connectionManager.getConnection());
+            PreparedStatement statement = FacultyUtils.getFindStatement(id, connectionManager.getConnection());
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 resultList.add(FacultyUtils.getFaculty(rs));
@@ -80,6 +85,6 @@ public class FacultyManager implements StorageManager<Faculty, SearchFaculty> {
         } catch (Exception e) {
             throw new StorageException(e);
         }
-        return resultList.isEmpty() ? null : resultList.get(0);
+        return resultList.isEmpty() ? Optional.empty() : Optional.of(resultList.get(0));
     }
 }

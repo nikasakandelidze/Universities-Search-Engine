@@ -32,31 +32,29 @@ div.button {
 </style>
 </head>
 <body>
-<p>
-<h1 style="text-align: center; color:cadetblue;">
-</h1>
-</p>
-<div class="uni-list">
+<div class="uni-list" style="padding-left: 350px">
     <c:forEach items="${allUniversities}" var="university">
-        <a href="/user/addfaculty/${university.id}" style="float:right">
-            Add faculty
-        </a>
-        <div class="list-group" style="height: 170px; width: 600px;">
+        <div style="border:1px solid; width: 650px; height: 250px; ">
+            <form  id="myForm2" style="padding-left: 220px" action="/user/addfaculty/${university.id}" method="get" onsubmit="true" method="get">
+                <button type="submit" style="border-style: outset; width: 150px; background-color: #f3aa0c; color: black" class="btn btn-success btn-block">
+                    Add Faculty
+                </button>
+            </form>
+            <div class="list-group" style="height: 170px; width: 600px; padding-left: 30px">
+                <a href="/universityPage/${university.id}" class="list-group-item list-group-item-action"
+                   style="border-radius: 10px">
 
-            <p></p>
-            <a href="/universityPage/${university.id}" class="list-group-item list-group-item-action"
-               style="border-radius: 10px">
+                    <div class="uni-name">
+                        University name : <h4>${university.universityName}</h4>
+                    </div>
+                    <div class="uni-desc">
+                        Description: <p id="demo">${university.descriptions}...</p>
 
-                <div class="uni-name">
-                    University name : <h4>${university.universityName}</h4>
-                </div>
-                <div class="uni-desc">
-                    Description: <p id="demo">${university.descriptions}...</p>
-
-                </div>
-            </a>
+                    </div>
+                </a>
+            </div>
         </div>
-        </p>
+
     </c:forEach>
 </div>
 <%--<div class="faculty-list" style="float: left; ">--%>

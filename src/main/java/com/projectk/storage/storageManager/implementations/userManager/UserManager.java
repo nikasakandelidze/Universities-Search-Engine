@@ -1,5 +1,6 @@
 package com.projectk.storage.storageManager.implementations.userManager;
 
+import com.projectk.entities.University;
 import com.projectk.entities.User;
 import com.projectk.entities.searchEntities.SearchUser;
 import com.projectk.storage.connectionManager.ConnectionManager;
@@ -8,12 +9,15 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserManager implements StorageManager<User, SearchUser> {
@@ -97,6 +101,11 @@ public class UserManager implements StorageManager<User, SearchUser> {
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }
+    }
+
+    @Override
+    public Optional<User> find(int id) throws Exception {
+        throw new ExecutionControl.NotImplementedException("Not implemented yet");
     }
 
     private void updateValues(User entity, PreparedStatement preparedStatement) throws SQLException {

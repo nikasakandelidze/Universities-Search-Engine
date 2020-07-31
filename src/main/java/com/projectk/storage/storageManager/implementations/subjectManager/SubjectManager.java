@@ -1,6 +1,7 @@
 package com.projectk.storage.storageManager.implementations.subjectManager;
 
 import com.projectk.entities.Subject;
+import com.projectk.entities.University;
 import com.projectk.entities.searchEntities.SearchSubject;
 import com.projectk.storage.connectionManager.ConnectionManager;
 import com.projectk.storage.connectionManager.MysqlConnectionManager;
@@ -13,9 +14,12 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class SubjectManager implements StorageManager<Subject, SearchSubject> {
@@ -96,6 +100,11 @@ public class SubjectManager implements StorageManager<Subject, SearchSubject> {
         } catch (SQLException throwables) {
             throw new StorageException(throwables);
         }
+    }
+
+    @Override
+    public Optional<Subject> find(int id) throws StorageException, ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException("Not implemented yet");
     }
 
     private void updateValues(Subject entity, PreparedStatement preparedStatement) throws SQLException {

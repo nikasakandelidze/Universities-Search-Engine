@@ -15,4 +15,6 @@ public interface UniversityPersister {
     University update(Connection connection, University entity) throws StorageException;
 
     University delete(Connection connection, University entity) throws StorageException;
+
+    University find(Connection connection, SearchUniversity searchEntity) throws StorageException;
 }

@@ -75,4 +75,16 @@ public class JdbcUniversityPersister implements UniversityPersister {
         }
         return entity;
     }
+
+    @Override
+    public University find(Connection connection, SearchUniversity searchEntity) throws StorageException {
+        ResultSet resultSet = null;
+        try {
+            PreparedStatement statement = (PreparedStatement) new Pipeline<>(new GetSearchQuery()).pipe(new PrepareSearchStatement(connection, searchEntity)).process(searchEntity);
+            resultSet = statement.executeQuery();
+        } catch (SQLException | Step.StepException throwable) {
+            throw new StorageException(throwable);
+        }
+        return JdbcUtilities.getListOfUniversities(resultSet).get(0);
+    }
 }

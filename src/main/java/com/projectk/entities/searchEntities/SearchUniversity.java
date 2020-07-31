@@ -4,6 +4,7 @@ package com.projectk.entities.searchEntities;
 import com.projectk.entities.enums.FacultyCategory;
 
 public class SearchUniversity {
+    private int id;
 
     private FacultyCategory facultyCategory;
 
@@ -21,8 +22,12 @@ public class SearchUniversity {
 
     public static SearchUniversity selectByName(String name) { return new Builder().universityName(name).build(); }
 
-    public static SearchUniversity universitiedOfUser(String username){
+    public static SearchUniversity universitiesOfUser(String username){
         return new SearchUniversity.Builder().userName(username).build();
+    }
+
+    public static SearchUniversity selectUnviersityById(int id){
+        return new SearchUniversity.Builder().universityId(id).build();
     }
 
     public String getUsername() {
