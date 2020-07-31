@@ -27,13 +27,14 @@
 </p>
 <div class="faculty-list" style="float: left">
     <c:forEach items="${allFaculties}" var="faculty">
-        <div class="list-group" style="height: 170px; width: 600px;">
-            <a href="/faculty/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px">
+        <div class="list-group" style="height: 500px; width: 600px;">
+            <a href="/faculty/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px;">
                 <div class="faculty-name">
                     <h4>${faculty.name}</h4>
                 </div>
                 <div class="uni-desc">
-                    <p id="demo">${faculty.description}...</p>
+                    <p >${faculty.price}</p>
+                    <p >${faculty.category}</p>
                 </div>
             </a>
         </div>

@@ -1,5 +1,6 @@
 package com.projectk.requester.implementations;
 
+import com.projectk.entities.enums.FacultyCategory;
 import com.projectk.entities.searchEntities.SearchFaculty;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.FacultyService;
@@ -20,9 +21,9 @@ public class FacultyListingController implements FacultyListingRequester {
 	}
 
 	@Override
-	@GetMapping("/facultyListing")
-	public Object displayFacultyListing() {
-		ServiceResult facultyById = facultyService.filterFaculties(new SearchFaculty.Builder().build());
-		return new ModelAndView(facultyById.getViewName(), facultyById.getModelMap());
+	@GetMapping("/facultyListing/{facultyCategory}")
+	public Object displayFacultyListing(@PathVariable String facultyCategory) {
+		ServiceResult faculties = facultyService.filterFaculties(SearchFaculty.selectFacultyWithCategory(FacultyCategory.valueOf(facultyCategory)));
+		return new ModelAndView(faculties.getViewName(), faculties.getModelMap());
 	}
 }

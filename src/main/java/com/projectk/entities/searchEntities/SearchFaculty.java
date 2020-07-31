@@ -22,6 +22,10 @@ public class SearchFaculty {
         return new SearchFaculty.Builder().universityId(id).build();
     }
 
+    public static SearchFaculty selectFacultyWithCategory(FacultyCategory facultyCategory) {
+        return new SearchFaculty.Builder().category(facultyCategory).build();
+    }
+
     public Integer getUniversityID() {
         return universityID;
     }

@@ -1,5 +1,7 @@
 package com.projectk.requester.interfaces;
 
+import com.projectk.entities.searchEntities.SearchFaculty;
+
 public interface FacultyListingRequester {
-	Object displayFacultyListing();
+	Object displayFacultyListing(String facultyCategory);
 }

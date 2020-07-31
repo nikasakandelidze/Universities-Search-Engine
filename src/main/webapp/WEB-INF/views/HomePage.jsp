@@ -39,7 +39,7 @@
 <div class="row" style="padding-left: 200px; padding-bottom: 100px">
     <c:forEach items="${faculties}" var="faculty">
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/facultyListing/${faculty.category}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h4>${faculty.category}</h4>
                 </div>
