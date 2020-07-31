@@ -16,30 +16,25 @@
     <title>University Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style><%@include file="styles/universityPage.css"%></style>
+    <style><%@include file="styles/universityListing2.css"%></style>
 </head>
 <body>
-
-<div class="uni-item" style="float: left; padding-top: 200px">
+<p>
+<h1 style="text-align: center; color:cadetblue;">
+</h1>
+</p>
+<div class="uni-list">
     <c:forEach items="${allUniversities}" var="university">
-        <div class="list-group">
+        <div class="list-group" style="height: 170px; width: 600px;">
             <a href="/user/addfaculty/${university.id}" style="float:right">
                 Add faculty
             </a>
-            <a class="list-group-item list-group-item-action" style="border-radius: 10px">
-                <h2 style="text-align: center; color:cadetblue;">
-                        ${university.universityName}
-                </h2>
+            <a href="/universityPage/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px">
+                <div class="uni-name">
+                    University name : <h4>${university.universityName}</h4>
+                </div>
                 <div class="uni-desc">
-                    <h4>Description: ${university.descriptions}</h4>
-                </div>
-                <div class="uni-address">
-                    <h4>Address: ${university.city},  ${university.city}</h4>
-                </div>
-                <p>
-                </p>
-                <div class="uni-web">
-                    <h4>Web Page: ${university.webPageLink}</h4>
+                    Description: <p id="demo">${university.descriptions}...</p>
                 </div>
             </a>
         </div>
