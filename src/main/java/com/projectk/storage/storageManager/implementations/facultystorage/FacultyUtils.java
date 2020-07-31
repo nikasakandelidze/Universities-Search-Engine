@@ -56,6 +56,7 @@ public class FacultyUtils {
 
     public static PreparedStatement getSelectStatement(SearchFaculty searchFaculty, Connection connection) throws SQLException {
         return new FacultySelectStatementBuilder(connection)
+                .byFacultyName(searchFaculty.getName())
                 .byCategory(searchFaculty.getFacultyCategory())
                 .byMinPrice(searchFaculty.getMinPrice())
                 .byMaxPrice(searchFaculty.getMaxPrice())

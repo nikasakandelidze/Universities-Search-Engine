@@ -10,6 +10,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style><%@include file="styles/HomePage.css"%></style>
@@ -23,6 +24,12 @@
 </div>
 
 <form action="/homepage/search" method="post" style="text-align: center; padding-top: 70px">
+
+    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Search Option</label>
+    <select style="width: 200px;" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <option selected>University Search</option>
+        <option value="2">Faculty Search</option>
+    </select>
     <input type="text" placeholder="Search" name="searchData" aria-label="Search">
     <input type="submit" value="Search">
 </form>
