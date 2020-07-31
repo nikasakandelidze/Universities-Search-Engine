@@ -4,6 +4,8 @@ import com.projectk.entities.enums.FacultyCategory;
 
 public class SearchFaculty {
 
+    private String name;
+
     private Integer universityID;
 
     private FacultyCategory facultyCategory;
@@ -36,12 +38,25 @@ public class SearchFaculty {
         return maxPrice;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public static class Builder {
+        private String name;
         private Integer universityID;
         private FacultyCategory category;
         private Long minPrice;
         private Long maxPrice;
+
+        public Builder name(String val) {
+            name = val;
+            return this;
+        }
 
         public Builder universityId(Integer val) {
             universityID = val;
@@ -69,6 +84,7 @@ public class SearchFaculty {
     }
 
     private SearchFaculty(Builder builder) {
+        this.name = builder.name;
         this.universityID = builder.universityID;
         this.facultyCategory = builder.category;
         this.minPrice = builder.minPrice;
