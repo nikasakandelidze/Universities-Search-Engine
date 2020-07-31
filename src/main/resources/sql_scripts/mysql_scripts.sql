@@ -57,65 +57,35 @@ CREATE TABLE users
     enabled  TINYINT     NOT NULL DEFAULT 1,
     PRIMARY KEY (username)
 );
-insert into users
-values ('testUser', 'password', 1);
-insert into university
-values (2, 'TSU', 'Tbilisi', 'Melikishili', 'bla.com', 'good', 'testUser');
-insert into faculty
-values (1, 'COMPUTERSCIENCE', 2, 'Mathematics and Computer science TSU', 'Shota gv', 10000, 'magaria', 'axala.ge');
-insert into university_subject
-values (1, 1, 'Calculus I', 6, 'sigua magari kacia', 2);
 
-insert into users
-values ('freeuniUser', 'password', 1);
-insert into university
-values (121, 'freeUni', 'Tbilisi', 'digomi', 'freeuni.edu.ge', 'good', 'freeuniUser');
-insert into faculty
-values (132, 'BUSINESS', 121, 'ESM', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (2, 2, 'OOP', 6, 'LEKVA', 2);
+INSERT INTO projectk.users (username, password, enabled) VALUES ('admin1', 'd033e22ae348aeb5660fc2140aec35850c4da997', 0);
+INSERT INTO projectk.users (username, password, enabled) VALUES ('admin2', 'd033e22ae348aeb5660fc2140aec35850c4da997', 0);
 
-insert into users
-values ('agruniUser', 'password', 1);
-insert into university
-values (122, 'agruni', 'Tbilisi', 'digomi', 'agruni.edu.ge', 'good', 'agruniUser');
-insert into faculty
-values (1212, 'PSYCHOLOGY', 122, 'MACS', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (3, 3, 'OOP', 6, 'LEKVA', 2);
+INSERT INTO projectk.university (id, university_name, city, address, web_page_link, descriptions, username) VALUES (2, 'TSU', 'Tbilisi', 'Melikishili Ave 1', 'tsu.edu.ge', 'TSU the third the Middle', 'admin1');
+INSERT INTO projectk.university (id, university_name, city, address, web_page_link, descriptions, username) VALUES (121, 'Free University Tbilisi', 'Tbilisi', 'Digomi ave 242', 'freeuni.edu.ge', 'Best of both worlds', 'admin2');
 
-insert into users
-values ('georgianUniUser', 'password', 1);
-insert into university
-values (123, 'georgianUni', 'Tbilisi', 'digomi', 'agruni.edu.ge', 'good', 'georgianUniUser');
-insert into faculty
-values (1213, 'ENGINEERING', 123, 'MACS', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (4, 4, 'OOP', 6, 'arvici', 2);
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (1, 'COMPUTERSCIENCE', 2, 'Mathematics and Computer science TSU', 'Giorgi abramishcili', 10000, 'description1', 'tsu.edu.ge');
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (132, 'BUSINESS', 2, 'Economy and Financies TSU', 'John Bond', 6950, 'description2', 'tsu.edu.ge');
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (1322, 'MEDICINE', 2, 'Medical Health TSU', 'Gregory House', 5000, 'description3', 'tsu.edu.ge');
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (1323, 'BUSINESS', 121, 'Business Administration, Financies', 'Mirian Metreveli', 6000, 'description1', null);
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (1324, 'BUSINESS', 121, 'Business Administration, Marketing', 'Mirian Metreveli', 6000, 'description2', null);
+INSERT INTO projectk.faculty (faculty_id, category, university_id, name, dean_info, price, description, web_page_link) VALUES (1325, 'COMPUTERSCIENCE', 121, 'MACS, Software Engineering', 'Uncle Bob', 7500, 'description3', null);
 
-insert into users
-values ('seuUser', 'password', 1);
-insert into university
-values (124, 'seu', 'Tbilisi', '300 aragveli', 'agruni.edu.ge', 'good', 'seuUser');
-insert into faculty
-values (1214, 'LAW', 124, 'MACS', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (5, 5, 'OOP', 6, 'arvici', 2);
-
-insert into users
-values ('medicalUniUser', 'password', 1);
-insert into university
-values (125, 'medicalUni', 'Tbilisi', '300 aragveli', 'agruni.edu.ge', 'good', 'medicalUniUser');
-insert into faculty
-values (1215, 'MEDICINE', 125, 'MACS', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (6, 6, 'OOP', 6, 'arvici', 2);
-
-insert into users
-values ('tsuUser', 'password', 1);
-insert into university
-values (126, 'TSSU', 'Tbilisi', '300 aragveli', 'agruni.edu.ge', 'good', 'tsuUser');
-insert into faculty
-values (1216, 'PHILOSOPHY', 126, 'MACS', 'KFJWE', 6950, 'magaria', 'axala.ge');
-insert into university_subject
-values (7, 7, 'OOP', 6, 'arvici', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (1, 1, 'Calculus I', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (22, 1, 'Programming I', 4, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2222, 1, 'Physics II', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2223, 132, 'Macro Economy I', 4, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2224, 132, 'Business in action I', 6, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2225, 132, 'Business Calculus', 6, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2226, 1322, 'Introduction to Anathomy', 12, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2227, 1322, 'Biology I', 6, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2228, 1322, 'Physiology II', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2229, 1325, 'Calculus I', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2230, 1325, 'Programming Methodology', 4, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2231, 1325, 'Discrete Mathematics', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2232, 1324, 'Marketing I', 4, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2233, 1324, 'Business in action I', 6, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2234, 1324, 'Sales II', 6, 'During this course students will...', 2);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2239, 1323, 'Macro Economy I', 4, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2240, 1323, 'Business in action I', 6, 'During this course students will...', 1);
+INSERT INTO projectk.university_subject (subject_id, faculty_id, subject_name, credits, descriptions, semester) VALUES (2241, 1323, 'Business Calculus', 6, 'During this course students will...', 1);
