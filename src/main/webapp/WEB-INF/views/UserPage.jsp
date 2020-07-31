@@ -22,7 +22,10 @@
     <div>
        <h4>${warningMessage}</h4>
     </div>
+
     <%@include file="helpers/profile.jsp"%>
+
+
 </div>
 <%@include file="helpers/footer.jsp"%>
 </div>

@@ -16,6 +16,7 @@
 }
 
 .list-group-item{
+    resize:vertical;
     height: 600px;
     width: 700px;
     border-style: solid;

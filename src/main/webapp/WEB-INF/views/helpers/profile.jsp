@@ -12,7 +12,20 @@
         <%@include file="styles/profile2.css" %>
     </style>
 </head>
-
+<style>
+    div.a{
+        border: 2px white;
+        padding: 20px;
+        width: 500px;
+        resize: vertical;
+    }
+    div.header {
+        background-color: cadetblue;
+        padding: 20px;
+        color:white;
+        text-align: center;
+    }
+</style>
 <body class="profile-page">
 
 <div class="page-header header-filter" data-parallax="true"></div>
@@ -54,11 +67,13 @@
         </div>
     </div>
     <div style="align-content: center; padding-top: 150px;">
-        <p style="font-family: Shruti; font-size: 200%; ">
-            Your Universities
-        </p>
+        <div class="header">
+        <p style="font-family: Shruti; font-size: 200%; ">Your Universities</p>
+        </div>
         <div>
+            <div class="a">
             <%@include file="../loggedInUserUniversityPage.jsp"%>
+            </div>
         </div>
     </div>
 
