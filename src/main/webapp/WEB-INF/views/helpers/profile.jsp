@@ -15,8 +15,7 @@
 
 <body class="profile-page">
 
-<div class="page-header header-filter" data-parallax="true"
-     style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
+<div class="page-header header-filter" data-parallax="true"></div>
 <div class="main main-raised">
     <div class="profile-content">
         <div class="container">

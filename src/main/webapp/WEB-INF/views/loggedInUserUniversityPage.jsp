@@ -40,8 +40,8 @@
         </div>
     </c:forEach>
 </div>
-<div class="faculty-list" style="float: left; ">
-    <%@include file="facultyListing.jsp"%>
-</div>
+<%--<div class="faculty-list" style="float: left; ">--%>
+<%--    <%@include file="facultyListing.jsp"%>--%>
+<%--</div>--%>
 </body>
 </html>
