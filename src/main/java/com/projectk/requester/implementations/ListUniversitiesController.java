@@ -5,7 +5,6 @@ import com.projectk.entities.searchEntities.SearchUniversity;
 import com.projectk.requester.implementations.services.ServiceResult;
 import com.projectk.requester.implementations.services.interfaces.loggedInUserServices.UniversityService;
 import com.projectk.requester.interfaces.UniversityListingRequester;
-import com.sun.tools.javac.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

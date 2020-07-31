@@ -76,7 +76,7 @@
             <p style="color:darkred">
                 <c:out value="${errorMessage}"></c:out>
             </p>
-            <form style="text-align: center" name="facRegisterForm" action="/user/addfaculty" method="post" onsubmit="return validateRequiredFields()">
+            <form style="text-align: center" name="facRegisterForm" action="/user/addfaculty/${universityId}" method="post" onsubmit="return validateRequiredFields()">
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"> </i></span>
@@ -87,12 +87,6 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
                         <input type="text" id="facCategory"class="form-control" placeholder="Faculty Category" name="category">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-                        <input type="hidden" name="uniId" value="${sessionScope.user.university_id}" >
                     </div>
                 </div>
                 <div class="form-group">

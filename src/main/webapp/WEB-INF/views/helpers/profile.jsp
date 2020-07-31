@@ -59,7 +59,7 @@
             Your Universities
         </p>
         <div>
-            <%@include file="../universityListing.jsp"%>
+            <%@include file="../loggedInUserUniversityPage.jsp"%>
         </div>
     </div>
 

@@ -19,10 +19,9 @@
     <style><%@include file="styles/universityListing.css"%></style>
 </head>
 <body>
-<%@include file="helpers/navbar.jsp"%>
+
 <p>
 <h1 style="text-align: center; color:cadetblue;">
-    Universities Page
 </h1>
 </p>
 <div class="uni-list">
@@ -30,10 +29,10 @@
         <div class="list-group" style="height: 170px">
             <a href="/universityPage/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px">
                 <div class="uni-name">
-                    <h4>${university.universityName}</h4>
+                    University name : <h4>${university.universityName}</h4>
                 </div>
                 <div class="uni-desc">
-                    <p id="demo">${university.descriptions}...</p>
+                    Description: <p id="demo">${university.descriptions}...</p>
                 </div>
             </a>
         </div>
