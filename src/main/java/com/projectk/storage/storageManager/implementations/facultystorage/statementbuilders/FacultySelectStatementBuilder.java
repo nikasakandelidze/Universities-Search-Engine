@@ -38,6 +38,21 @@ public class FacultySelectStatementBuilder {
 		return this;
 	}
 
+	public FacultySelectStatementBuilder byFacultyName(final String name) {
+		if (name == null) {
+			return this;
+		}
+		appendSeparator();
+		query.append("f.name like '%?%'");
+		valueSetters.add(new ValueSetter() {
+			public void setValue(PreparedStatement ps) throws SQLException {
+				ps.setString(parameterCounter, name);
+				parameterCounter++;
+			}
+		});
+		return this;
+	}
+
 	public FacultySelectStatementBuilder byUniversityId(final Integer id) {
 		if (id == null) {
 			return this;
