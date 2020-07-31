@@ -1,8 +1,8 @@
 package com.projectk.requester.implementations.loggedinUser;
 
-import com.projectk.entities.Subject;
 import com.projectk.entities.ServiceResult;
-import com.projectk.services.interfaces.loggedInUserServices.SubjectRegistrationService;
+import com.projectk.entities.Subject;
+import com.projectk.entities.interfaces.loggedInUserServices.SubjectService;
 import com.projectk.requester.interfaces.loggedinUserRequesters.SubjectRegisterRequester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class SubjectRegistrationController implements SubjectRegisterRequester {
-    private SubjectRegistrationService subjectRegistrationService;
+    private SubjectService subjectService;
 
     @Autowired
-    public SubjectRegistrationController(SubjectRegistrationService subjectRegistrationService) {
-        this.subjectRegistrationService = subjectRegistrationService;
+    public SubjectRegistrationController(SubjectService subjectService) {
+        this.subjectService = subjectService;
     }
 
 
@@ -37,7 +37,7 @@ public class SubjectRegistrationController implements SubjectRegisterRequester {
                                              @RequestParam int credits,
                                              @RequestParam String descriptions,
                                              @RequestParam int semester) {
-        ServiceResult serviceResult = subjectRegistrationService.addSubject(new Subject.Builder()
+        ServiceResult serviceResult = subjectService.addSubject(new Subject.Builder()
                 .subject_id(subjectId)
                 .faculty_id(facultyId)
                 .subject_name(subjectName)
