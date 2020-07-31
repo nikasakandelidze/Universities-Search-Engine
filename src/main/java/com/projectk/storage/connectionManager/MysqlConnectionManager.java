@@ -9,18 +9,14 @@ import java.sql.SQLException;
 public class MysqlConnectionManager implements ConnectionManager {
     private final MysqlConnectionPoolDataSource source = new MysqlConnectionPoolDataSource();
     private Connection connection;
-    private static final String DB_NAME = "projectK";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "1234";
-
 
     {
-        source.setDatabaseName(DB_NAME);
+        source.setDatabaseName(StorageCustomerInfo.DB_NAME);
     }
 
     @Override
     public Connection getConnection() throws SQLException {
-        connection = source.getConnection(DB_USER, DB_PASSWORD);
+        connection = source.getConnection(StorageCustomerInfo.DB_USER, StorageCustomerInfo.DB_PASSWORD);
         return connection;
     }
 
