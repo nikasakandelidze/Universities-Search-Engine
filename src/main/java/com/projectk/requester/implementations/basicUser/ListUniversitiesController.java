@@ -22,7 +22,11 @@ public class ListUniversitiesController implements UniversityListingRequester {
 	@Override
 	@GetMapping("/universityListing/{universityName}")
 	public ModelAndView displayUniversityListing(@PathVariable String universityName) {
-		ServiceResult serviceResult = universityService.filterUniversities(SearchUniversity.selectByName(universityName));
+		ServiceResult serviceResult = universityService.filterUniversities(getSearchUniversity(universityName));
 		return new ModelAndView(serviceResult.getViewName(), serviceResult.getModelMap());
+	}
+
+	private SearchUniversity getSearchUniversity(String universityName) {
+		return SearchUniversity.selectByName(universityName.equals("null") ? null : universityName);
 	}
 }

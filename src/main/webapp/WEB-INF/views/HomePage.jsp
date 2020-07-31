@@ -48,7 +48,11 @@
 </html>
 <script>
    function getValue() {
-       document.getElementById("myForm").action = "/homepage/search/"+document.getElementById("searchData").value;
+       var searchData = document.getElementById("searchData").value;
+       if (searchData == "") {
+           searchData = "null";
+       }
+       document.getElementById("myForm").action = "/homepage/search/"+searchData;
         return true;
    }
 </script>

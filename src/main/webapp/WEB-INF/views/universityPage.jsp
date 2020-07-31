@@ -20,6 +20,7 @@
     <style><%@include file="styles/universityPage.css"%></style>
 </head>
 <body>
+<%@include file="helpers/navbar.jsp"%>
 
 <div class="uni-item" style="float: left">
     <c:forEach items="${allUniversities}" var="university">
@@ -29,7 +30,7 @@
         </h1>
         </p>
         <div class="list-group">
-            <a class="list-group-item list-group-item-action" style="border-radius: 10px">
+            <a class="list-group-item list-group-item-action" style="border-radius: 10px; width: 700px; height: 600px">
                 <div class="uni-desc">
                     <h4>Description: ${university.descriptions}</h4>
                 </div>
@@ -45,8 +46,13 @@
         </div>
     </c:forEach>
 </div>
-<div class="faculty-list" style="float: left; ">
-    <%@include file="facultyListing.jsp"%>
+<p>
+<h1 style="text-align: center; color:cadetblue;" ali>
+    Faculties
+</h1>
+</p>
+<div class="faculty-list" style="float: right; ">
+    <%@include file="planeFacultyListing.jsp"%>
 </div>
 </body>
 </html>
