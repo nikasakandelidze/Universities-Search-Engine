@@ -10,4 +10,6 @@ public interface UniversityService {
 	ServiceResult updateUniversity(University university);
 
 	ServiceResult filterUniversities(SearchUniversity searchUniversity);
+
+	ServiceResult findById(String id);
 }

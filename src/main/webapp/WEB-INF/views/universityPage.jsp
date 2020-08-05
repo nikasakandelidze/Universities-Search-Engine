@@ -30,7 +30,7 @@
         </h1>
         </p>
         <div class="list-group">
-            <a class="list-group-item list-group-item-action" style="border-radius: 10px; width: 700px; height: 600px">
+            <a href="/universityUpdate/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px; width: 700px; height: 600px">
                 <div class="uni-desc">
                     <h4>Description: ${university.descriptions}</h4>
                 </div>
