@@ -28,7 +28,8 @@
 </h1>
     </p>
     <div class="list-group" style="float: left">
-        <a class="list-group-item list-group-item-action" style="border-radius: 10px; width: 600px; height: 600px">
+        <a id="myLink" href= "/facultyUpdate/${faculty.facultyId}" class="list-group-item list-group-item-action" style="border-radius: 10px; width: 600px; height: 600px"
+            onclick="return validateUpdate()">
             <div class="fac-category">
                 <h4>Category: ${faculty.category}</h4>
             </div>
@@ -58,4 +59,5 @@
 </div>
 </body>
 </html>
+<script><%@include file="js/login.js"%></script>
 

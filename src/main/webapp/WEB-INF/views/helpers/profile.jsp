@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-
+    <script>sessionStorage.setItem("fromLogin", "Y");</script>
 </div>
 <script>
     <%@include file="styles/profile2.js" %>

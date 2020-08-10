@@ -17,3 +17,7 @@ function validateInput() {
     }
     return inputsNotEmpty
 }
+
+function validateUpdate() {
+    return sessionStorage.getItem("fromLogin") === "Y";
+}

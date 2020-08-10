@@ -30,7 +30,8 @@
         </h1>
         </p>
         <div class="list-group">
-            <a href="/universityUpdate/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px; width: 700px; height: 600px">
+            <a href="/universityUpdate/${university.id}" class="list-group-item list-group-item-action" style="border-radius: 10px; width: 700px; height: 600px"
+            onclick="return validateUpdate()">
                 <div class="uni-desc">
                     <h4>Description: ${university.descriptions}</h4>
                 </div>
@@ -56,3 +57,4 @@
 </div>
 </body>
 </html>
+<script><%@include file="js/login.js"%></script>
