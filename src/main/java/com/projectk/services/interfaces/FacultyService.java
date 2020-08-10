@@ -12,5 +12,5 @@ public interface FacultyService {
 
     ServiceResult filterFaculties(SearchFaculty searchFaculty);
 
-    ServiceResult findFacultyById(int id);
+    ServiceResult findFacultyById(String id, String resultView, boolean isUpdate);
 }

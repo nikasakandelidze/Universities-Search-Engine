@@ -20,6 +20,9 @@ public class Faculty {
 
     private String webPageLink;
 
+    public Faculty() {
+    }
+
     public int getFacultyId() {
         return facultyId;
     }

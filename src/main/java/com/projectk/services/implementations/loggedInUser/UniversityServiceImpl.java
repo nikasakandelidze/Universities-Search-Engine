@@ -10,6 +10,7 @@ import com.projectk.storage.storageManager.interfaces.StorageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class UniversityServiceImpl implements UniversityService {
 
 	@Override
 	public ServiceResult updateUniversity(University university) {
-		String view = "universityAdd";
+		String view = "redirect:/universityPage/"+university.getId();
 		Map<String, Object> modelMap = new HashMap<>();
 		try {
 			universityManager.update(university);
@@ -67,4 +68,26 @@ public class UniversityServiceImpl implements UniversityService {
 		}
 		return new ServiceResult(view, modelMap);
 	}
+
+	@Override
+	public ServiceResult findById(String id) {
+		String view = "universityPage";
+		Map<String, Object> modelMap = new HashMap<>();
+		try {
+			int uniId = Integer.parseInt(id);
+			List<University> resultList = universityManager.filter(new SearchUniversity.Builder().universityId(uniId).build());
+			if (resultList.isEmpty()) {
+				modelMap.put("errorMessage", "No results found!");
+			} else {
+				modelMap.put("university", resultList.get(0));
+				view = "universityUpdate";
+			}
+
+		} catch (StorageException e) {
+			modelMap.put("errorMessage", "Ups something went wrong...");
+		}
+		return new ServiceResult(view, modelMap);
+	}
+
+
 }

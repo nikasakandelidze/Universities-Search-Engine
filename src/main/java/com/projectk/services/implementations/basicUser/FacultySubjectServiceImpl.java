@@ -24,7 +24,7 @@ public class FacultySubjectServiceImpl implements FacultySubjectService {
 		ServiceResult subjectServiceResult = subjectService.filterSubjects(new SearchSubject.Builder()
 				.facultyId(facultyId)
 				.build());
-		ServiceResult facultyServiceResult = facultyService.findFacultyById(facultyId);
+		ServiceResult facultyServiceResult = facultyService.findFacultyById(String.valueOf(facultyId), "faculty", false);
 		facultyServiceResult.getModelMap().putAll(subjectServiceResult.getModelMap());
 		return facultyServiceResult;
 	}

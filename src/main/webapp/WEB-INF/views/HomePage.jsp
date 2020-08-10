@@ -44,6 +44,7 @@
 <div>
     <%@include file="helpers/footer.jsp"%>
 </div>
+<script>sessionStorage.setItem("fromLogin", "N");</script>
 </body>
 </html>
 <script>
@@ -56,3 +57,4 @@
         return true;
    }
 </script>
+
