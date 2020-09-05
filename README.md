@@ -11,3 +11,8 @@
          
 ## Main goal
          Our main goal in the project was to with functional and interactive web platform  write clean and maintainable code using Design patterns and OOP principles.
+
+## Project architecture
+    Used Requester,Service,Storage,Presenter model.
+    Seperated all parts(requester,service,storage,presenter) by use cases.    
+![project graph](graph.png)
