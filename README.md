@@ -16,3 +16,8 @@
     Used Requester,Service,Storage,Presenter model.
     Seperated all parts(requester,service,storage,presenter) by use cases.    
 ![project graph](graph.png)
+
+
+## Project Database Design
+    Used Database: MySQL
+![project database](db.png)
