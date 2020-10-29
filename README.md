@@ -1,24 +1,31 @@
-# Uninfo
-         "Uniinfo" was designed by students of Free University Of Tbilisi : Khatia Ivanova, Basa Iakobashvili, Archil Sharashenidze and Nikoloz Sakandelidze; 
-         as a project for  "OOP using Java" Subject. 
+# **UniSearchEngine**
 
-## General:
-         Uninfo is web platform where a basic user can see/search/filter all the detailed informations about all the high schools/universities and faculties in them.
-         On the other hand registered user/university admin. can register to add/modify new Universities which will be listed on platform. 
-        
-## Technologies used :
-         Java, Srping core, Srping MVC, Spring AOP, JSP, Javascript(Basic), MySQL, JDBC(Soon will be rewritten on Hibernate)
-         ( Spring Boot wasn't used in this project so that team members could learn Spring configurations from the scratch ) 
+## General
+### UniSearchEngine is web platform written in Java, using Spring Framework as core of the platform, where:
+ - _a basic user can see/search/filter all the detailed informations about all the high schools/universities and faculties in them._
+ - _On the other hand registered user/university admin. can register to add/modify new Universities which will be listed on platform._
+
+# Credits:
+### _"UniSearchEngine"_  was designed by students of Free University Of Tbilisi, as a project of OOP subject :
+- Khatia Ivanova
+- Basa Iakobashvili
+- Archil Sharashenidze
+- Nikoloz Sakandelidze; 
+
+# Technologies used :
+- Java
+- Srping core, Srping MVC, Spring AOP
+- JSP
+- Javascript ( Vanilla )
+- MySQL
+- JDBC(Soon will be rewritten on Hibernate)
+
+### _comment_
+    "Spring Boot wasn't used in this project so that team members could learn Spring configurations from the scratch"
          
-## Main goal
-         Our main goal in the project was to with functional and interactive web platform  write clean and maintainable code using Design patterns and OOP principles.
-
-## Project architecture
-    Used Requester,Service,Storage,Presenter model.
-    Seperated all parts(requester,service,storage,presenter) by use cases.    
+# **Project architecture**
 ![project graph](graph.png)
 
-
-## Project Database Design
-    Used Database: MySQL
+# **Project Database Design**
+### Used Database: _"MySQL"_
 ![project database](db.png)
