@@ -8,7 +8,7 @@
 # Credits:
 ### _"UniSearchEngine"_  was designed by students of Free University Of Tbilisi, as a project of OOP subject :
 - Khatia Ivanova
-- Basa Iakobashvili
+- Basil Iakobashvili
 - Archil Sharashenidze
 - Nikoloz Sakandelidze; 
 
